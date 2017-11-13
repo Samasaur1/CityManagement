@@ -17,4 +17,9 @@ public class City {
     public City(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "A city named " + this.name;
+    }
 }
