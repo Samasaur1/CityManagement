@@ -1,7 +1,10 @@
 package com.samgauck;
 
+import java.util.ArrayList;
+
 public class City {
     private String name;
+    private ArrayList<Person> citizens = new ArrayList<Person>();
 
     public String getName() {
         return name;
