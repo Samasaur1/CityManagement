@@ -42,8 +42,8 @@ public class Main {
         System.out.print("Please enter a name for your city: ");
         input = s.next();
         city = new City(input); //creates new city with your name
-        System.out.println("Would you like to name your citizens? (Y/N)");
-        input = s.nextLine();
+        System.out.print("Would you like to name your citizens? (Y/N)");
+        input = s.next();
         if (input.equalsIgnoreCase("y")) {
             //TODO: Name citizens
         }else {
