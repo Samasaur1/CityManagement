@@ -2,6 +2,9 @@ package com.samgauck;
 
 import com.samgauck.DateManagement.SimpleDate;
 
+/**
+ * Person represents a person with an age, name, job, and birthday.
+ */
 public class Person {
 
     public int getAge() {

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java" afterPath="$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Person.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Person.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,17 +44,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/samgauck/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="47" column="39" lean-forward="false" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+            <state relative-caret-position="75">
+              <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleDate.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleDate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1485">
@@ -120,7 +120,6 @@
         <option value="$PROJECT_DIR$/src/com/samgauck/Birthday.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/Date.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/MonthClass.java" />
-        <option value="$PROJECT_DIR$/src/com/samgauck/Person.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/SimpleDate.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/Main.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/City.java" />
@@ -128,6 +127,7 @@
         <option value="$PROJECT_DIR$/src/com/samgauck/Month.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/DateManagement/MonthClass.java" />
         <option value="$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java" />
+        <option value="$PROJECT_DIR$/src/com/samgauck/Person.java" />
       </list>
     </option>
   </component>
@@ -535,14 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/samgauck/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="47" column="39" lean-forward="false" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/samgauck/DateManagement/MonthClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -571,6 +563,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1485">
           <caret line="105" column="39" lean-forward="false" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/samgauck/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
           <folding />
         </state>
       </provider>
