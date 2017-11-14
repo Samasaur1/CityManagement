@@ -41,8 +41,14 @@ public class Person {
     private String name;
     private int age;
     private Profession job;
-    private Date birthday;
+    private SimpleDate birthday;
     public Person() {
         this.setAge(0);
+        this.birthday = Main.getDate();
+    }
+
+    @Override
+    public String toString() {
+        return "A person named " + this.getName() + ", age " + this.getAge() + ", " + this.job;
     }
 }

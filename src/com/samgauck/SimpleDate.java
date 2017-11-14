@@ -1,9 +1,11 @@
 package com.samgauck;
 
+import static com.samgauck.Month.*;
+
 public class SimpleDate {
     private int dayOfMonth;
     private int year;
-    private Month month;
+    private MonthClass month;
 
     public int getDayOfMonth() {
         return dayOfMonth;
@@ -14,54 +16,82 @@ public class SimpleDate {
     }
 
     public Month getMonth() {
-        return month;
+        return month.getMonth();
     }
 
     public SimpleDate(int month, int day, int year){
         this.dayOfMonth = day;
         this.year = year;
-        switch (month) {
+        this.month = new MonthClass(this.numberToMonth(month));
+    }
+    private Month numberToMonth(int n) {
+        switch (n) {
             case 1:
-                this.month = Month.JAN;
-                break;
+                return JAN;
             case 2:
-                this.month = Month.FEB;
-                break;
+                return FEB;
             case 3:
-                this.month = Month.MAR;
-                break;
+                return MAR;
             case 4:
-                this.month = Month.APR;
-                break;
+                return APR;
             case 5:
-                this.month = Month.MAY;
-                break;
+                return MAY;
             case 6:
-                this.month = Month.JUN;
-                break;
+                return JUN;
             case 7:
-                this.month = Month.JUL;
-                break;
+                return JUL;
             case 8:
-                this.month = Month.AUG;
-                break;
+                return AUG;
             case 9:
-                this.month = Month.SEP;
-                break;
+                return SEP;
             case 10:
-                this.month = Month.OCT;
-                break;
+                return OCT;
             case 11:
-                this.month = Month.NOV;
-                break;
+                return NOV;
             case 12:
-                this.month = Month.DEC;
-                break;
+                return DEC;
             default:
-                this.month = Month.JAN;
+                return JAN;
         }
     }
-
+    private int monthToNumber(Month m) {
+        switch (m) {
+            case JAN:
+                return 1;
+            case FEB:
+                return 2;
+            case MAR:
+                return 3;
+            case APR:
+                return 4;
+            case MAY:
+                return 5;
+            case JUN:
+                return 6;
+            case JUL:
+                return 7;
+            case AUG:
+                return 8;
+            case SEP:
+                return 9;
+            case OCT:
+                return 10;
+            case NOV:
+                return 11;
+            case DEC:
+                return 12;
+            default:
+                return 1;
+        }
+    }
+    public SimpleDate nextDay(SimpleDate old) {
+        old.dayOfMonth += 1;
+        if (old.dayOfMonth > old.month.getNumberOfDays()) {
+            old.dayOfMonth = 1;
+            old.month.setMonth(this.numberToMonth(old.monthToNumber(old.month.getMonth()) + 1));
+        }
+        return old;
+    }
     @Override
     public String toString() {
         return month + " " + dayOfMonth + ", " + year;
