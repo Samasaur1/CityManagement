@@ -2,6 +2,9 @@ package com.samgauck.DateManagement;
 
 import static com.samgauck.DateManagement.Month.*;
 
+/**
+ * SimpleDate holds a day, month and year. Day and year are ints, while the month is a MonthClass.
+ */
 public class SimpleDate {
     private int dayOfMonth;
     private int year;
@@ -24,6 +27,12 @@ public class SimpleDate {
         this.year = year;
         this.month = new MonthClass(this.numberToMonth(month));
     }
+
+    /**
+     * Takes an int, 1-12 and converts it to a month. Default is JAN.
+     * @param n is the number of the month
+     * @return
+     */
     private Month numberToMonth(int n) {
         switch (n) {
             case 1:
@@ -54,6 +63,12 @@ public class SimpleDate {
                 return JAN;
         }
     }
+
+    /**
+     * Inputs a Month and converts it to an int representing that month. Default is 1 (JAN).
+     * @param m is the month
+     * @return the number of the month
+     */
     private int monthToNumber(Month m) {
         switch (m) {
             case JAN:
@@ -84,6 +99,12 @@ public class SimpleDate {
                 return 1;
         }
     }
+
+    /**
+     * Returns a date one day after the inputted date.
+     * @param old is the original date
+     * @return a new date one day later
+     */
     public SimpleDate nextDay(SimpleDate old) {
         old.dayOfMonth += 1;
         if (old.dayOfMonth > old.month.getNumberOfDays()) {
