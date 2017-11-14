@@ -1,6 +1,6 @@
 package com.samgauck;
 
-public enum Month {
+public enum Month { //A 3-letter enum for the month
     JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC;
 
     @Override
