@@ -1,10 +1,13 @@
 package com.samgauck.DateManagement;
 
+/**
+ * This is, for lack of a better word, a wrapper for the Month enum, that allows access to the base enum and also hold the number of days in the month.
+ */
 public class MonthClass {
     private Month month;
     private int numberOfDays;
     public MonthClass(Month m) {
-        month = m;
+        setMonth(m);
         numberOfDays = this.getNumberOfDays(m);
     }
     private int getNumberOfDays(Month m) {
@@ -47,6 +50,7 @@ public class MonthClass {
 
     public void setMonth(Month month) {
         this.month = month;
+        setNumberOfDays(getNumberOfDays(this.month));
     }
 
     public void setNumberOfDays(int numberOfDays) {
