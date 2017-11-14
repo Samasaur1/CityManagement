@@ -1,6 +1,6 @@
 package com.samgauck;
 
-import java.util.Date;
+import com.samgauck.DateManagement.SimpleDate;
 
 public class Person {
 

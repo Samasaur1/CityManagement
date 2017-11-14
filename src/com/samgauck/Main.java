@@ -1,7 +1,7 @@
 package com.samgauck;
 
-import java.awt.*;
-import java.io.IOException;
+import com.samgauck.DateManagement.SimpleDate;
+
 import java.util.Scanner;
 
 public class Main {
