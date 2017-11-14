@@ -17,6 +17,7 @@ public class Person {
         return lastname;
     }
     public String getName() {
+        this.updateName();
         return name;
     }
 
@@ -33,7 +34,7 @@ public class Person {
         this.lastname = lastname;
     }
     private void updateName() {
-        this.name = this.getFirstName() + " " + this.getLastname();
+        this.name = this.getFirstName() + " " + this.getLastname(); //combines firstName and lastName
     }
 
     private String firstName;
@@ -42,7 +43,7 @@ public class Person {
     private int age;
     private Profession job;
     private SimpleDate birthday;
-    public Person() {
+    public Person() { //when born, sets age to 0 and birthday to the current date
         this.setAge(0);
         this.birthday = Main.getDate();
     }
