@@ -52,4 +52,5 @@ public class Person {
     public String toString() {
         return "A person named " + this.getName() + ", age " + this.getAge() + ", " + this.job;
     }
+    //TODO: add code for getting older every birthday (or maybe in Main?)
 }
