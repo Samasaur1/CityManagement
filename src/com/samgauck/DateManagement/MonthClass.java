@@ -1,4 +1,4 @@
-package com.samgauck;
+package com.samgauck.DateManagement;
 
 public class MonthClass {
     private Month month;

@@ -1,6 +1,6 @@
-package com.samgauck;
+package com.samgauck.DateManagement;
 
-import static com.samgauck.Month.*;
+import static com.samgauck.DateManagement.Month.*;
 
 public class SimpleDate {
     private int dayOfMonth;
