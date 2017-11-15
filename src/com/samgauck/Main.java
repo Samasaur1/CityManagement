@@ -23,19 +23,28 @@ public class Main {
     }
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
+        for (int i = 0; i < 10; i++){
+            System.out.println();
+        }
         System.out.println("Sam Gauck Presents:");
+        for (int i = 0; i < 3; i++){
+            System.out.println();
+        }
         millis = System.currentTimeMillis();
         while (true){
-            if (!(System.currentTimeMillis() - millis < 1000)) break; //one second wait
+            if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
             System.out.println();
         }
         System.out.println("CityManagement");
         System.out.println("Version 1.0");
+        for (int i = 0; i < 3; i++){
+            System.out.println();
+        }
         millis = System.currentTimeMillis();
         while (true){
-            if (!(System.currentTimeMillis() - millis < 1000)) break; //one second wait
+            if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
             System.out.println();
