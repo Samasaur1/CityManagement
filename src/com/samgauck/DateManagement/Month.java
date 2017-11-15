@@ -1,5 +1,7 @@
 package com.samgauck.DateManagement;
 
+import com.samgauck.Utilities;
+
 /**
  * A three-letter enum representation of a month.
  */
@@ -8,6 +10,6 @@ public enum Month {
 
     @Override
     public String toString() {
-        return super.toString().substring(0, 1).toUpperCase() + super.toString().substring(1).toLowerCase();
+        return Utilities.capitailze(super.toString());
     }
 }
