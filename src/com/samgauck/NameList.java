@@ -37,7 +37,7 @@ public class NameList {
     }
     private ArrayList<String> firstNames = new ArrayList<String>();
     private ArrayList<String> lastNames = new ArrayList<String>();
-    private static NameList nameList = new NameList();
+    private static NameList nameList = null;
     public String getFirstName() {
         return firstNames.get((int)Math.round(Math.random() * firstNames.size()));
     }
@@ -46,6 +46,7 @@ public class NameList {
     }
 
     public static NameList getInstance() {
+        nameList = nameList == null ? new NameList() : nameList;
         return nameList;
     }
 }

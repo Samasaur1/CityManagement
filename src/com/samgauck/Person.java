@@ -19,6 +19,7 @@ public class Person {
     public String getLastname() {
         return lastname;
     }
+    public Sex getSex() { return sex; }
     public String getName() {
         this.updateName();
         return name;
@@ -46,9 +47,20 @@ public class Person {
     private int age;
     private Profession job;
     private SimpleDate birthday;
+    private Sex sex;
     public Person() { //when born, sets age to 0 and birthday to the current date
         this.setAge(0);
         this.birthday = Main.getDate();
+        if (Math.random() * 2 > 1) {
+            this.sex = Sex.MALE;
+        }else {
+            this.sex = Sex.FEMALE;
+        }
+    }
+    public Person personWithSex(Sex sex) {
+        Person p = new Person();
+        p.sex = sex;
+        return p;
     }
 
     @Override
