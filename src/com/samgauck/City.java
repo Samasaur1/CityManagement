@@ -24,6 +24,10 @@ public class City {
         newPerson(); //creates 2 new citizens
         citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
     }
+    public void nameCitizen(int index, String firstName, String lastName) {
+        citizens.get(index).setFirstName(firstName);
+        citizens.get(index).setLastname(lastName);
+    }
 
     @Override
     public String toString() {
