@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/City.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/City.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Main.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Person.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Person.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Profession.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Profession.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/City.java" afterPath="$PROJECT_DIR$/src/com/samgauck/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/DateManagement/Month.java" afterPath="$PROJECT_DIR$/src/com/samgauck/DateManagement/Month.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Main.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/NameList.java" afterPath="$PROJECT_DIR$/src/com/samgauck/NameList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Person.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Profession.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Profession.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Sex.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Sex.java" />
-    </list>
+    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/samgauck/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
@@ -57,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NameList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NameList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/samgauck/NameList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="885">
@@ -709,16 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/samgauck/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/samgauck/City.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -783,6 +760,16 @@
             <element signature="e#4019#4020#0" expanded="true" />
             <element signature="e#4053#4054#0" expanded="true" />
             <element signature="e#4140#4141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/samgauck/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
