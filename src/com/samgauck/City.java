@@ -9,6 +9,10 @@ public class City {
         Person p = new Person();
         citizens.add(p);
     }
+    public void newPerson(Sex sex) {
+        Person p = new Person(sex);
+        citizens.add(p);
+    }
 
     public String getName() {
         return name;
@@ -20,8 +24,8 @@ public class City {
 
     public City(String name) { //creates a city named name
         this.name = name;
-        newPerson();
-        newPerson(); //creates 2 new citizens
+        newPerson(Sex.MALE);
+        newPerson(Sex.FEMALE); //creates 2 new citizens
         citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
     }
     public void nameCitizen(int index, String firstName, String lastName) {

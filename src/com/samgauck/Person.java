@@ -48,7 +48,7 @@ public class Person {
     private Profession job;
     private SimpleDate birthday;
     private Sex sex;
-    public Person() { //when born, sets age to 0 and birthday to the current date
+    public Person() { //when born, sets age to 0 and birthday to the current date and sex to either male or female
         this.setAge(0);
         this.birthday = Main.getDate();
         if (Math.random() * 2 > 1) {
@@ -57,10 +57,10 @@ public class Person {
             this.sex = Sex.FEMALE;
         }
     }
-    public Person personWithSex(Sex sex) {
-        Person p = new Person();
-        p.sex = sex;
-        return p;
+    public Person(Sex sex) {
+        this.setAge(0);
+        this.birthday = Main.getDate();
+        this.sex = sex;
     }
 
     @Override
