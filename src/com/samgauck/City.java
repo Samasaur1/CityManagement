@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class City {
     private String name; //name of the city
     private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
+    private NameList nameList = NameList.getInstance();
     public void newPerson() { //Creates and adds a new person
         Person p = new Person();
         citizens.add(p);
@@ -31,6 +32,9 @@ public class City {
     public void nameCitizen(int index, String firstName, String lastName) {
         citizens.get(index).setFirstName(firstName);
         citizens.get(index).setLastname(lastName);
+    }
+    public void nameCitizen(int index) {
+        nameCitizen(index, nameList.getFirstName(), nameList.getLastName());
     }
 
     @Override
