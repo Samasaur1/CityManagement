@@ -38,7 +38,11 @@ public class Person {
         this.lastname = lastname;
     }
     private void updateName() {
-        this.name = this.getFirstName() + " " + this.getLastname(); //combines firstName and lastName
+        if ((this.getFirstName() == "Adam" || this.getFirstName() ==  "Eve") && this.getLastname() == "") {
+            this.name = this.getFirstName();
+        }else {
+            this.name = this.getFirstName() + " " + this.getLastname(); //combines firstName and lastName
+        }
     }
 
     private String firstName;
@@ -51,6 +55,7 @@ public class Person {
     public Person() { //when born, sets age to 0 and birthday to the current date and sex to either male or female
         this.setAge(0);
         this.birthday = Main.getDate();
+        this.setJob(Profession.JOBLESS);
         if (Math.random() * 2 > 1) {
             this.sex = Sex.MALE;
         }else {
