@@ -2,14 +2,13 @@ package com.samgauck;
 
 public class Resources {
     private int money;
+    private int food;
     public void setMoney(int money) {
         this.money = money;
     }
     public int getMoney() {
         return money;
     }
-
-    private int food;
     public int getFood() {
         return food;
     }
