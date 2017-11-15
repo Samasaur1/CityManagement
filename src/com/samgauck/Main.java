@@ -10,8 +10,9 @@ public class Main {
     private static Scanner s = new Scanner(System.in);
     private static String input;
     private static City city;
-    private static SimpleDate date = new SimpleDate(1,1,2020);
+    private static SimpleDate date;
     private static NameList nameList = NameList.getInstance();
+    private static Resources resources;
 
     public static SimpleDate getDate() {
         return date;
@@ -23,6 +24,7 @@ public class Main {
     }
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
+        resources = new Resources(100_000, 1000); //Sets money to 100,000 and food to 1,000
         for (int i = 0; i < 10; i++){
             System.out.println();
         }
