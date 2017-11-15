@@ -65,6 +65,7 @@ public class Person {
     public Person(Sex sex) {
         this.setAge(0);
         this.birthday = Main.getDate();
+        this.setJob(Profession.JOBLESS);
         this.sex = sex;
     }
 
