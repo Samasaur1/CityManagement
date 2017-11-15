@@ -6,6 +6,7 @@ public class City {
     private String name; //name of the city
     private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
     private NameList nameList = NameList.getInstance();
+    private Resources resources = new Resources();
     public void newPerson() { //Creates and adds a new person
         Person p = new Person();
         citizens.add(p);
