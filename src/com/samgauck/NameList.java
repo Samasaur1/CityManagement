@@ -17,7 +17,7 @@ public class NameList {
         firstNames.addAll(Arrays.asList("John", "Joe", "James"));
         firstNames.addAll(Arrays.asList("Kabsal"));
         firstNames.addAll(Arrays.asList("Louis", "Lilly", "Laura"));
-        firstNames.addAll(Arrays.asList("Max", "Maeve"));
+        firstNames.addAll(Arrays.asList("Max", "Maeve", "Maurice"));
         firstNames.addAll(Arrays.asList("Ned"));
         firstNames.addAll(Arrays.asList("Oprah"));
         firstNames.addAll(Arrays.asList("Peri"));
@@ -35,13 +35,13 @@ public class NameList {
 
         lastNames.addAll(Arrays.asList("Aaronson"));
     }
-    private static ArrayList<String> firstNames = new ArrayList<String>();
-    private static ArrayList<String> lastNames = new ArrayList<String>();
+    private ArrayList<String> firstNames = new ArrayList<String>();
+    private ArrayList<String> lastNames = new ArrayList<String>();
     private static NameList nameList = new NameList();
-    public static String getFirstName() {
+    public String getFirstName() {
         return firstNames.get((int)Math.round(Math.random() * firstNames.size()));
     }
-    public static String getLastName() {
+    public String getLastName() {
         return lastNames.get((int)Math.round(Math.random() * lastNames.size()));
     }
 
