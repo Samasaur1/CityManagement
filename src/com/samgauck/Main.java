@@ -11,6 +11,7 @@ public class Main {
     private static String input;
     private static City city;
     private static SimpleDate date = new SimpleDate(1,1,2020);
+    private static NameList nameList = NameList.getInstance();
 
     public static SimpleDate getDate() {
         return date;
@@ -45,9 +46,19 @@ public class Main {
         System.out.print("Would you like to name your citizens? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
-            //TODO: Name citizens
+            System.out.println("What is the man's first name?");
+            String first = s.next();
+            System.out.println("What is the man's last name?");
+            String last = s.next();
+            city.nameCitizen(0, first, last);
+            System.out.println("What is the woman's first name?");
+            first = s.next();
+            System.out.println("What is the woman's last name?");
+            last = s.next();
+            city.nameCitizen(1, first, last);
         }else {
-            //TODO: random name citizens
+            city.nameCitizen(0, "Adam", "");
+            city.nameCitizen(1, "Eve", "");
         }
     }
 }
