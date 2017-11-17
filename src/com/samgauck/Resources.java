@@ -9,7 +9,7 @@ public class Resources {
     private int oil;
     private int coal;
     private int uranium;
-    private int cleanWater;
+    private int water;
     private int carbon;
     public int getMoney() {
         return money;
@@ -23,7 +23,7 @@ public class Resources {
     public int getOil() { return oil; }
     public int getCoal() { return coal; }
     public int getUranium() { return uranium; }
-    public int getCleanWater() { return cleanWater; }
+    public int getWater() { return water; }
     public int getCarbon() { return carbon; }
 
     public void setMoney(int money) {
@@ -38,7 +38,7 @@ public class Resources {
     public void setOil(int oil) { this.oil = oil; }
     public void setCoal(int coal) { this.coal = coal; }
     public void setUranium(int uranium) { this.uranium = uranium; }
-    public void setCleanWater(int cleanWater) { this.cleanWater = cleanWater; }
+    public void setWater(int water) { this.water = water; }
     public void setCarbon(int carbon) { this.carbon = carbon; }
 
     public Resources() {
@@ -50,10 +50,10 @@ public class Resources {
         this.setOil(0);
         this.setCoal(0);
         this.setUranium(0);
-        this.setCleanWater(0);
+        this.setWater(0);
         this.setCarbon(0);
     }
-    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int cleanWater, int carbon) {
+    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
         this.setMoney(money);
         this.setFood(food);
         this.setStone(stone);
@@ -62,7 +62,7 @@ public class Resources {
         this.setOil(oil);
         this.setCoal(coal);
         this.setUranium(uranium);
-        this.setCleanWater(cleanWater);
+        this.setWater(water);
         this.setCarbon(carbon);
     }
 }
