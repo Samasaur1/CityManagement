@@ -7,9 +7,9 @@ public class Utilities {
     }
     public static double average(int[] values) {
         int total = 0;
-        for (i : values) {
+        for (int i:values) {
             total += i;
         }
-        return total/values.size();
+        return total/values.length;
     }
 }
