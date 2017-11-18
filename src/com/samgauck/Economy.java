@@ -2,10 +2,12 @@ package com.samgauck;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Economy {
     private Economy() {
-        items.addAll(Arrays.asList("Food", "Wood", "Stone", "Iron", "Steel", "Oil", "Coal", "Uranium", "Water", "Carbon"));
+        items.putAll(Utilities.generateMap(new ArrayList<>(Arrays.asList("Food", "Wood", "Stone", "Iron", "Steel", "Oil", "Coal", "Uranium", "Water", "Carbon")), new ArrayList<>(Arrays.asList(5,1,2,5,10,10,10,10,5,5))));
     }
     private static Economy economy;
     public static Economy getInstance() {
@@ -16,9 +18,13 @@ public class Economy {
     public void addCity(City c) {
         cities.add(c);
     }
-    private ArrayList<String> items = new ArrayList<>();
+    private Map<String, Integer> items = new HashMap<>();
 
     public ArrayList<String> getItems() {
-        return items;
+        return new ArrayList<>(items.keySet());
+    }
+    public int getPrice(String item) {
+        return items.get(item);
+        //TODO: make supply and demand have an impact
     }
 }
