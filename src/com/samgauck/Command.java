@@ -9,10 +9,9 @@ public class Command {
         command = command == null ? new Command() : command;
         return command;
     }
-    private Command() {
-        items.addAll(Arrays.asList("Food", "Wood", "Stone", "Iron", "Steel", "Oil", "Coal", "Uranium", "Water", "Carbon"));
-    }
-    private ArrayList<String> items = new ArrayList<String>();
+    private Command() {}
+    private Economy economy = Economy.getInstance();
+    private ArrayList<String> items = economy.getItems();
 
     public void execute(String command) {
         ArrayList<String> words = new ArrayList<String>();

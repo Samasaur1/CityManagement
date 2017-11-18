@@ -25,6 +25,7 @@ public class City {
     }
 
     public City(String name) { //creates a city named name
+        Economy.getInstance().addCity(this); //Adds this to the economy list of cities
         this.name = name;
         newPerson(Sex.MALE);
         newPerson(Sex.FEMALE); //creates 2 new citizens
