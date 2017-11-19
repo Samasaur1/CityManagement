@@ -41,6 +41,9 @@ public class Command {
             case "construct":
                 construct(words);
                 break;
+            case "quit":
+                quit();
+                break;
             default:
                 System.out.println("Error 1.1: Command not recognized");
                 return;
@@ -79,7 +82,6 @@ public class Command {
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) + amount);
         System.out.println("Transaction completed");
         System.out.println(Main.getCity(0).resources.toString());
-        //TODO: Buy items
     }
 
     /**
@@ -87,11 +89,31 @@ public class Command {
      * @param followingWords The user's command, minus the word "sell".
      */
     private void sell(ArrayList<String> followingWords) {
-        if (!items.contains(followingWords.get(0).toLowerCase())) {
-            System.out.println("Error 1.2: Item not recognized");
+        System.out.println("");
+        if (followingWords.size() == 0) {
+            System.out.println("Error 1.2.1: No item to sell");
             return;
         }
-        //TODO: Sell items
+        if (!items.contains(followingWords.get(0))) {
+            System.out.println("Error 1.2.2: Item not recognized");
+            return;
+        }
+        if (followingWords.get(1).matches("\\D+")) {
+            System.out.println("Error 1.3: Not a valid amount");
+            return;
+        }
+        String item = followingWords.get(0);
+        int amount = Integer.parseInt(followingWords.get(1));
+        if ((Main.getCity(0).resources.getItem(item) - amount) < 0) {
+            System.out.println("You don't have enough " + item);
+            System.out.println("The most you could sell is " + Main.getCity(0).resources.getItem(item));
+            System.out.println("Transaction not completed");
+            return;
+        }
+        Main.getCity(0).resources.setMoney(Main.getCity(0).resources.getMoney() + (economy.getPrice(item) * amount));
+        Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) - amount);
+        System.out.println("Transaction completed");
+        System.out.println(Main.getCity(0).resources.toString());
     }
 
     /**
@@ -100,5 +122,13 @@ public class Command {
      */
     private void construct(ArrayList<String> followingWords) {
         //TODO: Construct
+    }
+
+    /**
+     * Ends the looping command input.
+     */
+    private void quit() {
+        Main.setLooping(false);
+        System.out.println("Thanks for playing!");
     }
 }
