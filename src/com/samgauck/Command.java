@@ -44,6 +44,12 @@ public class Command {
             case "quit":
                 quit();
                 break;
+            case "load":
+                load(words);
+                break;
+            case "save":
+                save(words);
+                break;
             default:
                 System.out.println("Error 1.1: Command not recognized");
                 return;
@@ -130,5 +136,11 @@ public class Command {
     private void quit() {
         Main.setLooping(false);
         System.out.println("Thanks for playing!");
+    }
+    private void load(ArrayList<String> followingWords) {
+        //TODO
+    }
+    private void save(ArrayList<String> followingWords) {
+        //TODO
     }
 }
