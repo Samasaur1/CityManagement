@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class Economy {
     private Economy() {
-        items.putAll(Utilities.generateMap(new ArrayList<>(Arrays.asList("Food", "Wood", "Stone", "Iron", "Steel", "Oil", "Coal", "Uranium", "Water", "Carbon")), new ArrayList<>(Arrays.asList(5,1,2,5,10,10,10,10,5,5))));
+        items.putAll(Utilities.generateMap(
+                new ArrayList<>(Arrays.asList("food", "wood", "stone", "iron", "steel", "oil", "coal", "uranium", "water", "carbon")),
+                new ArrayList<>(Arrays.asList(5,1,2,5,10,10,10,10,5,5))));
     }
     private static Economy economy;
     public static Economy getInstance() {
