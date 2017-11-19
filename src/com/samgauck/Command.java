@@ -1,5 +1,6 @@
 package com.samgauck;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,7 +13,6 @@ public class Command {
     private Command() {}
     private Economy economy = Economy.getInstance();
     private ArrayList<String> items = economy.getItems();
-    private City city = Main.getMainCity();
 
     public void execute(String command) {
         ArrayList<String> words = new ArrayList<String>();
@@ -36,7 +36,8 @@ public class Command {
         }
     }
     private void buy(ArrayList<String> followingWords) {
-        if (followingWords.isEmpty()) {
+        System.out.println("");
+        if (followingWords.size() == 0) {
             System.out.println("Error 1.2.1: No item to buy");
             return;
         }
@@ -50,16 +51,18 @@ public class Command {
         }
         String item = followingWords.get(0);
         int amount = Integer.parseInt(followingWords.get(1));
-        if (((city.resources.getMoney() - (economy.getPrice(item) * amount)) < 0) && (!(followingWords.get(2).contains("d")))) {
-            System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
-            System.out.println("The most you could buy is " + Math.floor(city.resources.getMoney()/economy.getPrice(item)));
-            System.out.println("Transaction not completed");
-            return;
+        if ((Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount)) < 0) {
+            if (followingWords.size() <= 3 || followingWords.get(2).contains("d")) {
+                System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
+                System.out.println("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
+                System.out.println("Transaction not completed");
+                return;
+            }
         }
-        city.resources.setMoney(city.resources.getMoney() - (economy.getPrice(item) * amount));
-        city.resources.setItem(item, city.resources.getItem(item) + amount);
+        Main.getCity(0).resources.setMoney(Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount));
+        Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) + amount);
         System.out.println("Transaction completed");
-        System.out.println(city.resources.toString());
+        System.out.println(Main.getCity(0).resources.toString());
         //TODO: Buy items
     }
     private void sell(ArrayList<String> followingWords) {
