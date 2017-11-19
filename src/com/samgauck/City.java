@@ -7,10 +7,19 @@ public class City {
     private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
     private NameList nameList = NameList.getInstance();
     public Resources resources = new Resources();
-    public void newPerson() { //Creates and adds a new person
+
+    /**
+     * Creates a new person and adds them to the citizens list.
+     */
+    public void newPerson() {
         Person p = new Person();
         citizens.add(p);
     }
+
+    /**
+     * Creates a new person and adds them to the citizens list.
+     * @param sex The sex of the person.
+     */
     public void newPerson(Sex sex) {
         Person p = new Person(sex);
         citizens.add(p);
@@ -31,6 +40,13 @@ public class City {
         newPerson(Sex.FEMALE); //creates 2 new citizens
         citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
     }
+
+    /**
+     * Names a citizen.
+     * @param index The index of the citizens list where one finds the citizen to name.
+     * @param firstName The new first name of the citizen.
+     * @param lastName The new last name of the citizen.
+     */
     public void nameCitizen(int index, String firstName, String lastName) {
         citizens.get(index).setFirstName(firstName);
         citizens.get(index).setLastname(lastName);
@@ -43,7 +59,12 @@ public class City {
     public String toString() {
         return "A city named " + this.name;
     }
-    public String listCitizens() { //builds a string that is a multiple line list of citizens
+
+    /**
+     * Builds a string that is a multiple line list of citizens.
+     * @return A string list of all citizens.
+     */
+    public String listCitizens() {
         StringBuilder output = new StringBuilder();
         for (Person citizen : citizens) {
             output.append(citizen).append("\n");

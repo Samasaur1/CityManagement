@@ -2,6 +2,9 @@ package com.samgauck;
 
 import java.text.NumberFormat;
 
+/**
+ * A class that hold all resources.
+ */
 public class Resources {
     private int money;
     private int food;

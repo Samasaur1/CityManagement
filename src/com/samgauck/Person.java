@@ -37,6 +37,10 @@ public class Person {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    /**
+     * Sets the name variable to the first name plus the last name, unless there is no last name, in which case it is only the first name.
+     */
     private void updateName() {
         if ((this.getFirstName() == "Adam" || this.getFirstName() ==  "Eve") && this.getLastname() == "") {
             this.name = this.getFirstName();
@@ -69,6 +73,10 @@ public class Person {
         this.sex = sex;
     }
 
+    /**
+     * Returns a string representation of a person, format "A person named Sam, age 14, Jobless".
+     * @return A string representation of the person.
+     */
     @Override
     public String toString() {
         return "A person named " + this.getName() + ", age " + this.getAge() + ", " + this.job;

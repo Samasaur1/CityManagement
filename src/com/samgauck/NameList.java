@@ -31,8 +31,9 @@ public class NameList {
         firstNames.addAll(Arrays.asList("Xavier"));
         firstNames.addAll(Arrays.asList("Yondu"));
         firstNames.addAll(Arrays.asList("Zev"));
-
-
+        /*
+        * In the constructor, initialize the first and last name lists.
+        */
         lastNames.addAll(Arrays.asList("Aaronson", "Amato", "Arteaga"));
         lastNames.addAll(Arrays.asList("Berkowitz", "Benito", "Blickely", "Blumenthal"));
         lastNames.addAll(Arrays.asList("Craven", "Cain", "Clover", "Corbett", "Cunningham"));
@@ -63,13 +64,27 @@ public class NameList {
     private ArrayList<String> firstNames = new ArrayList<String>();
     private ArrayList<String> lastNames = new ArrayList<String>();
     private static NameList nameList = null;
+
+    /**
+     * Gets a random first name from the list.
+     * @return A String that is a random first name.
+     */
     public String getFirstName() {
         return firstNames.get((int)Math.round(Math.random() * firstNames.size()));
     }
+
+    /**
+     * Gets a random last name from the list.
+     * @return A String that is a random last name.
+     */
     public String getLastName() {
         return lastNames.get((int)Math.round(Math.random() * lastNames.size()));
     }
 
+    /**
+     * Gets the NameList instance if it exists, otherwise make a new one.
+     * @return The one and only NameList instance.
+     */
     public static NameList getInstance() {
         nameList = nameList == null ? new NameList() : nameList;
         return nameList;

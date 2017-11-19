@@ -4,8 +4,15 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * A singleton class that manages all commands.
+ */
 public class Command {
     private static Command command;
+    /**
+     * Gets the Command instance if it exists, otherwise make a new one.
+     * @return The one and only Command instance.
+     */
     public static Command getInstance() {
         command = command == null ? new Command() : command;
         return command;
@@ -14,6 +21,10 @@ public class Command {
     private Economy economy = Economy.getInstance();
     private ArrayList<String> items = economy.getItems();
 
+    /**
+     * A high-level function that takes a command and call the function that it is trying to do.
+     * @param command The command given by the user.
+     */
     public void execute(String command) {
         ArrayList<String> words = new ArrayList<String>();
         command = command.toLowerCase();
@@ -35,6 +46,11 @@ public class Command {
                 return;
         }
     }
+
+    /**
+     * A function that buys items.
+     * @param followingWords The user's command, minus the word "buy".
+     */
     private void buy(ArrayList<String> followingWords) {
         System.out.println("");
         if (followingWords.size() == 0) {
@@ -65,6 +81,11 @@ public class Command {
         System.out.println(Main.getCity(0).resources.toString());
         //TODO: Buy items
     }
+
+    /**
+     * A function that sells items.
+     * @param followingWords The user's command, minus the word "sell".
+     */
     private void sell(ArrayList<String> followingWords) {
         if (!items.contains(followingWords.get(0).toLowerCase())) {
             System.out.println("Error 1.2: Item not recognized");
@@ -72,6 +93,11 @@ public class Command {
         }
         //TODO: Sell items
     }
+
+    /**
+     * A function that constructs items/things.
+     * @param followingWords The user's command, minus the word "construct".
+     */
     private void construct(ArrayList<String> followingWords) {
         //TODO: Construct
     }
