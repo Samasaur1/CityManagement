@@ -15,6 +15,9 @@ public class Main {
     private static NameList nameList = NameList.getInstance();
     public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
     private static Command command = Command.getInstance();
+    private static Boolean looping = true;
+    public static Boolean getLooping() { return looping; }
+    public static void setLooping(Boolean looping) { Main.looping = looping; }
 
     public static City getCity(int index) {
         if (0 <= index && index <= cities.size() - 1) {
@@ -40,7 +43,10 @@ public class Main {
         System.out.println("buy fod 100 (incorrect)");
         s.nextLine();
         input = s.nextLine();
-        command.execute(input);
+        while (looping) {
+            command.execute(input);
+            input = s.nextLine();
+        }
     }
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
