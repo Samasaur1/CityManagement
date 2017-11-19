@@ -9,10 +9,15 @@ public class Main {
     private static long millis;
     private static Scanner s = new Scanner(System.in);
     private static String input;
-    private static City city;
+    private static City mainCity;
     private static SimpleDate date;
     private static NameList nameList = NameList.getInstance();
-    private static Resources resources;
+    public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
+    private static Command command = Command.getInstance();
+
+    public static City getMainCity() {
+        return mainCity;
+    }
 
     public static SimpleDate getDate() {
         return date;
@@ -20,13 +25,18 @@ public class Main {
 
     public static void main(String[] args) {
         start();
-        System.out.println(city.listCitizens());
+        System.out.println("The proper command format is:");
+        System.out.println("command item [amount] [arguments]");
+        System.out.println("For example, to buy 100 food:");
+        System.out.println("buy food 100");
+        System.out.println("Mess with the case however you want, but spelling must be exact");
+        System.out.println("BuY fOoD 100 (correct)");
+        System.out.println("buy fod 100 (incorrect)");
+        input = s.next();
+        command.execute(input);
     }
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
-        resources = new Resources();
-        resources.setMoney(100_000);
-        resources.setFood(1000);//Sets money to 100,000 and food to 1,000
         for (int i = 0; i < 10; i++){
             System.out.println();
         }
@@ -55,7 +65,7 @@ public class Main {
         }
         System.out.print("Please enter a name for your city: ");
         input = s.next();
-        city = new City(input); //creates new city with your name
+        mainCity = new City(input); //creates new city with your name
         System.out.print("Would you like to name your citizens? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
@@ -63,15 +73,15 @@ public class Main {
             String first = s.next();
             System.out.println("What is the man's last name?");
             String last = s.next();
-            city.nameCitizen(0, first, last);
+            mainCity.nameCitizen(0, first, last);
             System.out.println("What is the woman's first name?");
             first = s.next();
             System.out.println("What is the woman's last name?");
             last = s.next();
-            city.nameCitizen(1, first, last);
+            mainCity.nameCitizen(1, first, last);
         }else {
-            city.nameCitizen(0, "Adam", "");
-            city.nameCitizen(1, "Eve", "");
+            mainCity.nameCitizen(0, "Adam", "");
+            mainCity.nameCitizen(1, "Eve", "");
         }
     }
 }
