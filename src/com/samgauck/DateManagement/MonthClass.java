@@ -10,6 +10,12 @@ public class MonthClass {
         setMonth(m);
         numberOfDays = this.getNumberOfDays(m);
     }
+
+    /**
+     * Gives the number of days in a month.
+     * @param m The month whose number of days you want.
+     * @return An int that is the number of days in the month.
+     */
     private int getNumberOfDays(Month m) {
         switch (m) {
             case JAN:
@@ -40,23 +46,44 @@ public class MonthClass {
                 return 31;
         }
     }
+
+    /**
+     * Gets the number of days from the private variable.
+     * @return The number of days in a month, and int.
+     */
     public int getNumberOfDays() {
         return numberOfDays;
     }
 
+    /**
+     * Returns the underlying Month enum.
+     * @return A Month enum.
+     */
     public Month getMonth() {
         return month;
     }
 
+    /**
+     * Sets the month and updates the number of days.
+     * @param month A Month enum that represents the new month.
+     */
     public void setMonth(Month month) {
         this.month = month;
         setNumberOfDays(getNumberOfDays(this.month));
     }
 
+    /**
+     * Sets the number of days.
+     * @param numberOfDays The new number of days.
+     */
     public void setNumberOfDays(int numberOfDays) {
         this.numberOfDays = numberOfDays;
     }
 
+    /**
+     * Returns the month as a string, without the number of days.
+     * @return A correctly capitalized string representation of a month.
+     */
     @Override
     public String toString() {
         return month.toString();

@@ -30,8 +30,8 @@ public class SimpleDate {
 
     /**
      * Takes an int, 1-12 and converts it to a month. Default is JAN.
-     * @param n is the number of the month
-     * @return
+     * @param n The number of the month.
+     * @return The month represented by the number.
      */
     private Month numberToMonth(int n) {
         switch (n) {
@@ -66,8 +66,8 @@ public class SimpleDate {
 
     /**
      * Inputs a Month and converts it to an int representing that month. Default is 1 (JAN).
-     * @param m is the month
-     * @return the number of the month
+     * @param m The month.
+     * @return The number of the month.
      */
     private int monthToNumber(Month m) {
         switch (m) {
@@ -102,8 +102,8 @@ public class SimpleDate {
 
     /**
      * Returns a date one day after the inputted date.
-     * @param old is the original date
-     * @return a new date one day later
+     * @param old The original date.
+     * @return A new date one day later.
      */
     public SimpleDate nextDay(SimpleDate old) {
         old.dayOfMonth += 1;
@@ -113,6 +113,11 @@ public class SimpleDate {
         }
         return old;
     }
+
+    /**
+     * Converts a date to a string with format Jan 1, 2017.
+     * @return A string formatted Jan 1, 2017.
+     */
     @Override
     public String toString() {
         return month + " " + dayOfMonth + ", " + year;

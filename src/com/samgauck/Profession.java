@@ -6,6 +6,10 @@ package com.samgauck;
 public enum Profession {
     FARMER, BLACKSMITH, JOBLESS;
 
+    /**
+     * Returns the job as a string, capitalized (e.g. Jobless).
+     * @return A correctly capitalized string representation of a job.
+     */
     @Override
     public String toString() {
         return Utilities.capitailze(super.toString());

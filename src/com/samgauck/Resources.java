@@ -1,5 +1,8 @@
 package com.samgauck;
 
+/**
+ * A class that hold all resources.
+ */
 public class Resources {
     private int money;
     private int food;
