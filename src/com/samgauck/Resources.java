@@ -127,15 +127,15 @@ public class Resources {
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append("Money: ").append(NumberFormat.getCurrencyInstance().format(money)).append("\n");
-        s.append("Food: ").append(NumberFormat.getCurrencyInstance().format(food)).append("\n");
-        s.append("Stone: ").append(NumberFormat.getCurrencyInstance().format(stone)).append("\n");
-        s.append("Iron: ").append(NumberFormat.getCurrencyInstance().format(iron)).append("\n");
-        s.append("Steel: ").append(NumberFormat.getCurrencyInstance().format(steel)).append("\n");
-        s.append("Oil: ").append(NumberFormat.getCurrencyInstance().format(oil)).append("\n");
-        s.append("Coal: ").append(NumberFormat.getCurrencyInstance().format(coal)).append("\n");
-        s.append("Uranium: ").append(NumberFormat.getCurrencyInstance().format(uranium)).append("\n");
-        s.append("Water: ").append(NumberFormat.getCurrencyInstance().format(water)).append("\n");
-        s.append("Carbon: ").append(NumberFormat.getCurrencyInstance().format(carbon)).append("\n");
+        s.append("Food: ").append(food).append("\n");
+        s.append("Stone: ").append(stone).append("\n");
+        s.append("Iron: ").append(iron).append("\n");
+        s.append("Steel: ").append(steel).append("\n");
+        s.append("Oil: ").append(oil).append("\n");
+        s.append("Coal: ").append(coal).append("\n");
+        s.append("Uranium: ").append(uranium).append("\n");
+        s.append("Water: ").append(water).append("\n");
+        s.append("Carbon: ").append(carbon).append("\n");
         return s.toString();
     }
 }
