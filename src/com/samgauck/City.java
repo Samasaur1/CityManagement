@@ -6,7 +6,7 @@ public class City {
     private String name; //name of the city
     private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
     private NameList nameList = NameList.getInstance();
-    private Resources resources = new Resources();
+    public Resources resources = new Resources();
 
     /**
      * Creates a new person and adds them to the citizens list.
@@ -34,6 +34,7 @@ public class City {
     }
 
     public City(String name) { //creates a city named name
+        Economy.getInstance().addCity(this); //Adds this to the economy list of cities
         this.name = name;
         newPerson(Sex.MALE);
         newPerson(Sex.FEMALE); //creates 2 new citizens
