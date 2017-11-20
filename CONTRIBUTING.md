@@ -1,6 +1,9 @@
 Hi! Thanks for being willing to help out!
 
-<strong>Commit Messages</strong>
+**Commit Messages**
 
 All commit messages should be in command form. As in "add" or "fix", not "adds" or "fixes".
-[Code of Conduct](#code-of-conduct)
+
+**What to Change**
+
+Check the [Issues](https://github.com/Samasaur1/CityManagement/issues) page
