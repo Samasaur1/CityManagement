@@ -39,8 +39,9 @@ public class Main {
         System.out.println("For example, to buy 100 food:");
         System.out.println("buy food 100");
         System.out.println("Mess with the case however you want, but spelling must be exact");
-        System.out.println("BuY fOoD 100 (correct)");
+        System.out.println("BuY fOoD 100 (okay)");
         System.out.println("buy fod 100 (incorrect)");
+        System.out.println("buy food 100 (correct/best/great)");
         s.nextLine();
         input = s.nextLine();
         while (looping) {

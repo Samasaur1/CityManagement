@@ -100,6 +100,18 @@ public class Resources {
                 setFood(amount);
         }
     }
+    public void setAll(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
+        this.setMoney(money);
+        this.setFood(food);
+        this.setStone(stone);
+        this.setIron(iron);
+        this.setSteel(steel);
+        this.setOil(oil);
+        this.setCoal(coal);
+        this.setUranium(uranium);
+        this.setWater(water);
+        this.setCarbon(carbon);
+    }
 
     public Resources() {
         this.setMoney(0);
@@ -139,6 +151,20 @@ public class Resources {
         s.append("Uranium: ").append(uranium).append("\n");
         s.append("Water: ").append(water).append("\n");
         s.append("Carbon: ").append(carbon).append("\n");
+        return s.toString();
+    }
+    public String simpleString() {
+        StringBuilder s = new StringBuilder();
+        s.append(money).append("§");
+        s.append(food).append("§");
+        s.append(stone).append("§");
+        s.append(iron).append("§");
+        s.append(steel).append("§");
+        s.append(oil).append("§");
+        s.append(coal).append("§");
+        s.append(uranium).append("§");
+        s.append(water).append("§");
+        s.append(carbon);
         return s.toString();
     }
 }

@@ -49,7 +49,7 @@ public class City {
      */
     public void nameCitizen(int index, String firstName, String lastName) {
         citizens.get(index).setFirstName(firstName);
-        citizens.get(index).setLastname(lastName);
+        citizens.get(index).setLastName(lastName);
     }
     public void nameCitizen(int index) {
         nameCitizen(index, nameList.getFirstName(), nameList.getLastName());
@@ -70,5 +70,9 @@ public class City {
             output.append(citizen).append("\n");
         }
         return output.toString();
+    }
+
+    public ArrayList<Person> getCitizens() {
+        return citizens;
     }
 }

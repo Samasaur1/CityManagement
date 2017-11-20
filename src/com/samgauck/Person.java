@@ -16,8 +16,8 @@ public class Person {
     public String getFirstName() {
         return firstName;
     }
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
     public Sex getSex() { return sex; }
     public String getName() {
@@ -34,23 +34,23 @@ public class Person {
     public void setJob(Profession job) {
         this.job = job;
     }
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     /**
      * Sets the name variable to the first name plus the last name, unless there is no last name, in which case it is only the first name.
      */
     private void updateName() {
-        if ((this.getFirstName() == "Adam" || this.getFirstName() ==  "Eve") && this.getLastname() == "") {
+        if ((this.getFirstName() == "Adam" || this.getFirstName() ==  "Eve") && this.getLastName() == "") {
             this.name = this.getFirstName();
         }else {
-            this.name = this.getFirstName() + " " + this.getLastname(); //combines firstName and lastName
+            this.name = this.getFirstName() + " " + this.getLastName(); //combines firstName and lastName
         }
     }
 
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String name;
     private int age;
     private Profession job;

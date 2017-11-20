@@ -122,4 +122,9 @@ public class SimpleDate {
     public String toString() {
         return month + " " + dayOfMonth + ", " + year;
     }
+    public String simpleString() {
+        StringBuilder s = new StringBuilder();
+        s.append(monthToNumber(getMonth())).append("§").append(getDayOfMonth()).append("§").append(getYear());
+        return s.toString();
+    }
 }

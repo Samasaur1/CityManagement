@@ -48,7 +48,7 @@ public class Command {
                 load(words);
                 break;
             case "save":
-                save(words);
+                save();
                 break;
             default:
                 System.out.println("Error 1.1: Command not recognized");
@@ -136,11 +136,55 @@ public class Command {
     private void quit() {
         Main.setLooping(false);
         System.out.println("Thanks for playing!");
+        System.exit(0);
     }
     private void load(ArrayList<String> followingWords) {
-        //TODO
+        if (followingWords.size() <= 0) {
+            System.out.println("Error 1.2: No save code given.");
+        }else if (followingWords.size() > 1){
+            System.out.println("Error 1.3: To load, execute \"load [save-code]\", ut replace \"[save-code]\" with your save code.");
+        }else {
+            ArrayList<String> code = new ArrayList<>();
+            code.addAll(Arrays.asList(followingWords.get(0).split("•")));
+            Main.getCity(0).setName(code.get(0));
+            ArrayList<String> resources = new ArrayList<>();
+            ArrayList<Integer> resourceInts = new ArrayList<>();
+            resources.addAll(Arrays.asList(code.get(1).split("§")));
+            for (int i = 0; i < resources.size(); i++) {
+                resourceInts.add(Integer.parseInt(resources.get(i)));
+            }
+            Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
+            /*
+            Main.getCity(0).getCitizens().forEach(p -> {
+                s.append(p.getFirstName()).append("‡");
+                s.append(p.getLastName()).append("‡");
+                s.append(p.getAge()).append("‡");
+                s.append(p.getJob()).append("‡");
+                s.append(p.getSex().toString().substring(0,1)).append("§");
+            });
+            */
+            //TODO:Implement commented out code /| and load the date. Also load prices if implemented @182
+        }
     }
-    private void save(ArrayList<String> followingWords) {
+    private void save() {
+        StringBuilder s = new StringBuilder();
+        s.append(Main.getCity(0).getName()).append("•");
+        s.append(Main.getCity(0).resources.simpleString()).append("•");
+        Main.getCity(0).getCitizens().forEach(p -> {
+            s.append(p.getFirstName()).append("‡");
+            s.append(p.getLastName()).append("‡");
+            s.append(p.getAge()).append("‡");
+            s.append(p.getJob()).append("‡");
+            s.append(p.getSex().toString().substring(0,1)).append("§");
+        });
+        s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
+        s.append(Main.getDate().simpleString()).append("•");
+        //TODO: items.forEach() (or other way) of printing out the current prices
+        /*
+        s.reverse().deleteCharAt(0).reverse(); //deletes the last "§" form the items.foreach loop
+        */
+        System.out.println("Your save code is:");
+        System.out.println(s.toString());
         //TODO
     }
 }
