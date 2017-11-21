@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/City.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/City.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Command.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Command.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/DateManagement/SimpleDate.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/DateManagement/SimpleDate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Main.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Resources.class" afterPath="$PROJECT_DIR$/out/production/CityManagement/com/samgauck/Resources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/City.java" afterPath="$PROJECT_DIR$/src/com/samgauck/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Command.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Command.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java" afterPath="$PROJECT_DIR$/src/com/samgauck/DateManagement/SimpleDate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Main.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Person.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/samgauck/Resources.java" afterPath="$PROJECT_DIR$/src/com/samgauck/Resources.java" />
-    </list>
+    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -284,7 +271,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
