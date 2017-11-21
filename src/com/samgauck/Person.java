@@ -37,6 +37,7 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public void setSex(Sex sex) { this.sex = sex; }
 
     /**
      * Sets the name variable to the first name plus the last name, unless there is no last name, in which case it is only the first name.

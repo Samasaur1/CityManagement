@@ -142,11 +142,17 @@ public class Command {
         if (followingWords.size() <= 0) {
             System.out.println("Error 1.2: No save code given.");
         }else if (followingWords.size() > 1){
-            System.out.println("Error 1.3: To load, execute \"load [save-code]\", ut replace \"[save-code]\" with your save code.");
+            System.out.println("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
         }else {
             ArrayList<String> code = new ArrayList<>();
             code.addAll(Arrays.asList(followingWords.get(0).split("•")));
+            if (code.size() != 4) {
+                System.out.println("Error 1.2.1: Save code not valid");
+                return;
+            }
+
             Main.getCity(0).setName(code.get(0));
+
             ArrayList<String> resources = new ArrayList<>();
             ArrayList<Integer> resourceInts = new ArrayList<>();
             resources.addAll(Arrays.asList(code.get(1).split("§")));
@@ -154,15 +160,20 @@ public class Command {
                 resourceInts.add(Integer.parseInt(resources.get(i)));
             }
             Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
-            /*
-            Main.getCity(0).getCitizens().forEach(p -> {
-                s.append(p.getFirstName()).append("‡");
-                s.append(p.getLastName()).append("‡");
-                s.append(p.getAge()).append("‡");
-                s.append(p.getJob()).append("‡");
-                s.append(p.getSex().toString().substring(0,1)).append("§");
-            });
-            */
+
+            ArrayList<String> people = new ArrayList<>();
+            people.addAll(Arrays.asList(code.get(2).split("§")));
+            ArrayList<String> person = new ArrayList<>();
+            for (int i = 0; i < people.size(); i++) {
+                person.addAll(Arrays.asList(people.get(i).split("‡")));
+                Main.getCity(0).getCitizens().get(i).setFirstName(person.get(0));
+                Main.getCity(0).getCitizens().get(i).setLastName(person.get(1));
+                Main.getCity(0).getCitizens().get(i).setAge(Integer.parseInt(person.get(2)));
+                Main.getCity(0).getCitizens().get(i).setJob(Profession.valueOf(person.get(3).toUpperCase()));
+                Main.getCity(0).getCitizens().get(i).setSex((person.get(4).equalsIgnoreCase("m")) ? Sex.MALE : Sex.FEMALE);
+                person.clear();
+            }
+
             //TODO:Implement commented out code /| and load the date. Also load prices if implemented @182
         }
     }
