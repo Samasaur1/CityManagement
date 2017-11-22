@@ -144,25 +144,46 @@ public class Command {
         }else if (followingWords.size() > 1){
             System.out.println("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
         }else {
+            /* General checking start*/
             ArrayList<String> code = new ArrayList<>();
             code.addAll(Arrays.asList(followingWords.get(0).split("•")));
             if (code.size() != 4) {
                 System.out.println("Error 1.2.1: Save code not valid");
                 return;
             }
-
-            Main.getCity(0).setName(code.get(0)); //No reason this would fail
-
+            /*General checking end*/
+            /*Resource checking start*/
             ArrayList<String> resources = new ArrayList<>();
             ArrayList<Integer> resourceInts = new ArrayList<>();
             resources.addAll(Arrays.asList(code.get(1).split("§")));
             for (int i = 0; i < resources.size(); i++) {
                 resourceInts.add(Integer.parseInt(resources.get(i)));
             }
-            if (resourceInts.size() != 10 || resources.size() != 10) { //Failure checking for changing the resources
+            if (resourceInts.size() != Resources.getNumberOfResources() || resources.size() != Resources.getNumberOfResources()) { //If there is the wrong number of resources
                 System.out.println("Error 1.2.x: Save code not valid");
                 return;
             }
+            /*Resource checking end*/
+            /*Person checking starts*/
+            //TODO: Person checking
+            /*Person checking ends*/
+            /*Date checking starts*/
+            ArrayList<String> date = new ArrayList<>();
+            ArrayList<Integer> dateInts = new ArrayList<>();
+            date.addAll(Arrays.asList(code.get(3).split("§")));
+            if (date.size() != 3) { //Failure checking for changing the date
+                System.out.println("Error 1.2.x: Save code not valid");
+                return;
+            }
+            for (int i = 0; i < date.size(); i++) {
+                dateInts.add(Integer.parseInt(date.get(i)));
+            }
+            /*Date checking ends*/
+
+            //Set city name. No reason this would fail.
+            Main.getCity(0).setName(code.get(0));
+
+            //Sets number of resources. Can fail is they don't pass Integers TODO: try/catch block to confirm that they pass Integers @160
             Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
 
             ArrayList<String> people = new ArrayList<>();
@@ -170,6 +191,10 @@ public class Command {
             ArrayList<String> person = new ArrayList<>();
             for (int i = 0; i < people.size(); i++) {
                 person.addAll(Arrays.asList(people.get(i).split("‡")));
+                if (person.size() != 5) {
+                    System.out.println("Error 1.2.x: Save code not valid");
+                    return;
+                }
                 Main.getCity(0).getCitizens().get(i).setFirstName(person.get(0));
                 Main.getCity(0).getCitizens().get(i).setLastName(person.get(1));
                 Main.getCity(0).getCitizens().get(i).setAge(Integer.parseInt(person.get(2)));
@@ -178,14 +203,10 @@ public class Command {
                 person.clear();
             }
 
-            ArrayList<String> date = new ArrayList<>();
-            date.addAll(Arrays.asList(code.get(3).split("§")));
-            if (date.size() != 3) { //Failure checking for changing the date
-                System.out.println("Error 1.2.x: Save code not valid");
-                return;
-            }
-            Main.getDate().setDate(Integer.parseInt(date.get(0)), Integer.parseInt(date.get(1)), Integer.parseInt(date.get(2)));
-            //TODO:Load prices if implemented @204
+
+            //Sets date. Can fail if they don't pass Integers TODO: try/catch block to ensure that they pass Integers @179
+            Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
+            //TODO:Load prices if implemented @225
         }
     }
     private void save() {
