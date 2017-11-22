@@ -192,7 +192,7 @@ public class Command {
             for (int i = 0; i < people.size(); i++) {
                 person.addAll(Arrays.asList(people.get(i).split("‡")));
                 if (person.size() != 5) {
-                    System.out.println("Error 1.2.x: Save code not valid");
+                    System.out.println("Error 1.2" + (Main.getDebug() ? ".x:" : ":") + "Save code not valid");
                     return;
                 }
                 Main.getCity(0).getCitizens().get(i).setFirstName(person.get(0));
@@ -207,6 +207,7 @@ public class Command {
             //Sets date. Can fail if they don't pass Integers TODO: try/catch block to ensure that they pass Integers @179
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
             //TODO:Load prices if implemented @225
+            System.out.println("Loaded!");
         }
     }
     private void save() {
