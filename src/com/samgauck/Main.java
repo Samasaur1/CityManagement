@@ -16,6 +16,8 @@ public class Main {
     public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
     private static Command command = Command.getInstance();
     private static Boolean looping = true;
+    private static Boolean gui = true;
+    private static Boolean debug = false;
     public static Boolean getLooping() { return looping; }
     public static void setLooping(Boolean looping) { Main.looping = looping; }
 
@@ -27,12 +29,30 @@ public class Main {
         }
         return new City("City");
     }
-
     public static SimpleDate getDate() {
         return date;
     }
+    public static Boolean getDebug() { return debug; }
 
     public static void main(String[] args) {
+        if (args.length != 0) {
+            for (int i = 0; i < args.length; i++) {
+                switch (args[i]) {
+                    case "nogui":
+                        gui = false;
+                        break;
+                    case "debug":
+                        debug = true;
+                        break;
+                    default:
+                        System.out.println("Not a valid argument. Starting normally...");
+                        millis = System.currentTimeMillis();
+                        while (true) {
+                            if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
+                        }
+                }
+            }
+        }
         start();
         System.out.println("The proper command format is:");
         System.out.println("command item [amount] [arguments]");
