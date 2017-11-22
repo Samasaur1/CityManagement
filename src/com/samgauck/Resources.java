@@ -16,6 +16,7 @@ public class Resources {
     private int uranium;
     private int water;
     private int carbon;
+    private static final int numberOfResources = 10;
     public int getMoney() {
         return money;
     }
@@ -52,6 +53,7 @@ public class Resources {
                 return getFood();
         }
     }
+    public static int getNumberOfResources() { return numberOfResources; }
 
     public void setMoney(int money) {
         this.money = money;
