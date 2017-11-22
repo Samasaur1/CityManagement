@@ -151,13 +151,17 @@ public class Command {
                 return;
             }
 
-            Main.getCity(0).setName(code.get(0));
+            Main.getCity(0).setName(code.get(0)); //No reason this would fail
 
             ArrayList<String> resources = new ArrayList<>();
             ArrayList<Integer> resourceInts = new ArrayList<>();
             resources.addAll(Arrays.asList(code.get(1).split("§")));
             for (int i = 0; i < resources.size(); i++) {
                 resourceInts.add(Integer.parseInt(resources.get(i)));
+            }
+            if (resourceInts.size() != 10 || resources.size() != 10) { //Failure checking for changing the resources
+                System.out.println("Error 1.2.x: Save code not valid");
+                return;
             }
             Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
 
@@ -174,7 +178,14 @@ public class Command {
                 person.clear();
             }
 
-            //TODO:Implement commented out code /| and load the date. Also load prices if implemented @182
+            ArrayList<String> date = new ArrayList<>();
+            date.addAll(Arrays.asList(code.get(3).split("§")));
+            if (date.size() != 3) { //Failure checking for changing the date
+                System.out.println("Error 1.2.x: Save code not valid");
+                return;
+            }
+            Main.getDate().setDate(Integer.parseInt(date.get(0)), Integer.parseInt(date.get(1)), Integer.parseInt(date.get(2)));
+            //TODO:Load prices if implemented @204
         }
     }
     private void save() {
