@@ -28,6 +28,12 @@ public class SimpleDate {
         this.month = new MonthClass(this.numberToMonth(month));
     }
 
+    public void setDate(int month, int dayOfMonth, int year) {
+        this.dayOfMonth = dayOfMonth;
+        this.month = new MonthClass(numberToMonth(month));
+        this.year = year;
+    }
+
     /**
      * Takes an int, 1-12 and converts it to a month. Default is JAN.
      * @param n The number of the month.
