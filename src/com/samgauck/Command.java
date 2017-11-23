@@ -160,7 +160,11 @@ public class Command {
             ArrayList<Integer> resourceInts = new ArrayList<>();
             resources.addAll(Arrays.asList(code.get(1).split("§")));
             for (int i = 0; i < resources.size(); i++) {
-                resourceInts.add(Integer.parseInt(resources.get(i)));
+                try {
+                    resourceInts.add(Integer.parseInt(resources.get(i)));
+                }catch (NumberFormatException e) {
+                    System.out.println("Error 1.2.3: Save code not valid");
+                }
             }
             if (resourceInts.size() != Resources.getNumberOfResources() || resources.size() != Resources.getNumberOfResources()) { //If there is the wrong number of resources
                 System.out.println("Error 1.2.3: Save code not valid");
@@ -181,11 +185,13 @@ public class Command {
                     Integer.parseInt(person.get(2));
                 }catch (NumberFormatException e) {
                     System.out.println("Error 1.2.4.3: Save code not valid");
+                    return;
                 }
                 try {
                     Profession.valueOf(person.get(3).toUpperCase());
                 }catch (Exception e) {
                     System.out.println("Error 1.2.4.4: Save code not valid");
+                    return;
                 }
                 person.clear();
             }
@@ -199,14 +205,18 @@ public class Command {
                 return;
             }
             for (int i = 0; i < date.size(); i++) {
-                dateInts.add(Integer.parseInt(date.get(i)));
+                try {
+                    dateInts.add(Integer.parseInt(date.get(i)));
+                }catch (NumberFormatException e) {
+                    System.out.println("Error 1.2.5: Save code not valid");
+                }
             }
             /*Date checking ends*/
 
             //Set city name. No reason this would fail.
             Main.getCity(0).setName(code.get(0));
 
-            //Sets number of resources. Can fail is they don't pass Integers TODO: try/catch block to confirm that they pass Integers @163
+            //Sets number of resources. Can fail if they don't pass Integers
             Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
 
             //Sets people. Can fail if they mess with the fields
@@ -219,10 +229,10 @@ public class Command {
                 Main.getCity(0).getCitizens().get(i).setSex((person.get(4).equalsIgnoreCase("m")) ? Sex.MALE : Sex.FEMALE); //If incorrect(impossible) = Error 1.2.4.5
                 person.clear();
             }
-            
-            //Sets date. Can fail if they don't pass Integers TODO: try/catch block to ensure that they pass Integers @202
+
+            //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
-            //TODO:Load prices if implemented @242
+            //TODO:Load prices if implemented @252
             System.out.println("Loaded!");
         }
     }
