@@ -44,6 +44,11 @@ public class Main {
                     case "debug":
                         debug = true;
                         break;
+                    case "load":
+                        if (args.length > 1) {
+                            command.execute(args[2]);
+                            break;
+                        }
                     default:
                         System.out.println("Not a valid argument. Starting normally...");
                         millis = System.currentTimeMillis();
@@ -96,6 +101,14 @@ public class Main {
         }
         for (int i = 0; i < 50; i++){
             System.out.println();
+        }
+        System.out.print("Would you like to load a save? (Y/N)");
+        input = s.next();
+        if (input.equalsIgnoreCase("y")) {
+            System.out.println("Enter a save code:");
+            s.nextLine();
+            input = s.nextLine();
+            command.execute(input);
         }
         System.out.print("Please enter a name for your city: ");
         input = s.next();
