@@ -1,6 +1,5 @@
 package com.samgauck;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,6 +8,11 @@ import java.util.Arrays;
  */
 public class Command {
     private static Command command;
+    private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help"));
+    private Economy economy = Economy.getInstance();
+    private ArrayList<String> items = economy.getItems();
+    private Command() {}
+
     /**
      * Gets the Command instance if it exists, otherwise make a new one.
      * @return The one and only Command instance.
@@ -17,9 +21,6 @@ public class Command {
         command = command == null ? new Command() : command;
         return command;
     }
-    private Command() {}
-    private Economy economy = Economy.getInstance();
-    private ArrayList<String> items = economy.getItems();
 
     /**
      * A high-level function that takes a command and call the function that it is trying to do.
@@ -49,6 +50,9 @@ public class Command {
                 break;
             case "save":
                 save();
+                break;
+            case "help":
+                help(words);
                 break;
             default:
                 System.out.println("Error 1.1: Command not recognized");
@@ -232,7 +236,7 @@ public class Command {
 
             //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
-            //TODO:Load prices if implemented @252
+
             System.out.println("Loaded!");
         }
     }
@@ -249,11 +253,34 @@ public class Command {
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
         s.append(Main.getDate().simpleString()).append("•");
-        //TODO: items.forEach() (or other way) of printing out the current prices
+        //TODO: items.forEach() (or other way) of printing out the current prices & LOAD IT
         /*
         s.reverse().deleteCharAt(0).reverse(); //deletes the last "§" form the items.foreach loop
         */
         System.out.println("Your save code is:");
         System.out.println(s.toString());
+    }
+    private void help(ArrayList<String> followingWords) {
+        if (followingWords.size() == 0) {
+            StringBuilder s = new StringBuilder();
+            s.append("A proper command starts with a command word. The list of command words is as follows").append("\n");
+            for (int i = 0; i < commands.size(); i++) {
+                s.append(commands.get(i)).append(", ");
+            }
+            s.reverse().deleteCharAt(0).deleteCharAt(0).reverse().append("\n");
+            s.append("\n");
+            s.append("Buy, sell, construct, and load all require additional arguments").append("\n");
+            s.append("Help can be called with or without arguments").append("\n");
+            s.append("Quit and save ignore arguments").append("\n");
+            s.append("Buy, sell, and construct accept an item (to buy, sell, or construct) and an amount. For example:").append("\n");
+            s.append("buy food 100").append("\n");
+            s.append("will buy 100 food (if you have enough money)").append("\n");
+            s.append("\n");
+            s.append("Buy, specifically, has extra options. You can add a \"d\" flag as an extra argument to let yourself go into debt").append("\n");
+            s.append("Help can be called by itself (as you have), or with a command to learn more about that command").append("\n");
+            s.append("Quit and save can be passed arguments, but they will ignore them completely").append("\n");
+            System.out.println(s.toString());
+            return;
+        }
     }
 }
