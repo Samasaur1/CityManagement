@@ -37,7 +37,7 @@ public class Main {
     public static void print() { print(null); }
     public static void print(@Nullable Object toPrint) {
         if (gui) {
-
+            //TODO: print to GUI
         }else {
             if (toPrint == null) {
                 System.out.println();
