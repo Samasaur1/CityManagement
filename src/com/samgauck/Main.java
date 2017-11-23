@@ -1,6 +1,7 @@
 package com.samgauck;
 
 import com.samgauck.DateManagement.SimpleDate;
+import com.sun.istack.internal.Nullable;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -33,6 +34,18 @@ public class Main {
         return date;
     }
     public static Boolean getDebug() { return debug; }
+    public static void print() { print(null); }
+    public static void print(@Nullable Object toPrint) {
+        if (gui) {
+
+        }else {
+            if (toPrint == null) {
+                System.out.println();
+            }else {
+                System.out.println(toPrint);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         if (args.length != 0) {
@@ -50,7 +63,7 @@ public class Main {
                             break;
                         }
                     default:
-                        System.out.println("Not a valid argument. Starting normally...");
+                        Main.print("Not a valid argument. Starting normally...");
                         millis = System.currentTimeMillis();
                         while (true) {
                             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
@@ -59,14 +72,14 @@ public class Main {
             }
         }
         start();
-        System.out.println("The proper command format is:");
-        System.out.println("command item [amount] [arguments]");
-        System.out.println("For example, to buy 100 food:");
-        System.out.println("buy food 100");
-        System.out.println("Mess with the case however you want, but spelling must be exact");
-        System.out.println("BuY fOoD 100 (okay)");
-        System.out.println("buy fod 100 (incorrect)");
-        System.out.println("buy food 100 (correct/best/great)");
+        Main.print("The proper command format is:");
+        Main.print("command item [amount] [arguments]");
+        Main.print("For example, to buy 100 food:");
+        Main.print("buy food 100");
+        Main.print("Mess with the case however you want, but spelling must be exact");
+        Main.print("BuY fOoD 100 (okay)");
+        Main.print("buy fod 100 (incorrect)");
+        Main.print("buy food 100 (correct/best/great)");
         s.nextLine();
         input = s.nextLine();
         while (looping) {
@@ -77,35 +90,35 @@ public class Main {
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
         for (int i = 0; i < 10; i++){
-            System.out.println();
+            Main.print();
         }
-        System.out.println("Sam Gauck Presents:");
+        Main.print("Sam Gauck Presents:");
         for (int i = 0; i < 3; i++){
-            System.out.println();
+            Main.print();
         }
         millis = System.currentTimeMillis();
         while (true){
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
-            System.out.println();
+            Main.print();
         }
-        System.out.println("CityManagement");
-        System.out.println("Version 1.0");
+        Main.print("CityManagement");
+        Main.print("Version 1.0");
         for (int i = 0; i < 3; i++){
-            System.out.println();
+            Main.print();
         }
         millis = System.currentTimeMillis();
         while (true){
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
-            System.out.println();
+            Main.print();
         }
         System.out.print("Would you like to load a save? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
-            System.out.println("Enter a save code:");
+            Main.print("Enter a save code:");
             s.nextLine();
             input = s.nextLine();
             command.execute(input);
@@ -118,14 +131,14 @@ public class Main {
         System.out.print("Would you like to name your citizens? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
-            System.out.println("What is the man's first name?");
+            Main.print("What is the man's first name?");
             String first = s.next();
-            System.out.println("What is the man's last name?");
+            Main.print("What is the man's last name?");
             String last = s.next();
             cities.get(0).nameCitizen(0, first, last);
-            System.out.println("What is the woman's first name?");
+            Main.print("What is the woman's first name?");
             first = s.next();
-            System.out.println("What is the woman's last name?");
+            Main.print("What is the woman's last name?");
             last = s.next();
             cities.get(0).nameCitizen(1, first, last);
         }else {
