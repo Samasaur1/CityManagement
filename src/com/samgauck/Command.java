@@ -322,6 +322,9 @@ public class Command {
                 default:
                     System.out.println("Error 1.2: Command not recognized");
             }
+            System.out.println(s.toString());
+        }else {
+            System.out.println("Error 1.2: Topic not recognized");
         }
     }
 }
