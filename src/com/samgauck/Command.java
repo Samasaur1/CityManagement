@@ -152,6 +152,9 @@ public class Command {
                 return;
             }
             /*General checking end*/
+            /*Name checking start*/
+            //No checking; anything is accepted
+            /*Name checking end*/
             /*Resource checking start*/
             ArrayList<String> resources = new ArrayList<>();
             ArrayList<Integer> resourceInts = new ArrayList<>();
@@ -160,19 +163,39 @@ public class Command {
                 resourceInts.add(Integer.parseInt(resources.get(i)));
             }
             if (resourceInts.size() != Resources.getNumberOfResources() || resources.size() != Resources.getNumberOfResources()) { //If there is the wrong number of resources
-                System.out.println("Error 1.2.x: Save code not valid");
+                System.out.println("Error 1.2.3: Save code not valid");
                 return;
             }
             /*Resource checking end*/
             /*Person checking starts*/
-            //TODO: Person checking
+            ArrayList<String> people = new ArrayList<>();
+            ArrayList<String> person = new ArrayList<>();
+            people.addAll(Arrays.asList(code.get(2).split("§")));
+            for (int i = 0; i < people.size(); i++) {
+                person.addAll(Arrays.asList(people.get(i).split("‡")));
+                if (person.size() != 5) { //wrong number of fields = 1.2.4
+                    System.out.println("Error 1.2.4: Save code not valid");
+                    return;
+                }
+                try {
+                    Integer.parseInt(person.get(2));
+                }catch (NumberFormatException e) {
+                    System.out.println("Error 1.2.4.3: Save code not valid");
+                }
+                try {
+                    Profession.valueOf(person.get(3).toUpperCase());
+                }catch (Exception e) {
+                    System.out.println("Error 1.2.4.4: Save code not valid");
+                }
+                person.clear();
+            }
             /*Person checking ends*/
             /*Date checking starts*/
             ArrayList<String> date = new ArrayList<>();
             ArrayList<Integer> dateInts = new ArrayList<>();
             date.addAll(Arrays.asList(code.get(3).split("§")));
             if (date.size() != 3) { //Failure checking for changing the date
-                System.out.println("Error 1.2.x: Save code not valid");
+                System.out.println("Error 1.2.5: Save code not valid");
                 return;
             }
             for (int i = 0; i < date.size(); i++) {
@@ -183,30 +206,23 @@ public class Command {
             //Set city name. No reason this would fail.
             Main.getCity(0).setName(code.get(0));
 
-            //Sets number of resources. Can fail is they don't pass Integers TODO: try/catch block to confirm that they pass Integers @160
+            //Sets number of resources. Can fail is they don't pass Integers TODO: try/catch block to confirm that they pass Integers @163
             Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
 
-            ArrayList<String> people = new ArrayList<>();
-            people.addAll(Arrays.asList(code.get(2).split("§")));
-            ArrayList<String> person = new ArrayList<>();
+            //Sets people. Can fail if they mess with the fields
             for (int i = 0; i < people.size(); i++) {
                 person.addAll(Arrays.asList(people.get(i).split("‡")));
-                if (person.size() != 5) {
-                    System.out.println("Error 1.2" + (Main.getDebug() ? ".x:" : ":") + "Save code not valid");
-                    return;
-                }
-                Main.getCity(0).getCitizens().get(i).setFirstName(person.get(0));
-                Main.getCity(0).getCitizens().get(i).setLastName(person.get(1));
-                Main.getCity(0).getCitizens().get(i).setAge(Integer.parseInt(person.get(2)));
-                Main.getCity(0).getCitizens().get(i).setJob(Profession.valueOf(person.get(3).toUpperCase()));
-                Main.getCity(0).getCitizens().get(i).setSex((person.get(4).equalsIgnoreCase("m")) ? Sex.MALE : Sex.FEMALE);
+                Main.getCity(0).getCitizens().get(i).setFirstName(person.get(0)); //If incorrect(impossible) = Error 1.2.4.1
+                Main.getCity(0).getCitizens().get(i).setLastName(person.get(1)); //If incorrect(impossible) = Error 1.2.4.2
+                Main.getCity(0).getCitizens().get(i).setAge(Integer.parseInt(person.get(2))); //If incorrect = Error 1.2.4.3
+                Main.getCity(0).getCitizens().get(i).setJob(Profession.valueOf(person.get(3).toUpperCase())); //If incorrect = Error 1.2.4.4
+                Main.getCity(0).getCitizens().get(i).setSex((person.get(4).equalsIgnoreCase("m")) ? Sex.MALE : Sex.FEMALE); //If incorrect(impossible) = Error 1.2.4.5
                 person.clear();
             }
-
-
-            //Sets date. Can fail if they don't pass Integers TODO: try/catch block to ensure that they pass Integers @179
+            
+            //Sets date. Can fail if they don't pass Integers TODO: try/catch block to ensure that they pass Integers @202
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
-            //TODO:Load prices if implemented @225
+            //TODO:Load prices if implemented @242
             System.out.println("Loaded!");
         }
     }
