@@ -281,6 +281,47 @@ public class Command {
             s.append("Quit and save can be passed arguments, but they will ignore them completely").append("\n");
             System.out.println(s.toString());
             return;
+        }else if (followingWords.size() == 1 && commands.contains(followingWords.get(0))) {
+            StringBuilder s = new StringBuilder();
+            switch (followingWords.get(0)) {
+                case "buy":
+                    s.append("The 'buy' command is how you buy resources. Usage is \"buy [item] [amount] [arguments]\". For example:").append("\n");
+                    s.append("buy food 100").append("\n");
+                    s.append("The [item] and [amount] fields are necessary, but the [arguments] are optional").append("\n");
+                    s.append("\n");
+                    s.append("Possible arguments are:").append("\n");
+                    s.append("d, which allows you to go into debt").append("\n");
+                    s.append("\n");
+                    break;
+                case "sell":
+                    s.append("The 'sell' command is how you sell resources. Usage is \"sell [item] [amount]\". For example:").append("\n");
+                    s.append("sell food 100").append("\n");
+                    s.append("Both the [item] and [amount] fields are necessary").append("\n");
+                    break;
+                case "construct":
+                    //TODO
+                    break;
+                case "quit":
+                    s.append("The 'quit' command quits the game. It does not ask you if you are sure, and it will not save").append("\n");
+                    s.append("There are no other arguments. Usage:").append("\n");
+                    s.append("quit").append("\n");
+                    break;
+                case "load":
+                    s.append("The 'load' command loads a save code. The save code is the only argument. Usage:").append("\n");
+                    s.append("load ").append("\n");
+                    break;
+                case "save":
+                    s.append("The 'save' command shows a save code. It accepts no arguments. Usage:").append("\n");
+                    s.append("save").append("\n");
+                    break;
+                case "help":
+                    s.append("The help command helps you out. If invoked with no arguments, it shows general help").append("\n");
+                    s.append("If called with an argument, the usage should be \"help [command]\". For example:").append("\n");
+                    s.append("help buy").append("\n"); //Add second level of help? such as "help buy [arguments]"
+                    break;
+                default:
+                    System.out.println("Error 1.2: Command not recognized");
+            }
         }
     }
 }

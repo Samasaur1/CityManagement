@@ -35,8 +35,8 @@
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/samgauck/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="270" column="27" lean-forward="false" selection-start-line="270" selection-start-column="27" selection-end-line="270" selection-end-column="27" />
+            <state relative-caret-position="4785">
+              <caret line="319" column="112" lean-forward="false" selection-start-line="319" selection-start-column="112" selection-end-line="319" selection-end-column="112" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -720,8 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/samgauck/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="270" column="27" lean-forward="false" selection-start-line="270" selection-start-column="27" selection-end-line="270" selection-end-column="27" />
+        <state relative-caret-position="4785">
+          <caret line="319" column="112" lean-forward="false" selection-start-line="319" selection-start-column="112" selection-end-line="319" selection-end-column="112" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
