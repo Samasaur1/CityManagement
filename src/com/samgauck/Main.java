@@ -4,6 +4,7 @@ import com.samgauck.DateManagement.SimpleDate;
 import com.sun.istack.internal.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -42,15 +43,16 @@ public class Main {
             if (toPrint == null) {
                 System.out.println();
             }else {
-                System.out.println(toPrint);
+                System.out.println(toPrint.toString());
             }
         }
     }
 
     public static void main(String[] args) {
-        if (args.length != 0) {
-            for (int i = 0; i < args.length; i++) {
-                switch (args[i]) {
+        ArrayList<String> arguments = new ArrayList<>(Arrays.asList(args));
+        if (arguments.size() != 0) {
+            for (int i = 0; i < arguments.size(); i++) {
+                switch (arguments.get(i)) {
                     case "nogui":
                         gui = false;
                         break;
@@ -58,8 +60,9 @@ public class Main {
                         debug = true;
                         break;
                     case "load":
-                        if (args.length > 1) {
-                            command.execute(args[2]);
+                        if (arguments.size() > 1) {
+                            command.execute("Load " + arguments.get(i+1));
+                            arguments.remove(i+1);
                             break;
                         }
                     default:
