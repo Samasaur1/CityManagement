@@ -55,7 +55,7 @@ public class Command {
                 help(words);
                 break;
             default:
-                Main.print("Error 1.1: Command not recognized");
+                System.out.println("Error 1.1: Command not recognized");
                 return;
         }
     }
@@ -65,33 +65,33 @@ public class Command {
      * @param followingWords The user's command, minus the word "buy".
      */
     private void buy(ArrayList<String> followingWords) {
-        Main.print("");
+        System.out.println("");
         if (followingWords.size() == 0) {
-            Main.print("Error 1.2.1: No item to buy");
+            System.out.println("Error 1.2.1: No item to buy");
             return;
         }
         if (!items.contains(followingWords.get(0))) {
-            Main.print("Error 1.2.2: Item not recognized");
+            System.out.println("Error 1.2.2: Item not recognized");
             return;
         }
         if (followingWords.get(1).matches("\\D+")) {
-            Main.print("Error 1.3: Not a valid amount");
+            System.out.println("Error 1.3: Not a valid amount");
             return;
         }
         String item = followingWords.get(0);
         int amount = Integer.parseInt(followingWords.get(1));
         if ((Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount)) < 0) {
             if (followingWords.size() <= 3 || followingWords.get(2).contains("d")) {
-                Main.print("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
-                Main.print("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
-                Main.print("Transaction not completed");
+                System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
+                System.out.println("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
+                System.out.println("Transaction not completed");
                 return;
             }
         }
         Main.getCity(0).resources.setMoney(Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount));
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) + amount);
-        Main.print("Transaction completed");
-        Main.print(Main.getCity(0).resources.toString());
+        System.out.println("Transaction completed");
+        System.out.println(Main.getCity(0).resources.toString());
     }
 
     /**
@@ -99,31 +99,31 @@ public class Command {
      * @param followingWords The user's command, minus the word "sell".
      */
     private void sell(ArrayList<String> followingWords) {
-        Main.print("");
+        System.out.println("");
         if (followingWords.size() == 0) {
-            Main.print("Error 1.2.1: No item to sell");
+            System.out.println("Error 1.2.1: No item to sell");
             return;
         }
         if (!items.contains(followingWords.get(0))) {
-            Main.print("Error 1.2.2: Item not recognized");
+            System.out.println("Error 1.2.2: Item not recognized");
             return;
         }
         if (followingWords.get(1).matches("\\D+")) {
-            Main.print("Error 1.3: Not a valid amount");
+            System.out.println("Error 1.3: Not a valid amount");
             return;
         }
         String item = followingWords.get(0);
         int amount = Integer.parseInt(followingWords.get(1));
         if ((Main.getCity(0).resources.getItem(item) - amount) < 0) {
-            Main.print("You don't have enough " + item);
-            Main.print("The most you could sell is " + Main.getCity(0).resources.getItem(item));
-            Main.print("Transaction not completed");
+            System.out.println("You don't have enough " + item);
+            System.out.println("The most you could sell is " + Main.getCity(0).resources.getItem(item));
+            System.out.println("Transaction not completed");
             return;
         }
         Main.getCity(0).resources.setMoney(Main.getCity(0).resources.getMoney() + (economy.getPrice(item) * amount));
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) - amount);
-        Main.print("Transaction completed");
-        Main.print(Main.getCity(0).resources.toString());
+        System.out.println("Transaction completed");
+        System.out.println(Main.getCity(0).resources.toString());
     }
 
     /**
@@ -139,20 +139,20 @@ public class Command {
      */
     private void quit() {
         Main.setLooping(false);
-        Main.print("Thanks for playing!");
+        System.out.println("Thanks for playing!");
         System.exit(0);
     }
     private void load(ArrayList<String> followingWords) {
         if (followingWords.size() <= 0) {
-            Main.print("Error 1.2: No save code given.");
+            System.out.println("Error 1.2: No save code given.");
         }else if (followingWords.size() > 1){
-            Main.print("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
+            System.out.println("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
         }else {
             /* General checking start*/
             ArrayList<String> code = new ArrayList<>();
             code.addAll(Arrays.asList(followingWords.get(0).split("•")));
             if (code.size() != 4) {
-                Main.print("Error 1.2.1: Save code not valid");
+                System.out.println("Error 1.2.1: Save code not valid");
                 return;
             }
             /*General checking end*/
@@ -167,11 +167,11 @@ public class Command {
                 try {
                     resourceInts.add(Integer.parseInt(resources.get(i)));
                 }catch (NumberFormatException e) {
-                    Main.print("Error 1.2.3: Save code not valid");
+                    System.out.println("Error 1.2.3: Save code not valid");
                 }
             }
             if (resourceInts.size() != Resources.getNumberOfResources() || resources.size() != Resources.getNumberOfResources()) { //If there is the wrong number of resources
-                Main.print("Error 1.2.3: Save code not valid");
+                System.out.println("Error 1.2.3: Save code not valid");
                 return;
             }
             /*Resource checking end*/
@@ -182,19 +182,19 @@ public class Command {
             for (int i = 0; i < people.size(); i++) {
                 person.addAll(Arrays.asList(people.get(i).split("‡")));
                 if (person.size() != 5) { //wrong number of fields = 1.2.4
-                    Main.print("Error 1.2.4: Save code not valid");
+                    System.out.println("Error 1.2.4: Save code not valid");
                     return;
                 }
                 try {
                     Integer.parseInt(person.get(2));
                 }catch (NumberFormatException e) {
-                    Main.print("Error 1.2.4.3: Save code not valid");
+                    System.out.println("Error 1.2.4.3: Save code not valid");
                     return;
                 }
                 try {
                     Profession.valueOf(person.get(3).toUpperCase());
                 }catch (Exception e) {
-                    Main.print("Error 1.2.4.4: Save code not valid");
+                    System.out.println("Error 1.2.4.4: Save code not valid");
                     return;
                 }
                 person.clear();
@@ -205,14 +205,14 @@ public class Command {
             ArrayList<Integer> dateInts = new ArrayList<>();
             date.addAll(Arrays.asList(code.get(3).split("§")));
             if (date.size() != 3) { //Failure checking for changing the date
-                Main.print("Error 1.2.5: Save code not valid");
+                System.out.println("Error 1.2.5: Save code not valid");
                 return;
             }
             for (int i = 0; i < date.size(); i++) {
                 try {
                     dateInts.add(Integer.parseInt(date.get(i)));
                 }catch (NumberFormatException e) {
-                    Main.print("Error 1.2.5: Save code not valid");
+                    System.out.println("Error 1.2.5: Save code not valid");
                 }
             }
             /*Date checking ends*/
@@ -237,7 +237,7 @@ public class Command {
             //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
 
-            Main.print("Loaded!");
+            System.out.println("Loaded!");
         }
     }
     private void save() {
@@ -257,8 +257,8 @@ public class Command {
         /*
         s.reverse().deleteCharAt(0).reverse(); //deletes the last "§" form the items.foreach loop
         */
-        Main.print("Your save code is:");
-        Main.print(s.toString());
+        System.out.println("Your save code is:");
+        System.out.println(s.toString());
     }
     private void help(ArrayList<String> followingWords) {
         if (followingWords.size() == 0) {
@@ -279,7 +279,7 @@ public class Command {
             s.append("Buy, specifically, has extra options. You can add a \"d\" flag as an extra argument to let yourself go into debt").append("\n");
             s.append("Help can be called by itself (as you have), or with a command to learn more about that command").append("\n");
             s.append("Quit and save can be passed arguments, but they will ignore them completely").append("\n");
-            Main.print(s.toString());
+            System.out.println(s.toString());
             return;
         }else if (followingWords.size() == 1 && commands.contains(followingWords.get(0))) {
             StringBuilder s = new StringBuilder();
@@ -320,11 +320,11 @@ public class Command {
                     s.append("help buy").append("\n"); //Add second level of help? such as "help buy [arguments]"
                     break;
                 default:
-                    Main.print("Error 1.2: Command not recognized");
+                    System.out.println("Error 1.2: Command not recognized");
             }
-            Main.print(s.toString());
+            System.out.println(s.toString());
         }else {
-            Main.print("Error 1.2: Topic not recognized");
+            System.out.println("Error 1.2: Topic not recognized");
         }
     }
 }

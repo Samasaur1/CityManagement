@@ -18,7 +18,6 @@ public class Main {
     public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
     private static Command command = Command.getInstance();
     private static Boolean looping = true;
-    private static Boolean gui = true;
     private static Boolean debug = false;
     public static Boolean getLooping() { return looping; }
     public static void setLooping(Boolean looping) { Main.looping = looping; }
@@ -35,27 +34,12 @@ public class Main {
         return date;
     }
     public static Boolean getDebug() { return debug; }
-    public static void print() { print(null); }
-    public static void print(@Nullable Object toPrint) {
-        if (gui) {
-            //TODO: print to GUI
-        }else {
-            if (toPrint == null) {
-                System.out.println();
-            }else {
-                System.out.println(toPrint.toString());
-            }
-        }
-    }
 
     public static void main(String[] args) {
         ArrayList<String> arguments = new ArrayList<>(Arrays.asList(args));
         if (arguments.size() != 0) {
             for (int i = 0; i < arguments.size(); i++) {
                 switch (arguments.get(i)) {
-                    case "nogui":
-                        gui = false;
-                        break;
                     case "debug":
                         debug = true;
                         break;
@@ -66,7 +50,7 @@ public class Main {
                             break;
                         }
                     default:
-                        Main.print("Not a valid argument. Starting normally...");
+                        System.out.println("Not a valid argument. Starting normally...");
                         millis = System.currentTimeMillis();
                         while (true) {
                             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
@@ -75,14 +59,14 @@ public class Main {
             }
         }
         start();
-        Main.print("The proper command format is:");
-        Main.print("command item [amount] [arguments]");
-        Main.print("For example, to buy 100 food:");
-        Main.print("buy food 100");
-        Main.print("Mess with the case however you want, but spelling must be exact");
-        Main.print("BuY fOoD 100 (okay)");
-        Main.print("buy fod 100 (incorrect)");
-        Main.print("buy food 100 (correct/best/great)");
+        System.out.println("The proper command format is:");
+        System.out.println("command item [amount] [arguments]");
+        System.out.println("For example, to buy 100 food:");
+        System.out.println("buy food 100");
+        System.out.println("Mess with the case however you want, but spelling must be exact");
+        System.out.println("BuY fOoD 100 (okay)");
+        System.out.println("buy fod 100 (incorrect)");
+        System.out.println("buy food 100 (correct/best/great)");
         s.nextLine();
         input = s.nextLine();
         while (looping) {
@@ -93,35 +77,35 @@ public class Main {
     private static void start() {
         date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
         for (int i = 0; i < 10; i++){
-            Main.print();
+            System.out.println();
         }
-        Main.print("Sam Gauck Presents:");
+        System.out.println("Sam Gauck Presents:");
         for (int i = 0; i < 3; i++){
-            Main.print();
+            System.out.println();
         }
         millis = System.currentTimeMillis();
         while (true){
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
-            Main.print();
+            System.out.println();
         }
-        Main.print("CityManagement");
-        Main.print("Version 1.0");
+        System.out.println("CityManagement");
+        System.out.println("Version 1.0");
         for (int i = 0; i < 3; i++){
-            Main.print();
+            System.out.println();
         }
         millis = System.currentTimeMillis();
         while (true){
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
         for (int i = 0; i < 50; i++){
-            Main.print();
+            System.out.println();
         }
         System.out.print("Would you like to load a save? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
-            Main.print("Enter a save code:");
+            System.out.println("Enter a save code:");
             s.nextLine();
             input = s.nextLine();
             command.execute(input);
@@ -134,14 +118,14 @@ public class Main {
         System.out.print("Would you like to name your citizens? (Y/N)");
         input = s.next();
         if (input.equalsIgnoreCase("y")) {
-            Main.print("What is the man's first name?");
+            System.out.println("What is the man's first name?");
             String first = s.next();
-            Main.print("What is the man's last name?");
+            System.out.println("What is the man's last name?");
             String last = s.next();
             cities.get(0).nameCitizen(0, first, last);
-            Main.print("What is the woman's first name?");
+            System.out.println("What is the woman's first name?");
             first = s.next();
-            Main.print("What is the woman's last name?");
+            System.out.println("What is the woman's last name?");
             last = s.next();
             cities.get(0).nameCitizen(1, first, last);
         }else {
