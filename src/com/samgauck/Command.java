@@ -54,6 +54,9 @@ public class Command {
             case "help":
                 help(words);
                 break;
+            case "status":
+                status(words);
+                break;
             default:
                 System.out.println("Error 1.1: Command not recognized");
                 return;
@@ -108,8 +111,12 @@ public class Command {
             System.out.println("Error 1.2.2: Item not recognized");
             return;
         }
+        if (followingWords.size() == 1) {
+            System.out.println("Error 1.3.1: No amount given");
+            return;
+        }
         if (followingWords.get(1).matches("\\D+")) {
-            System.out.println("Error 1.3: Not a valid amount");
+            System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
         String item = followingWords.get(0);
@@ -326,5 +333,8 @@ public class Command {
         }else {
             System.out.println("Error 1.2: Topic not recognized");
         }
+    }
+    private void status(ArrayList<String> followingWords) {
+        System.out.println(Main.getCity(0).resources.toString());
     }
 }
