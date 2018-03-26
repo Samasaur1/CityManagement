@@ -1,7 +1,6 @@
 package com.samgauck;
 
 import com.samgauck.DateManagement.SimpleDate;
-import com.sun.istack.internal.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
