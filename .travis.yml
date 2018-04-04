@@ -2,7 +2,4 @@
   "sudo": false,
   "language": "java",
   "jdk": "oraclejdk8",
-  "os": "linux",
-  "group": "stable",
-  "dist": "trusty"
 }
