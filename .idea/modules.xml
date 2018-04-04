@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMGradle.iml" filepath="$PROJECT_DIR$/.idea/modules/CMGradle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMGradle_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CMGradle_main.iml" group="CMGradle" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMGradle_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CMGradle_test.iml" group="CMGradle" />
       <module fileurl="file://$PROJECT_DIR$/CityManagement.iml" filepath="$PROJECT_DIR$/CityManagement.iml" />
     </modules>
   </component>
