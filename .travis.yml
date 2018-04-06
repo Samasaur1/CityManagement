@@ -2,5 +2,5 @@
   "sudo": false,
   "language": "java",
   "jdk": "oraclejdk8",
-  "script": "Java src/com/samgauck/Utilities.java && javac src/com/samgauck/DateManagement/*.java && javac src/com/samgauck/*.java"
+  "script": "javac src/com/samgauck/Utilities.java && javac src/com/samgauck/DateManagement/*.java && javac src/com/samgauck/*.java"
 }
