@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="" />
+    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/CMGradle/.gradle/" />
     <ignored path="$PROJECT_DIR$/CMGradle/build/" />
@@ -251,12 +253,12 @@
       <updated>1510602619770</updated>
       <workItem from="1522973590019" duration="265000" />
       <workItem from="1522973966670" duration="21000" />
-      <workItem from="1522974302089" duration="728000" />
+      <workItem from="1522974302089" duration="1203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1014000" />
+    <option name="totallyTimeSpent" value="1489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
