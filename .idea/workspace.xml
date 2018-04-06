@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-    </list>
+    <list default="true" id="e3540f6c-83fc-4176-803b-091996a142ea" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/CMGradle/.gradle/" />
     <ignored path="$PROJECT_DIR$/CMGradle/build/" />
@@ -253,12 +251,12 @@
       <updated>1510602619770</updated>
       <workItem from="1522973590019" duration="265000" />
       <workItem from="1522973966670" duration="21000" />
-      <workItem from="1522974302089" duration="1203000" />
+      <workItem from="1522974302089" duration="1417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1489000" />
+    <option name="totallyTimeSpent" value="1703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -271,7 +269,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="41" width="1400" height="838" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3287483" />
