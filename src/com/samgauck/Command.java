@@ -1,5 +1,6 @@
 package com.samgauck;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,7 +9,7 @@ import java.util.Arrays;
  */
 public class Command {
     private static Command command;
-    private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help"));
+    private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
     private Economy economy = Economy.getInstance();
     private ArrayList<String> items = economy.getItems();
     private Command() {}
@@ -335,6 +336,41 @@ public class Command {
         }
     }
     private void status(ArrayList<String> followingWords) {
-        System.out.println(Main.getCity(0).resources.toString());
+        if (followingWords.size() == 0) {
+            System.out.println(Main.getCity(0).resources.toString());
+            return;
+        }
+        switch (followingWords.get(0).toLowerCase()) {
+            case "buy":
+                System.out.println("");
+                break;
+            case "sell":
+                break;
+            case "construct":
+                break;
+            case "quit":
+                break;
+            case "load":
+                break;
+            case "save":
+                break;
+            case "help":
+                break;
+            case "status":
+                break;
+            case "money":
+                NumberFormat n = NumberFormat.getCurrencyInstance();
+                System.out.println("You have " + Main.getCity(0).resources.getFormattedMoney());
+                break;
+            case "food":
+                System.out.println("You have " + Main.getCity(0).resources.getFood() + " food");
+                break;
+            default:
+                System.out.println("Error 1.9.1: Topic not recognized");
+                System.out.println();
+                System.out.println("Defaulting to generic 'status' command...");
+                System.out.println();
+                System.out.println(Main.getCity(0).resources.toString());
+        }
     }
 }

@@ -20,6 +20,9 @@ public class Resources {
     public int getMoney() {
         return money;
     }
+    public String getFormattedMoney() {
+        return NumberFormat.getCurrencyInstance().format(getMoney());
+    }
     public int getFood() { return food; }
     public int getStone() { return stone; }
     public int getIron() { return iron; }
