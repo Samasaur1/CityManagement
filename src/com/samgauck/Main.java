@@ -119,7 +119,7 @@ public class Main {
         if (input.equalsIgnoreCase("y")) {
             System.out.println("What is the man's first name?");
             String first = s.next();
-            System.out.println("What is the man's last name?");
+            System.out.println("What is the man's last name?"
             String last = s.next();
             cities.get(0).nameCitizen(0, first, last);
             System.out.println("What is the woman's first name?");
