@@ -85,7 +85,7 @@ public class Command {
         String item = followingWords.get(0);
         int amount = Integer.parseInt(followingWords.get(1));
         if ((Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount)) < 0) {
-            if (followingWords.size() <= 3 || followingWords.get(2).contains("d")) {
+            if (followingWords.size() <= 3 || !followingWords.get(2).contains("d")) {
                 System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
                 System.out.println("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
                 System.out.println("Transaction not completed");
