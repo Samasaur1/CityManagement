@@ -342,7 +342,10 @@ public class Command {
         }
         switch (followingWords.get(0).toLowerCase()) {
             case "buy":
-                System.out.println("");
+                System.out.println("The most you could buy of every item, without going into debt, is:");
+                for (String item: economy.getItems()) {
+                    System.out.println((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) + " " + item + ", for " + NumberFormat.getCurrencyInstance().format((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) * economy.getPrice(item)));
+                }
                 break;
             case "sell":
                 break;
