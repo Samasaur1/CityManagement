@@ -363,7 +363,15 @@ public class Command {
                 System.out.println("You have " + Main.getCity(0).resources.getFormattedMoney());
                 break;
             case "food":
-                System.out.println("You have " + Main.getCity(0).resources.getFood() + " food");
+            case "stone":
+            case "iron":
+            case "steel":
+            case "oil":
+            case "coal":
+            case "uranium":
+            case "water":
+            case "carbon":
+                System.out.println("You have " + Main.getCity(0).resources.getItem(followingWords.get(0).toLowerCase()) + " " + followingWords.get(0).toLowerCase());
                 break;
             default:
                 System.out.println("Error 1.9.1: Topic not recognized");
