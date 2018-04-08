@@ -72,6 +72,11 @@ public class Main {
             command.execute(input);
             System.out.println(Main.getDate().toString());
             Main.getDate().proceedOneDay();
+            for (Person p: getCity(0).getCitizens()) {
+                if (p.isBirthday()) {
+                    p.handleBirthday();
+                }
+            }
             input = s.nextLine();
         }
     }

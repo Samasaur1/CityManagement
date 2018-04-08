@@ -10,6 +10,12 @@ public class Person {
     public int getAge() {
         return age;
     }
+    public static int getWorkingAge() {
+        return workingAge;
+    }
+    public static int getMatingAge() {
+        return matingAge;
+    }
     public Profession getJob() {
         return job;
     }
@@ -21,7 +27,7 @@ public class Person {
     }
     public Sex getSex() { return sex; }
     public String getName() {
-        if ((this.getFirstName() == "Adam" || this.getFirstName() ==  "Eve") && this.getLastName() == "") {
+        if ((this.getFirstName().equals("Adam") || this.getFirstName().equals("Eve")) && this.getLastName().isEmpty()) {
             return this.getFirstName();
         }else {
             return this.getFirstName() + " " + this.getLastName(); //combines firstName and lastName
@@ -30,6 +36,21 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+        if (getAge() > getMatingAge()) {
+            this.canMate = true;
+        }
+        if (getAge() > getWorkingAge()) {
+            this.canWork = true;
+        }
+    }
+    private void incrementAge() {
+        setAge(getAge() + 1);
+    }
+    public static void setWorkingAge(int newAge) {
+        workingAge = newAge;
+    }
+    public static void setMatingAge(int newAge) {
+        matingAge = newAge;
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -42,33 +63,37 @@ public class Person {
     }
     public void setSex(Sex sex) { this.sex = sex; }
 
-    /**
-     * Sets the name variable to the first name plus the last name, unless there is no last name, in which case it is only the first name.
-     */
-    private void updateName() {
-    }
-
     private String firstName;
     private String lastName;
     private int age;
+    private static int workingAge;
+    private static int matingAge;
     private Profession job;
+    private Boolean canWork;
+    private Boolean canMate;
     private SimpleDate birthday;
+    public SimpleDate getBirthday() {
+        return birthday;
+    }
+    public Boolean isBirthday() {
+        return ((getBirthday().getMonth() == Main.getDate().getMonth()) && getBirthday().getDayOfMonth() == Main.getDate().getDayOfMonth());
+    }
+    public void handleBirthday() {
+        System.out.println("It's " + getName() + "'s birthday!");
+        incrementAge();
+        System.out.println("They are now " + getAge() + " years old");
+    }
     private Sex sex;
     public Person() { //when born, sets age to 0 and birthday to the current date and sex to either male or female
-        this.setAge(0);
-        this.birthday = Main.getDate();
-        this.setJob(Profession.JOBLESS);
-        if (Math.random() * 2 > 1) {
-            this.sex = Sex.MALE;
-        }else {
-            this.sex = Sex.FEMALE;
-        }
+        this(Math.random() * 2 > 1 ? Sex.MALE : Sex.FEMALE);
     }
     public Person(Sex sex) {
         this.setAge(0);
         this.birthday = Main.getDate();
         this.setJob(Profession.JOBLESS);
         this.sex = sex;
+        this.canWork = false;
+        this.canMate = false;
     }
 
     /**
