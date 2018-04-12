@@ -1,6 +1,0 @@
-{
-  "sudo": false,
-  "language": "java",
-  "jdk": "oraclejdk8",
-  "script": "mkdir build && cp src/com/samgauck/*.java build/ && cp src/com/samgauck/DateManagement/*.java build/ && javac build/*.java && rm build/*.java && rm build/*\$1.class && ls build"
-}
