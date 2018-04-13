@@ -1,3 +1,7 @@
+package com.samgauck.CityManagement;
+
+import com.samgauck.CityManagement.DateManagement.SimpleDate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;

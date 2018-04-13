@@ -1,3 +1,5 @@
+package com.samgauck.CityManagement;
+
 /**
  * A enum that represents a job (profession).
  */

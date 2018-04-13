@@ -1,3 +1,5 @@
+package com.samgauck.CityManagement;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +69,7 @@ public class Command {
      * @param followingWords The user's command, minus the word "buy".
      */
     private void buy(ArrayList<String> followingWords) {
-        System.out.println("");
+        System.out.println();
         if (followingWords.size() == 0) {
             System.out.println("Error 1.2.1: No item to buy");
             return;
@@ -101,7 +103,7 @@ public class Command {
      * @param followingWords The user's command, minus the word "sell".
      */
     private void sell(ArrayList<String> followingWords) {
-        System.out.println("");
+        System.out.println();
         if (followingWords.size() == 0) {
             System.out.println("Error 1.2.1: No item to sell");
             return;

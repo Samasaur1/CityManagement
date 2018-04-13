@@ -1,3 +1,5 @@
+package com.samgauck.CityManagement;
+
 /**
  * A enum representation of a sex (not a gender).
  */

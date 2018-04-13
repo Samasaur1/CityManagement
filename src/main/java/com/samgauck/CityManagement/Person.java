@@ -1,3 +1,7 @@
+package com.samgauck.CityManagement;
+
+import com.samgauck.CityManagement.DateManagement.SimpleDate;
+
 /**
  * Person represents a person with an age, name, job, and birthday.
  */

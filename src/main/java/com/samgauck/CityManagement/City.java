@@ -1,3 +1,5 @@
+package com.samgauck.CityManagement;
+
 import java.util.ArrayList;
 
 public class City {

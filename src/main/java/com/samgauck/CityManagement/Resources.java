@@ -1,3 +1,5 @@
+package com.samgauck.CityManagement;
+
 import java.text.NumberFormat;
 
 /**

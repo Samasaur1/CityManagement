@@ -1,4 +1,6 @@
-import com.samgauck.Utilities;
+package com.samgauck.CityManagement.DateManagement;
+
+import com.samgauck.CityManagement.Utilities;
 
 /**
  * A three-letter enum representation of a month.
