@@ -2,5 +2,5 @@
   "sudo": false,
   "language": "java",
   "jdk": "oraclejdk8",
-  "script": "gradle build && ls build/classes/java/main/com/samgauck/CityManagement/ && ls build/classes/java/main/com/samgauck/CityManagement/DateManagement"
+  "script": "gradle build"
 }
