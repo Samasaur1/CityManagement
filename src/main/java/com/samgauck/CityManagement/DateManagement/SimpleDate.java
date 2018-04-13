@@ -1,5 +1,7 @@
 package com.samgauck.CityManagement.DateManagement;
 
+import static com.samgauck.CityManagement.DateManagement.Month.*;
+
 /**
  * SimpleDate holds a day, month and year. Day and year are ints, while the month is a MonthClass.
  */
@@ -40,31 +42,31 @@ public class SimpleDate {
     private Month numberToMonth(int n) {
         switch (n) {
             case 1:
-                return Month.JAN;
+                return JAN;
             case 2:
-                return Month.FEB;
+                return FEB;
             case 3:
-                return Month.MAR;
+                return MAR;
             case 4:
-                return Month.APR;
+                return APR;
             case 5:
-                return Month.MAY;
+                return MAY;
             case 6:
-                return Month.JUN;
+                return JUN;
             case 7:
-                return Month.JUL;
+                return JUL;
             case 8:
-                return Month.AUG;
+                return AUG;
             case 9:
-                return Month.SEP;
+                return SEP;
             case 10:
-                return Month.OCT;
+                return OCT;
             case 11:
-                return Month.NOV;
+                return NOV;
             case 12:
-                return Month.DEC;
+                return DEC;
             default:
-                return Month.JAN;
+                return JAN;
         }
     }
 
