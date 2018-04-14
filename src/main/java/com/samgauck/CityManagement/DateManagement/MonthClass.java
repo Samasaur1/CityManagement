@@ -8,7 +8,7 @@ public class MonthClass {
     private int numberOfDays;
     public MonthClass(Month m) {
         setMonth(m);
-        numberOfDays = this.getNumberOfDays(m);
+        numberOfDays = getNumberOfDays(m);
     }
 
     /**
@@ -16,7 +16,7 @@ public class MonthClass {
      * @param m The month whose number of days you want.
      * @return An int that is the number of days in the month.
      */
-    private int getNumberOfDays(Month m) {
+    private static int getNumberOfDays(Month m) {
         switch (m) {
             case JAN:
                 return 31;

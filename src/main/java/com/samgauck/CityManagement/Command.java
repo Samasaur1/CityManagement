@@ -85,7 +85,7 @@ public class Command {
         String item = followingWords.get(0);
         int amount = Integer.parseInt(followingWords.get(1));
         if ((Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount)) < 0) {
-            if (followingWords.size() <= 3 || followingWords.get(2).contains("d")) {
+            if (followingWords.size() <= 3 || !followingWords.get(2).contains("d")) {
                 System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
                 System.out.println("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
                 System.out.println("Transaction not completed");
@@ -342,7 +342,10 @@ public class Command {
         }
         switch (followingWords.get(0).toLowerCase()) {
             case "buy":
-                System.out.println("");
+                System.out.println("The most you could buy of every item, without going into debt, is:");
+                for (String item: economy.getItems()) {
+                    System.out.println((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) + " " + item + ", for " + NumberFormat.getCurrencyInstance().format((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) * economy.getPrice(item)));
+                }
                 break;
             case "sell":
                 break;
@@ -363,7 +366,15 @@ public class Command {
                 System.out.println("You have " + Main.getCity(0).resources.getFormattedMoney());
                 break;
             case "food":
-                System.out.println("You have " + Main.getCity(0).resources.getFood() + " food");
+            case "stone":
+            case "iron":
+            case "steel":
+            case "oil":
+            case "coal":
+            case "uranium":
+            case "water":
+            case "carbon":
+                System.out.println("You have " + Main.getCity(0).resources.getItem(followingWords.get(0).toLowerCase()) + " " + followingWords.get(0).toLowerCase());
                 break;
             default:
                 System.out.println("Error 1.9.1: Topic not recognized");

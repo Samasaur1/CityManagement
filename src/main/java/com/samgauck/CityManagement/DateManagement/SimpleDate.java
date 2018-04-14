@@ -25,7 +25,7 @@ public class SimpleDate {
     public SimpleDate(int month, int day, int year){
         this.dayOfMonth = day;
         this.year = year;
-        this.month = new MonthClass(this.numberToMonth(month));
+        this.month = new MonthClass(numberToMonth(month));
     }
 
     public void setDate(int month, int dayOfMonth, int year) {
@@ -39,7 +39,7 @@ public class SimpleDate {
      * @param n The number of the month.
      * @return The month represented by the number.
      */
-    private Month numberToMonth(int n) {
+    private static Month numberToMonth(int n) {
         switch (n) {
             case 1:
                 return JAN;
@@ -75,7 +75,7 @@ public class SimpleDate {
      * @param m The month.
      * @return The number of the month.
      */
-    private int monthToNumber(Month m) {
+    private static int monthToNumber(Month m) {
         switch (m) {
             case JAN:
                 return 1;
@@ -111,13 +111,24 @@ public class SimpleDate {
      * @param old The original date.
      * @return A new date one day later.
      */
-    public SimpleDate nextDay(SimpleDate old) {
+    public static SimpleDate nextDay(SimpleDate old) {
         old.dayOfMonth += 1;
-        if (old.dayOfMonth > old.month.getNumberOfDays()) {
+        if (old.getDayOfMonth() > old.month.getNumberOfDays()) {
             old.dayOfMonth = 1;
-            old.month.setMonth(this.numberToMonth(old.monthToNumber(old.month.getMonth()) + 1));
+            int newMonth = monthToNumber(old.getMonth()) + 1;
+            int newYear = old.getYear();
+            while (newMonth > 12) {
+                newMonth -= 12;
+                newYear += 1;
+            }
+            old.setDate(newMonth, old.getDayOfMonth(), newYear);
         }
         return old;
+    }
+
+    public void proceedOneDay() {
+        SimpleDate newDate = nextDay(this);
+        this.setDate(monthToNumber(newDate.getMonth()), newDate.getDayOfMonth(), newDate.getYear());
     }
 
     /**

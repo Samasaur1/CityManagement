@@ -65,11 +65,18 @@ public class Main {
         System.out.println("Mess with the case however you want, but spelling must be exact");
         System.out.println("BuY fOoD 100 (okay)");
         System.out.println("buy fod 100 (incorrect)");
-        System.out.println("buy food 100 (correct/best/great)");
+        System.out.println("buy food 100 (recommended)");
         s.nextLine();
         input = s.nextLine();
         while (looping) {
             command.execute(input);
+            System.out.println(Main.getDate().toString());
+            Main.getDate().proceedOneDay();
+            for (Person p: getCity(0).getCitizens()) {
+                if (p.isBirthday()) {
+                    p.handleBirthday();
+                }
+            }
             input = s.nextLine();
         }
     }
