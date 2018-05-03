@@ -71,12 +71,12 @@ public class Main {
         while (looping) {
             command.execute(input);
             System.out.println(Main.getDate().toString());
-            Main.getDate().proceedOneDay();
             for (Person p: getCity(0).getCitizens()) {
                 if (p.isBirthday()) {
                     p.handleBirthday();
                 }
             }
+            Main.getDate().proceedOneDay();
             input = s.nextLine();
         }
     }
