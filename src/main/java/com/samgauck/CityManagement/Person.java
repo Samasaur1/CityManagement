@@ -89,7 +89,7 @@ public class Person {
     }
     public Person(Sex sex) {
         this.setAge(0);
-        this.birthday = Main.getDate();
+        this.birthday = new SimpleDate(Main.getDate());
         this.setJob(Profession.JOBLESS);
         this.sex = sex;
         this.canWork = false;

@@ -28,6 +28,10 @@ public class SimpleDate {
         this.month = new MonthClass(numberToMonth(month));
     }
 
+    public SimpleDate(SimpleDate date) {
+        this.setDate(monthToNumber(date.getMonth()), date.getDayOfMonth(), date.getYear());
+    }
+
     public void setDate(int month, int dayOfMonth, int year) {
         this.dayOfMonth = dayOfMonth;
         this.month = new MonthClass(numberToMonth(month));
