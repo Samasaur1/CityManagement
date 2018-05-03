@@ -34,6 +34,10 @@ public class SimpleDate {
         this.year = year;
     }
 
+    public void setDate(SimpleDate newDate) {
+        this.setDate(monthToNumber(newDate.getMonth()), newDate.getDayOfMonth(), newDate.getYear());
+    }
+
     /**
      * Takes an int, 1-12 and converts it to a month. Default is JAN.
      * @param n The number of the month.
@@ -139,8 +143,7 @@ public class SimpleDate {
     }
 
     public void proceedOneDay() {
-        SimpleDate newDate = nextDay(this);
-        this.setDate(monthToNumber(newDate.getMonth()), newDate.getDayOfMonth(), newDate.getYear());
+        this.setDate(nextDay(this));
     }
 
     /**
