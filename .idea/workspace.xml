@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4eb856ab-7afd-49c5-9078-41db581b6d54" name="Default" comment="" />
+    <list default="true" id="4eb856ab-7afd-49c5-9078-41db581b6d54" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -36,14 +38,27 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="63">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleDate.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="124" column="29" lean-forward="true" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+              <folding>
+                <element signature="e#3863#3864#0" expanded="true" />
+                <element signature="e#3924#3925#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -388,6 +403,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/DateManagement/Month.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gauck/sam/CityManagement/Month.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java" />
       </list>
     </option>
   </component>
@@ -414,6 +430,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -448,12 +465,20 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="CityManagement" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CityManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CityManagement" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CityManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="DateManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,6 +512,17 @@
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.samgauck.CityManagement.Main" />
+      <module name="CityManagement_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.samgauck.CityManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -542,6 +578,11 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -560,11 +601,12 @@
       <workItem from="1523552474341" duration="348000" />
       <workItem from="1523632943784" duration="702000" />
       <workItem from="1523725549750" duration="147000" />
+      <workItem from="1525381465404" duration="796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2360000" />
+    <option name="totallyTimeSpent" value="3156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="41" width="1400" height="838" extended-state="0" />
@@ -572,32 +614,32 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="CheckStyle" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27172312" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27540502" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32965517" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
@@ -609,7 +651,37 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="com.samgauck.CityManagement.Main.getCity(0).getCitizens().get(0).getBirthday()" language="JAVA" custom="com.samgauck.CityManagement.Main" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>com.samgauck.CityManagement.Main.getCity(0).getCitizens().get(0).getBirthday()</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>com.samgauck.CityManagement.Main</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/City.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -831,13 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/MonthClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -871,10 +936,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="63">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samgauck/CityManagement/DateManagement/SimpleDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="124" column="29" lean-forward="true" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+          <folding>
+            <element signature="e#3863#3864#0" expanded="true" />
+            <element signature="e#3924#3925#0" expanded="true" />
           </folding>
         </state>
       </provider>

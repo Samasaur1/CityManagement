@@ -112,18 +112,30 @@ public class SimpleDate {
      * @return A new date one day later.
      */
     public static SimpleDate nextDay(SimpleDate old) {
-        old.dayOfMonth += 1;
+        int m = monthToNumber(old.getMonth());
+        int d = old.getDayOfMonth() + 1;
+        int y = old.getYear();
         if (old.getDayOfMonth() > old.month.getNumberOfDays()) {
-            old.dayOfMonth = 1;
-            int newMonth = monthToNumber(old.getMonth()) + 1;
-            int newYear = old.getYear();
-            while (newMonth > 12) {
-                newMonth -= 12;
-                newYear += 1;
+            d = 1;
+            m += 1;
+            if (m == 13) {
+                m = 1;
+                y += 1;
             }
-            old.setDate(newMonth, old.getDayOfMonth(), newYear);
         }
-        return old;
+        return new SimpleDate(m, d, y);
+//        old.dayOfMonth += 1;
+//        if (old.getDayOfMonth() > old.month.getNumberOfDays()) {
+//            old.dayOfMonth = 1;
+//            int newMonth = monthToNumber(old.getMonth()) + 1;
+//            int newYear = old.getYear();
+//            while (newMonth > 12) {
+//                newMonth -= 12;
+//                newYear += 1;
+//            }
+//            old.setDate(newMonth, old.getDayOfMonth(), newYear);
+//        }
+//        return old;
     }
 
     public void proceedOneDay() {
