@@ -134,7 +134,7 @@ public class Main {
             System.out.println("What is the woman's last name?");
             last = s.next();
             cities.get(0).nameCitizen(1, first, last);
-        }else {
+        } else {
             cities.get(0).nameCitizen(0, "Adam", "");
             cities.get(0).nameCitizen(1, "Eve", "");
         }
