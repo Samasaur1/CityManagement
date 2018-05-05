@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.0-master'
+version '0.5.1-master'
 
 apply plugin: 'java'
 
@@ -15,8 +15,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-def incrementPointVersion() {
-    println(":incrementVersion - Incrementing Bugfix Version...")
+def incrementPatchVersion() {
+    println(":incrementVersion - Incrementing Patch Version...")
     def buildFile = file("build.gradle")
     def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
     def buildText = buildFile.getText()
@@ -24,10 +24,10 @@ def incrementPointVersion() {
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
-    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def patchVersion = Integer.parseInt(matcherVersionNumber.group(3))
     def branchName = matcherVersionNumber.group(4)
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
-    def mNextVersionName = majorVersion + "." + minorVersion + "." + (pointVersion + 1) + "-" + branchName
+    def mVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName
+    def mNextVersionName = majorVersion + "." + minorVersion + "." + (patchVersion + 1) + "-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
     println(":incrementVersion - Old version: " + mVersionName);
     println(":incrementVersion - New version: " + mNextVersionName);
@@ -43,9 +43,9 @@ def incrementMinorVersion() {
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
-    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def patchVersion = Integer.parseInt(matcherVersionNumber.group(3))
     def branchName = matcherVersionNumber.group(4)
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
+    def mVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName
     def mNextVersionName = majorVersion + "." + (minorVersion + 1) + ".0-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
     println(":incrementVersion - Old version: " + mVersionName);
@@ -62,9 +62,9 @@ def incrementMajorVersion() {
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
-    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def patchVersion = Integer.parseInt(matcherVersionNumber.group(3))
     def branchName = matcherVersionNumber.group(4)
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
+    def mVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName
     def mNextVersionName = (majorVersion + 1) + ".0.0-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
     println(":incrementVersion - Old version: " + mVersionName);
@@ -81,14 +81,14 @@ task updateMinor() << {
     incrementMinorVersion()
 }
 //noinspection GroovyAssignabilityCheck
-task updateBugfix() << {
-    incrementPointVersion()
+task updatePatch() << {
+    incrementPatchVersion()
 }
 //noinspection GroovyAssignabilityCheck
 task update() << {
-    println(":update - What type of update would you like? (major, minor, bugfix)")
+    println(":update - What type of update would you like? (major, minor, patch)")
     println(":update - Enter a number 1-3 that corresponds to the above")
-    println(":update - Anything that is not a number will act as if it was a 3 (bugfix)")
+    println(":update - Anything that is not a number will act as if it was a 3 (patch)")
     def type = System.in.newReader().readLine()
     switch (type) {
         case "1":
@@ -98,7 +98,7 @@ task update() << {
             incrementMinorVersion()
             break
         default:
-            incrementPointVersion()
+            incrementPatchVersion()
     }
 }
 
@@ -113,9 +113,9 @@ task renameBranch << {
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
-    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def patchVersion = Integer.parseInt(matcherVersionNumber.group(3))
     def branchName = matcherVersionNumber.group(4)
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + name
+    def mVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + name
     def buildContent = matcherVersionNumber.replaceAll("version '" + mVersionName + "'")
     buildFile.write(buildContent)
     println(":renameBranch - Branch renamed")
