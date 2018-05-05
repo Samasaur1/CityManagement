@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report some bugs to squash
 
 ---
 
@@ -22,7 +22,12 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. macOS]
- - Version [e.g. 22]
+ - Version [e.g. 3.1.4-master]
+ - Java vendor [e.g. Oracle, OpenJDK]
+ - Java version [e.g. 1.8.0_131-b11]
+
+**Stack trace**
+If one shows up, please post the stack trace in text.
 
 **Additional context**
 Add any other context about the problem here.
