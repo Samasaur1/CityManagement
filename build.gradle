@@ -15,8 +15,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-//noinspection GroovyAssignabilityCheck
-task incrementPointVersion << {
+def incrementPointVersion() {
     println(":incrementVersion - Incrementing Bugfix Version...")
     def buildFile = file("build.gradle")
     def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
@@ -35,8 +34,7 @@ task incrementPointVersion << {
     buildFile.write(buildContent)
 }
 
-//noinspection GroovyAssignabilityCheck
-task incrementMinorVersion << {
+def incrementMinorVersion() {
     println(":incrementVersion - Incrementing Minor Version...")
     def buildFile = file("build.gradle")
     def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
@@ -55,8 +53,7 @@ task incrementMinorVersion << {
     buildFile.write(buildContent)
 }
 
-//noinspection GroovyAssignabilityCheck
-task incrementMajorVersion << {
+def incrementMajorVersion() {
     println(":incrementVersion - Incrementing Major Version...")
     def buildFile = file("build.gradle")
     def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
@@ -76,10 +73,51 @@ task incrementMajorVersion << {
 }
 
 //noinspection GroovyAssignabilityCheck
-task updateMajor(dependsOn: incrementMajorVersion) << {}
+task updateMajor() << {
+    incrementMajorVersion()
+}
 //noinspection GroovyAssignabilityCheck
-task updateMinor(dependsOn: incrementMinorVersion) << {}
+task updateMinor() << {
+    incrementMinorVersion()
+}
 //noinspection GroovyAssignabilityCheck
-task updateBugfix(dependsOn: incrementPointVersion) << {}
+task updateBugfix() << {
+    incrementPointVersion()
+}
 //noinspection GroovyAssignabilityCheck
-task update(dependsOn: incrementPointVersion) << {}
+task update() << {
+    println(":update - What type of update would you like? (major, minor, bugfix)")
+    println(":update - Enter a number 1-3 that corresponds to the above")
+    println(":update - Anything that is not a number will act as if it was a 3 (bugfix)")
+    def type = System.in.newReader().readLine()
+    switch (type) {
+        case "1":
+            incrementMajorVersion()
+            break
+        case "2":
+            incrementMinorVersion()
+            break
+        default:
+            incrementPointVersion()
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+task renameBranch << {
+    println(":renameBranch - Enter new branch name:")
+    def name = System.in.newReader().readLine()
+    def buildFile = file("build.gradle")
+    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
+    def buildText = buildFile.getText()
+    def matcherVersionNumber = patternVersionNumber.matcher(buildText)
+    matcherVersionNumber.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
+    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def branchName = matcherVersionNumber.group(4)
+    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + name
+    def buildContent = matcherVersionNumber.replaceAll("version '" + mVersionName + "'")
+    buildFile.write(buildContent)
+    println(":renameBranch - Branch renamed")
+    println(":renameBranch - New version: " + mVersionName)
+}
