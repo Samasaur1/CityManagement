@@ -3,10 +3,18 @@ package com.samgauck.CityManagement;
 import java.util.ArrayList;
 
 public class City {
+    public Resources resources = new Resources();
     private String name; //name of the city
     private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
     private NameList nameList = NameList.getInstance();
-    public Resources resources = new Resources();
+
+    public City(String name) { //creates a city named name
+        Economy.getInstance().addCity(this); //Adds this to the economy list of cities
+        this.name = name;
+        newPerson(Sex.MALE);
+        newPerson(Sex.FEMALE); //creates 2 new citizens
+        citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
+    }
 
     /**
      * Creates a new person and adds them to the citizens list.
@@ -26,20 +34,16 @@ public class City {
         citizens.add(p);
     }
 
+    public Boolean removePerson(Person person) {
+        return citizens.remove(person);
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public City(String name) { //creates a city named name
-        Economy.getInstance().addCity(this); //Adds this to the economy list of cities
-        this.name = name;
-        newPerson(Sex.MALE);
-        newPerson(Sex.FEMALE); //creates 2 new citizens
-        citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
     }
 
     /**
