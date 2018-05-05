@@ -95,4 +95,20 @@ public class MonthClass {
     public String toString() {
         return month.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        MonthClass other = (MonthClass) obj;
+        if (this.getNumberOfDays() != other.getNumberOfDays()) return false;
+        return this.getMonth().equals(other.getMonth());
+    }
 }

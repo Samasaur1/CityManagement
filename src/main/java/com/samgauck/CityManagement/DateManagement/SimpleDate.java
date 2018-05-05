@@ -168,4 +168,21 @@ public class SimpleDate {
         s.append(monthToNumber(getMonth())).append("§").append(getDayOfMonth()).append("§").append(getYear());
         return s.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        SimpleDate other = (SimpleDate) obj;
+        if (this.getDayOfMonth() != other.getDayOfMonth()) return false;
+        if (this.getYear() != other.getYear()) return false;
+        return this.month.equals(other.month);
+    }
 }
