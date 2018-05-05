@@ -33,4 +33,10 @@ public class Economy {
         return items.get(item);
         //TODO: make supply and demand have an impact
     }
+
+    public void setPrices(ArrayList<Integer> prices) {
+        if (prices.size() != pricesList.size()) return;
+        items.clear();
+        items.putAll(Utilities.generateMap(itemsList, prices));
+    }
 }

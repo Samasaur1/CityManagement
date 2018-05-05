@@ -83,8 +83,11 @@ public class Command {
             System.out.println("Error 1.2.2: Item not recognized");
             return;
         }
+        if (followingWords.size() == 1) {
+            System.out.println("Error 1.3.1: No amount given");
+        }
         if (followingWords.get(1).matches("\\D+")) {
-            System.out.println("Error 1.3: Not a valid amount");
+            System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
         String item = followingWords.get(0);
@@ -167,7 +170,7 @@ public class Command {
             /* General checking start*/
             ArrayList<String> code = new ArrayList<>();
             code.addAll(Arrays.asList(followingWords.get(0).split("•")));
-            if (code.size() != 4) {
+            if (code.size() != 5) {
                 System.out.println("Error 1.2.1: Save code not valid");
                 return;
             }
@@ -221,17 +224,33 @@ public class Command {
             ArrayList<Integer> dateInts = new ArrayList<>();
             date.addAll(Arrays.asList(code.get(3).split("§")));
             if (date.size() != 3) { //Failure checking for changing the date
-                System.out.println("Error 1.2.5: Save code not valid");
+                System.out.println("Error 1.2.5.1: Save code not valid");
                 return;
             }
-            for (int i = 0; i < date.size(); i++) {
+            date.forEach(d -> {
                 try {
-                    dateInts.add(Integer.parseInt(date.get(i)));
+                    dateInts.add(Integer.parseInt(d));
                 } catch (NumberFormatException e) {
-                    System.out.println("Error 1.2.5: Save code not valid");
+                    System.out.println("Error 1.2.5.2: Save code not valid");
                 }
-            }
+            });
             /*Date checking ends*/
+            /*Economy checking starts*/
+            ArrayList<String> priceStrings = new ArrayList<>();
+            ArrayList<Integer> prices = new ArrayList<>();
+            priceStrings.addAll(Arrays.asList(code.get(4).split("§")));
+            if (priceStrings.size() != economy.getItems().size()) {//Not correct number of prices
+                System.out.println("Error 1.2.6.1: Save code not valid");
+                return;
+            }
+            priceStrings.forEach(p -> {
+                try {
+                    prices.add(Integer.parseInt(p));
+                } catch (NumberFormatException e) {
+                    System.out.println("Error 1.2.6.2: Save code not valid");
+                }
+            });
+            /*Economy checking ends*/
 
             //Set city name. No reason this would fail.
             Main.getCity(0).setName(code.get(0));
@@ -253,6 +272,9 @@ public class Command {
             //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
 
+            //Sets currrent prices. Can fail if they don't pass Integers
+            economy.setPrices(prices);
+
             System.out.println("Loaded!");
         }
     }
@@ -270,10 +292,10 @@ public class Command {
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
         s.append(Main.getDate().simpleString()).append("•");
-        //TODO: items.forEach() (or other way) of printing out the current prices & LOAD IT
-        /*
-        s.reverse().deleteCharAt(0).reverse(); //deletes the last "§" form the items.foreach loop
-        */
+        items.forEach(item -> {
+            s.append(economy.getPrice(item)).append("§");
+        });
+        s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the items.foreach loop and adds the •
         System.out.println("Your save code is:");
         System.out.println(s.toString());
     }
