@@ -4,9 +4,20 @@ package com.samgauck.CityManagement.DateManagement;
  * This is, for lack of a better word, a wrapper for the Month enum, that allows access to the base enum and also hold the number of days in the month.
  */
 public class MonthClass {
+    /**
+     * The month of this MonthClass.
+     */
     private Month month;
+    /**
+     * The number of days in this month.
+     */
     private int numberOfDays;
 
+    /**
+     * Creates a new MonthClass that represents the given month.
+     *
+     * @param m The month that this MonthClass should represent.
+     */
     public MonthClass(Month m) {
         setMonth(m);
         numberOfDays = getNumberOfDays(m);

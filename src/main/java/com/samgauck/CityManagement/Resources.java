@@ -6,62 +6,152 @@ import java.text.NumberFormat;
  * A class that hold all resources.
  */
 public class Resources {
+    /**
+     * The money in this collection of resources.
+     */
     private int money;
+    /**
+     * The food in this collection of resources.
+     */
     private int food;
+    /**
+     * The stone in this collection of resources.
+     */
     private int stone;
+    /**
+     * The iron in this collection of resources.
+     */
     private int iron;
+    /**
+     * The steel in this collection of resources.
+     */
     private int steel;
+    /**
+     * The oil in this collection of resources.
+     */
     private int oil;
+    /**
+     * The coal in this collection of resources.
+     */
     private int coal;
+    /**
+     * The uranium in this collection of resources.
+     */
     private int uranium;
+    /**
+     * The water in this collection of resources.
+     */
     private int water;
+    /**
+     * The carbon in this collection of resources.
+     */
     private int carbon;
+    /**
+     * The number of resources in total.
+     */
     private static final int numberOfResources = 10;
 
+    /**
+     * Gets the money of this collection of resources.
+     * @return The contained money.
+     */
     public int getMoney() {
         return money;
     }
 
+    /**
+     * Gets the money, formatted correctly.
+     * @return The formatted money.
+     */
     public String getFormattedMoney() {
         return NumberFormat.getCurrencyInstance().format(getMoney());
     }
 
+    /**
+     * Gets the food of this collection of resources.
+     * @return The contained food.
+     */
     public int getFood() {
         return food;
     }
 
+
+    /**
+     * Gets the stone of this collection of resources.
+     * @return The contained stone.
+     */
     public int getStone() {
         return stone;
     }
 
+
+    /**
+     * Gets the iron of this collection of resources.
+     * @return The contained iron.
+     */
     public int getIron() {
         return iron;
     }
 
+
+    /**
+     * Gets the steel of this collection of resources.
+     * @return The contained steel.
+     */
     public int getSteel() {
         return steel;
     }
 
+
+    /**
+     * Gets the oil of this collection of resources.
+     * @return The contained oil.
+     */
     public int getOil() {
         return oil;
     }
 
+
+    /**
+     * Gets the coal of this collection of resources.
+     * @return The contained coal.
+     */
     public int getCoal() {
         return coal;
     }
 
+
+    /**
+     * Gets the uranium of this collection of resources.
+     * @return The contained uranium.
+     */
     public int getUranium() {
         return uranium;
     }
 
+
+    /**
+     * Gets the water of this collection of resources.
+     * @return The contained water.
+     */
     public int getWater() {
         return water;
     }
 
+
+    /**
+     * Gets the carbon of this collection of resources.
+     * @return The contained carbon.
+     */
     public int getCarbon() {
         return carbon;
     }
 
+    /**
+     * Gets the amount of a given item.
+     * @param item The item of which the amount has been requested.
+     * @return The amount of the given item.
+     */
     public int getItem(String item) {
         switch (item) {
             case "food":
@@ -87,6 +177,10 @@ public class Resources {
         }
     }
 
+    /**
+     * Gets the total number of resources
+     * @return
+     */
     public static int getNumberOfResources() {
         return numberOfResources;
     }
@@ -131,6 +225,11 @@ public class Resources {
         this.carbon = carbon;
     }
 
+    /**
+     * Sets a given item to a given amount.
+     * @param item The item to set to the amount.
+     * @param amount The amount to set the item to.
+     */
     public void setItem(String item, int amount) {
         switch (item) {
             case "food":
@@ -220,7 +319,11 @@ public class Resources {
         return s.toString();
     }
 
-    public String simpleString() {
+    /**
+     * Gets a string that is optomized for saving.
+     * @return The resources in a string formatted 0§0§0§0§0§0§0§0§0§0
+     */
+    public String saveableString() {
         StringBuilder s = new StringBuilder();
         s.append(money).append("§");
         s.append(food).append("§");

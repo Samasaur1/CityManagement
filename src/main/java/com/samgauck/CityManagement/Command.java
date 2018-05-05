@@ -8,11 +8,26 @@ import java.util.Arrays;
  * A singleton class that manages all commands.
  */
 public class Command {
+    /**
+     * The Command instance.
+     */
     private static Command command;
+    /**
+     * The list of all possible commands.
+     */
     private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
+    /**
+     * A local reference to the economy.
+     */
     private Economy economy = Economy.getInstance();
+    /**
+     * The list of items.
+     */
     private ArrayList<String> items = economy.getItems();
 
+    /**
+     * Creates a new Command instance. It is private so that it can be a singleton.
+     */
     private Command() {
     }
 
@@ -32,9 +47,8 @@ public class Command {
      * @param command The command given by the user.
      */
     public void execute(String command) {
-        ArrayList<String> words = new ArrayList<String>();
         command = command.toLowerCase();
-        words.addAll(Arrays.asList(command.split(" ")));
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(command.split(" ")));
         String word1 = words.get(0);
         words.remove(0);
         switch (word1) {
@@ -161,6 +175,11 @@ public class Command {
         System.exit(0);
     }
 
+    /**
+     * Loads a save code and updates the game to its state.
+     *
+     * @param followingWords The user's command, minus the word "load".
+     */
     private void load(ArrayList<String> followingWords) {
         if (followingWords.size() <= 0) {
             System.out.println("Error 1.2: No save code given.");
@@ -279,10 +298,13 @@ public class Command {
         }
     }
 
+    /**
+     * Saves the game by printing out a save code of the state of the game.
+     */
     private void save() {
         StringBuilder s = new StringBuilder();
         s.append(Main.getCity(0).getName()).append("•");
-        s.append(Main.getCity(0).resources.simpleString()).append("•");
+        s.append(Main.getCity(0).resources.saveableString()).append("•");
         Main.getCity(0).getCitizens().forEach(p -> {
             s.append(p.getFirstName()).append("‡");
             s.append(p.getLastName()).append("‡");
@@ -291,7 +313,7 @@ public class Command {
             s.append(p.getSex().toString().substring(0, 1)).append("§");
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
-        s.append(Main.getDate().simpleString()).append("•");
+        s.append(Main.getDate().saveableString()).append("•");
         items.forEach(item -> {
             s.append(economy.getPrice(item)).append("§");
         });
@@ -300,6 +322,11 @@ public class Command {
         System.out.println(s.toString());
     }
 
+    /**
+     * Helps the player by giving information.
+     *
+     * @param followingWords The topics that the player wants specific help on.
+     */
     private void help(ArrayList<String> followingWords) {
         if (followingWords.size() == 0) {
             StringBuilder s = new StringBuilder();
@@ -368,6 +395,11 @@ public class Command {
         }
     }
 
+    /**
+     * Prints out the status.
+     *
+     * @param followingWords The topics that the player wants specific status on.
+     */
     private void status(ArrayList<String> followingWords) {
         if (followingWords.size() == 0) {
             System.out.println(Main.getCity(0).resources.toString());

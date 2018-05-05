@@ -6,6 +6,9 @@ import java.util.*;
  * A utility class to help do things.
  */
 public class Utilities {
+    /**
+     * A private constructor so that this class cannot be instantiated.
+     */
     private Utilities() {
     }
 

@@ -6,38 +6,84 @@ import static com.samgauck.CityManagement.DateManagement.Month.*;
  * SimpleDate holds a day, month and year. Day and year are ints, while the month is a MonthClass.
  */
 public class SimpleDate {
+    /**
+     * The day of the month it is (e.g. on August 22, this would be 22).
+     */
     private int dayOfMonth;
+    /**
+     * The year of this date.
+     */
     private int year;
+    /**
+     * The month of this date.
+     */
     private MonthClass month;
 
+    /**
+     * Gets the day of the month.
+     *
+     * @return The day of the month.
+     */
     public int getDayOfMonth() {
         return dayOfMonth;
     }
 
+    /**
+     * Gets the year.
+     *
+     * @return The year of this date.
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Gets the month (not the MonthClass) of this date.
+     *
+     * @return The month of this date.
+     */
     public Month getMonth() {
         return month.getMonth();
     }
 
+    /**
+     * Creates a new date with the specified month, day, and year.
+     *
+     * @param month The month of the new date, as an Integer (1-12).
+     * @param day   The day of the month of the new date, as an Integer.
+     * @param year  The year of the new date, as an Integer.
+     */
     public SimpleDate(int month, int day, int year) {
-        this.dayOfMonth = day;
-        this.year = year;
-        this.month = new MonthClass(numberToMonth(month));
+        this.setDate(month, day, year);
     }
 
+    /**
+     * Creates a new date that is the same date as the given one.
+     *
+     * @param date The date to use as a reference.
+     */
     public SimpleDate(SimpleDate date) {
-        this.setDate(monthToNumber(date.getMonth()), date.getDayOfMonth(), date.getYear());
+        this.setDate(date);
     }
 
-    public void setDate(int month, int dayOfMonth, int year) {
-        this.dayOfMonth = dayOfMonth;
+    /**
+     * Sets the date to the specified month, day, and year
+     *
+     * @param month The month of the new date, as an Integer (1-12).
+     * @param day   The day of the month of the new date, as an Integer.
+     * @param year  The year of the new date, as an Integer.
+     */
+    public void setDate(int month, int day, int year) {
+        this.dayOfMonth = day;
         this.month = new MonthClass(numberToMonth(month));
         this.year = year;
     }
 
+    /**
+     * Sets the date to the same as the given one.
+     *
+     * @param newDate The date to use as a reference.
+     */
     public void setDate(SimpleDate newDate) {
         this.setDate(monthToNumber(newDate.getMonth()), newDate.getDayOfMonth(), newDate.getYear());
     }
@@ -149,6 +195,9 @@ public class SimpleDate {
 //        return old;
     }
 
+    /**
+     * Changes the date to a date one day in the future (from this date).
+     */
     public void proceedOneDay() {
         this.setDate(nextDay(this));
     }
@@ -163,7 +212,12 @@ public class SimpleDate {
         return month + " " + dayOfMonth + ", " + year;
     }
 
-    public String simpleString() {
+    /**
+     * Converts a date to a string that is easily saved.
+     *
+     * @return A string formatted 1§1§2017.
+     */
+    public String saveableString() {
         StringBuilder s = new StringBuilder();
         s.append(monthToNumber(getMonth())).append("§").append(getDayOfMonth()).append("§").append(getYear());
         return s.toString();
