@@ -12,15 +12,3 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-
-//noinspection GroovyAssignabilityCheck
-task ci(dependsOn: ':build') << {
-    ArrayList<String> versionStrings = Arrays.asList(version.toString().split("."))
-    ArrayList<Integer> versionList = new ArrayList<>()
-    for (int i = 0; i < versionStrings.size(); i++) {
-        versionList.add(Integer.parseInt(versionStrings.get(i)))
-    }
-    versionList.set(2, versionList.get(2) + 1)
-    version = versionList.join(".")
-    println version
-}
