@@ -291,7 +291,7 @@ public class Command {
             s.append(p.getSex().toString().substring(0, 1)).append("§");
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
-        s.append(Main.getDate().simpleString()).append("•");
+        s.append(Main.getDate().saveableString()).append("•");
         items.forEach(item -> {
             s.append(economy.getPrice(item)).append("§");
         });
