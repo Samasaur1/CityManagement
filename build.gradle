@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '1.0.0'
+version '0.4.0'
 
 apply plugin: 'java'
 
@@ -71,3 +71,12 @@ task incrementMajorVersion << {
     println(":incrementVersionName - New version: " + mNextVersionName);
     buildFile.write(buildContent)
 }
+
+//noinspection GroovyAssignabilityCheck
+task updateMajor(dependsOn: incrementMajorVersion) << {}
+//noinspection GroovyAssignabilityCheck
+task updateMinor(dependsOn: incrementMinorVersion) << {}
+//noinspection GroovyAssignabilityCheck
+task updateBugfix(dependsOn: incrementPointVersion) << {}
+//noinspection GroovyAssignabilityCheck
+task update(dependsOn: incrementPointVersion) << {}
