@@ -339,7 +339,7 @@ public class Command {
                     s.append("Both the [item] and [amount] fields are necessary").append("\n");
                     break;
                 case "construct":
-                    //TODO
+                    //TODO: Help construct
                     break;
                 case "quit":
                     s.append("The 'quit' command quits the game. It does not ask you if you are sure, and it will not save").append("\n");
