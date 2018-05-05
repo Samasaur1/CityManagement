@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.4.0'
+version '0.4.0-master'
 
 apply plugin: 'java'
 
@@ -17,58 +17,61 @@ dependencies {
 
 //noinspection GroovyAssignabilityCheck
 task incrementPointVersion << {
-    println(":incrementVersionName - Incrementing Version...")
+    println(":incrementVersion - Incrementing Bugfix Version...")
     def buildFile = file("build.gradle")
-    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)'")
     def buildText = buildFile.getText()
     def matcherVersionNumber = patternVersionNumber.matcher(buildText)
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
     def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion
-    def mNextVersionName = majorVersion + "." + minorVersion + "." + (pointVersion + 1)
+    def branchName = matcherVersionNumber.group(4)
+    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
+    def mNextVersionName = majorVersion + "." + minorVersion + "." + (pointVersion + 1) + "-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
-    println(":incrementVersionName - Old version: " + mVersionName);
-    println(":incrementVersionName - New version: " + mNextVersionName);
+    println(":incrementVersion - Old version: " + mVersionName);
+    println(":incrementVersion - New version: " + mNextVersionName);
     buildFile.write(buildContent)
 }
 
 //noinspection GroovyAssignabilityCheck
 task incrementMinorVersion << {
-    println(":incrementVersionName - Incrementing Version...")
+    println(":incrementVersion - Incrementing Minor Version...")
     def buildFile = file("build.gradle")
-    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)(.+)'")
     def buildText = buildFile.getText()
     def matcherVersionNumber = patternVersionNumber.matcher(buildText)
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
     def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion
-    def mNextVersionName = majorVersion + "." + (minorVersion + 1) + "." + pointVersion
+    def branchName = matcherVersionNumber.group(4)
+    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
+    def mNextVersionName = majorVersion + "." + (minorVersion + 1) + "." + pointVersion + "-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
-    println(":incrementVersionName - Old version: " + mVersionName);
-    println(":incrementVersionName - New version: " + mNextVersionName);
+    println(":incrementVersion - Old version: " + mVersionName);
+    println(":incrementVersion - New version: " + mNextVersionName);
     buildFile.write(buildContent)
 }
 
 //noinspection GroovyAssignabilityCheck
 task incrementMajorVersion << {
-    println(":incrementVersionName - Incrementing Version...")
+    println(":incrementVersion - Incrementing Major Version...")
     def buildFile = file("build.gradle")
-    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)'")
+    def patternVersionNumber = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)(.+)'")
     def buildText = buildFile.getText()
     def matcherVersionNumber = patternVersionNumber.matcher(buildText)
     matcherVersionNumber.find()
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
     def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
-    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion
-    def mNextVersionName = (majorVersion + 1) + "." + minorVersion + "." + pointVersion
+    def branchName = matcherVersionNumber.group(4)
+    def mVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "-" + branchName
+    def mNextVersionName = (majorVersion + 1) + "." + minorVersion + "." + pointVersion + "-" + branchName
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
-    println(":incrementVersionName - Old version: " + mVersionName);
-    println(":incrementVersionName - New version: " + mNextVersionName);
+    println(":incrementVersion - Old version: " + mVersionName);
+    println(":incrementVersion - New version: " + mNextVersionName);
     buildFile.write(buildContent)
 }
 
