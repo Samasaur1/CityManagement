@@ -2,13 +2,33 @@ package com.samgauck.CityManagement;
 
 import java.util.ArrayList;
 
+/**
+ * A class that represents a city.
+ */
 public class City {
+    /**
+     * The resources in the city.
+     */
     public Resources resources = new Resources();
-    private String name; //name of the city
-    private ArrayList<Person> citizens = new ArrayList<Person>(); //Holds all people in this city
+    /**
+     * The name of the city.
+     */
+    private String name;
+    /**
+     * A list of all the citizens in the city.
+     */
+    private ArrayList<Person> citizens = new ArrayList<>();
+    /**
+     * A local reference to the list of names.
+     */
     private NameList nameList = NameList.getInstance();
 
-    public City(String name) { //creates a city named name
+    /**
+     * Creates a city with the given name.
+     *
+     * @param name The name of the new city.
+     */
+    public City(String name) {
         Economy.getInstance().addCity(this); //Adds this to the economy list of cities
         this.name = name;
         newPerson(Sex.MALE);
@@ -34,14 +54,30 @@ public class City {
         citizens.add(p);
     }
 
+    /**
+     * Removes the given person from the list of citizens if they exist.
+     *
+     * @param person The person to remove.
+     * @return Whether or not the person was in the list, and therefore removed.
+     */
     public Boolean removePerson(Person person) {
         return citizens.remove(person);
     }
 
+    /**
+     * Gets the name of the city.
+     *
+     * @return The name of the city.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set the name of the city.
+     *
+     * @param name The new name of the city.
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -58,6 +94,11 @@ public class City {
         citizens.get(index).setLastName(lastName);
     }
 
+    /**
+     * Gives the citizen at the given index a random name.
+     *
+     * @param index The index of the citizen in the list to name.
+     */
     public void nameCitizen(int index) {
         nameCitizen(index, nameList.getFirstName(), nameList.getLastName());
     }
@@ -80,6 +121,11 @@ public class City {
         return output.toString();
     }
 
+    /**
+     * Get the list of citizens.
+     *
+     * @return The list fo citizens.
+     */
     public ArrayList<Person> getCitizens() {
         return citizens;
     }
