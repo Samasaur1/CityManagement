@@ -10,7 +10,7 @@ public class Utilities {
     }
 
     /**
-     * A method that takes a string and capitalizes it correctly (e.g. eXamPLe --> Example).
+     * A method that takes a string and capitalizes it correctly (e.g. eXamPLe → Example).
      *
      * @param original The string to be capitalized.
      * @return A capitalized version of the parameter.
