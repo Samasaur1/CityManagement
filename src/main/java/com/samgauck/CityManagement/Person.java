@@ -129,4 +129,25 @@ public class Person {
     public String toString() {
         return "A person named " + this.getName() + ", age " + this.getAge() + ", " + this.job;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Person other = (Person) obj;
+        if (!(this.getBirthday().equals(other.getBirthday()))) return false;
+        if (!(this.getAge() == other.getAge())) return false;
+        if (!(this.getFirstName().equals(other.getFirstName()))) return false;
+        if (!(this.getLastName().equals(other.getLastName()))) return false;
+        if (!(this.getName().equals(other.getName()))) return false;
+        if (!(this.getJob().equals(other.getJob()))) return false;
+        return this.getSex().equals(other.getSex());
+    }
 }
