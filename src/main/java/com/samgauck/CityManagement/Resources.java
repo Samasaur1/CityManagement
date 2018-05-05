@@ -234,4 +234,28 @@ public class Resources {
         s.append(carbon);
         return s.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Resources other = (Resources) obj;
+        if (this.getMoney() != other.getMoney()) return false;
+        if (this.getFood() != other.getFood()) return false;
+        if (this.getStone() != other.getStone()) return false;
+        if (this.getIron() != other.getIron()) return false;
+        if (this.getSteel() != other.getSteel()) return false;
+        if (this.getOil() != other.getOil()) return false;
+        if (this.getCoal() != other.getCoal()) return false;
+        if (this.getUranium() != other.getUranium()) return false;
+        if (this.getWater() != other.getWater()) return false;
+        return this.getCarbon() == other.getCarbon();
+    }
 }
