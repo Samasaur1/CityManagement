@@ -93,9 +93,9 @@ public class Main {
     }
 
     /**
-     * Get whether the game is looping.
+     * Get whether the game is in debug mode.
      *
-     * @return
+     * @return Whether the game is in debug mode.
      */
     public static Boolean getDebug() {
         return debug;
