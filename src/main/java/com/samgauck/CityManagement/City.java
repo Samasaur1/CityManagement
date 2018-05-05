@@ -18,6 +18,7 @@ public class City {
 
     /**
      * Creates a new person and adds them to the citizens list.
+     *
      * @param sex The sex of the person.
      */
     public void newPerson(Sex sex) {
@@ -43,14 +44,16 @@ public class City {
 
     /**
      * Names a citizen.
-     * @param index The index of the citizens list where one finds the citizen to name.
+     *
+     * @param index     The index of the citizens list where one finds the citizen to name.
      * @param firstName The new first name of the citizen.
-     * @param lastName The new last name of the citizen.
+     * @param lastName  The new last name of the citizen.
      */
     public void nameCitizen(int index, String firstName, String lastName) {
         citizens.get(index).setFirstName(firstName);
         citizens.get(index).setLastName(lastName);
     }
+
     public void nameCitizen(int index) {
         nameCitizen(index, nameList.getFirstName(), nameList.getLastName());
     }
@@ -62,6 +65,7 @@ public class City {
 
     /**
      * Builds a string that is a multiple line list of citizens.
+     *
      * @return A string list of all citizens.
      */
     public String listCitizens() {

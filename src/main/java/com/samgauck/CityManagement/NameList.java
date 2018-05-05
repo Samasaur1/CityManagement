@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class NameList {
     private NameList() {
-        firstNames.addAll(Arrays.asList("Anthony", "Arthur", "Aaron", "Alfred", "Alice", "Alina","Adam"));
+        firstNames.addAll(Arrays.asList("Anthony", "Arthur", "Aaron", "Alfred", "Alice", "Alina", "Adam"));
         firstNames.addAll(Arrays.asList("Benjamin", "Barry", "Becca"));
         firstNames.addAll(Arrays.asList("Carrie", "Caroline", "Catherine", "Callie", "Caleb", "Cory"));
         firstNames.addAll(Arrays.asList("Donald", "Dave", "Dylan", "Devin", "Drew", "Daniel", "Douglas"));
@@ -61,28 +61,32 @@ public class NameList {
         lastNames.addAll(Arrays.asList("Yrians"));
         lastNames.addAll(Arrays.asList("Zlamal"));
     }
+
     private ArrayList<String> firstNames = new ArrayList<String>();
     private ArrayList<String> lastNames = new ArrayList<String>();
     private static NameList nameList = null;
 
     /**
      * Gets a random first name from the list.
+     *
      * @return A String that is a random first name.
      */
     public String getFirstName() {
-        return firstNames.get((int)Math.round(Math.random() * firstNames.size()));
+        return firstNames.get((int) Math.round(Math.random() * firstNames.size()));
     }
 
     /**
      * Gets a random last name from the list.
+     *
      * @return A String that is a random last name.
      */
     public String getLastName() {
-        return lastNames.get((int)Math.round(Math.random() * lastNames.size()));
+        return lastNames.get((int) Math.round(Math.random() * lastNames.size()));
     }
 
     /**
      * Gets the NameList instance if it exists, otherwise make a new one.
+     *
      * @return The one and only NameList instance.
      */
     public static NameList getInstance() {

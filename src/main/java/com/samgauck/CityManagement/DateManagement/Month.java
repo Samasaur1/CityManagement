@@ -10,6 +10,7 @@ public enum Month {
 
     /**
      * Returns the month as a string, capitalized (e.g. Jan).
+     *
      * @return A correctly capitalized string representation of a month.
      */
     @Override

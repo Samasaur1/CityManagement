@@ -17,21 +17,51 @@ public class Resources {
     private int water;
     private int carbon;
     private static final int numberOfResources = 10;
+
     public int getMoney() {
         return money;
     }
+
     public String getFormattedMoney() {
         return NumberFormat.getCurrencyInstance().format(getMoney());
     }
-    public int getFood() { return food; }
-    public int getStone() { return stone; }
-    public int getIron() { return iron; }
-    public int getSteel() { return steel; }
-    public int getOil() { return oil; }
-    public int getCoal() { return coal; }
-    public int getUranium() { return uranium; }
-    public int getWater() { return water; }
-    public int getCarbon() { return carbon; }
+
+    public int getFood() {
+        return food;
+    }
+
+    public int getStone() {
+        return stone;
+    }
+
+    public int getIron() {
+        return iron;
+    }
+
+    public int getSteel() {
+        return steel;
+    }
+
+    public int getOil() {
+        return oil;
+    }
+
+    public int getCoal() {
+        return coal;
+    }
+
+    public int getUranium() {
+        return uranium;
+    }
+
+    public int getWater() {
+        return water;
+    }
+
+    public int getCarbon() {
+        return carbon;
+    }
+
     public int getItem(String item) {
         switch (item) {
             case "food":
@@ -56,22 +86,51 @@ public class Resources {
                 return getFood();
         }
     }
-    public static int getNumberOfResources() { return numberOfResources; }
+
+    public static int getNumberOfResources() {
+        return numberOfResources;
+    }
 
     public void setMoney(int money) {
         this.money = money;
     }
+
     public void setFood(int food) {
         this.food = food;
     }
-    public void setStone(int stone) { this.stone = stone; }
-    public void setIron(int iron) { this.iron = iron; }
-    public void setSteel(int steel) { this.steel = steel; }
-    public void setOil(int oil) { this.oil = oil; }
-    public void setCoal(int coal) { this.coal = coal; }
-    public void setUranium(int uranium) { this.uranium = uranium; }
-    public void setWater(int water) { this.water = water; }
-    public void setCarbon(int carbon) { this.carbon = carbon; }
+
+    public void setStone(int stone) {
+        this.stone = stone;
+    }
+
+    public void setIron(int iron) {
+        this.iron = iron;
+    }
+
+    public void setSteel(int steel) {
+        this.steel = steel;
+    }
+
+    public void setOil(int oil) {
+        this.oil = oil;
+    }
+
+    public void setCoal(int coal) {
+        this.coal = coal;
+    }
+
+    public void setUranium(int uranium) {
+        this.uranium = uranium;
+    }
+
+    public void setWater(int water) {
+        this.water = water;
+    }
+
+    public void setCarbon(int carbon) {
+        this.carbon = carbon;
+    }
+
     public void setItem(String item, int amount) {
         switch (item) {
             case "food":
@@ -105,6 +164,7 @@ public class Resources {
                 setFood(amount);
         }
     }
+
     public void setAll(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
         this.setMoney(money);
         this.setFood(food);
@@ -130,6 +190,7 @@ public class Resources {
         this.setWater(0);
         this.setCarbon(0);
     }
+
     public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
         this.setMoney(money);
         this.setFood(food);
@@ -158,6 +219,7 @@ public class Resources {
         s.append("Carbon: ").append(carbon).append("\n");
         return s.toString();
     }
+
     public String simpleString() {
         StringBuilder s = new StringBuilder();
         s.append(money).append("§");

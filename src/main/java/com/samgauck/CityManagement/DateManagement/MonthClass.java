@@ -6,6 +6,7 @@ package com.samgauck.CityManagement.DateManagement;
 public class MonthClass {
     private Month month;
     private int numberOfDays;
+
     public MonthClass(Month m) {
         setMonth(m);
         numberOfDays = getNumberOfDays(m);
@@ -13,6 +14,7 @@ public class MonthClass {
 
     /**
      * Gives the number of days in a month.
+     *
      * @param m The month whose number of days you want.
      * @return An int that is the number of days in the month.
      */
@@ -49,6 +51,7 @@ public class MonthClass {
 
     /**
      * Gets the number of days from the private variable.
+     *
      * @return The number of days in a month, and int.
      */
     public int getNumberOfDays() {
@@ -57,6 +60,7 @@ public class MonthClass {
 
     /**
      * Returns the underlying Month enum.
+     *
      * @return A Month enum.
      */
     public Month getMonth() {
@@ -65,6 +69,7 @@ public class MonthClass {
 
     /**
      * Sets the month and updates the number of days.
+     *
      * @param month A Month enum that represents the new month.
      */
     public void setMonth(Month month) {
@@ -74,6 +79,7 @@ public class MonthClass {
 
     /**
      * Sets the number of days.
+     *
      * @param numberOfDays The new number of days.
      */
     public void setNumberOfDays(int numberOfDays) {
@@ -82,6 +88,7 @@ public class MonthClass {
 
     /**
      * Returns the month as a string, without the number of days.
+     *
      * @return A correctly capitalized string representation of a month.
      */
     @Override

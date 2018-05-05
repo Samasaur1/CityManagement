@@ -8,6 +8,7 @@ public enum Sex {
 
     /**
      * Returns the sex as a string, capitalized (e.g. Male).
+     *
      * @return A correctly capitalized string representation of a sex.
      */
     @Override

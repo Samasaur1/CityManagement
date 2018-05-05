@@ -12,10 +12,13 @@ public class Command {
     private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
     private Economy economy = Economy.getInstance();
     private ArrayList<String> items = economy.getItems();
-    private Command() {}
+
+    private Command() {
+    }
 
     /**
      * Gets the Command instance if it exists, otherwise make a new one.
+     *
      * @return The one and only Command instance.
      */
     public static Command getInstance() {
@@ -25,6 +28,7 @@ public class Command {
 
     /**
      * A high-level function that takes a command and call the function that it is trying to do.
+     *
      * @param command The command given by the user.
      */
     public void execute(String command) {
@@ -66,6 +70,7 @@ public class Command {
 
     /**
      * A function that buys items.
+     *
      * @param followingWords The user's command, minus the word "buy".
      */
     private void buy(ArrayList<String> followingWords) {
@@ -87,7 +92,7 @@ public class Command {
         if ((Main.getCity(0).resources.getMoney() - (economy.getPrice(item) * amount)) < 0) {
             if (followingWords.size() <= 2 || !followingWords.get(2).contains("d")) {
                 System.out.println("You don't have enough money to pay for " + amount + " " + item + " and you didn't specify that you could go into debt");
-                System.out.println("The most you could buy is " + (int)Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item)));
+                System.out.println("The most you could buy is " + (int) Math.floor(Main.getCity(0).resources.getMoney() / economy.getPrice(item)));
                 System.out.println("Transaction not completed");
                 return;
             }
@@ -100,6 +105,7 @@ public class Command {
 
     /**
      * A function that sells items.
+     *
      * @param followingWords The user's command, minus the word "sell".
      */
     private void sell(ArrayList<String> followingWords) {
@@ -136,6 +142,7 @@ public class Command {
 
     /**
      * A function that constructs items/things.
+     *
      * @param followingWords The user's command, minus the word "construct".
      */
     private void construct(ArrayList<String> followingWords) {
@@ -150,12 +157,13 @@ public class Command {
         System.out.println("Thanks for playing!");
         System.exit(0);
     }
+
     private void load(ArrayList<String> followingWords) {
         if (followingWords.size() <= 0) {
             System.out.println("Error 1.2: No save code given.");
-        }else if (followingWords.size() > 1){
+        } else if (followingWords.size() > 1) {
             System.out.println("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
-        }else {
+        } else {
             /* General checking start*/
             ArrayList<String> code = new ArrayList<>();
             code.addAll(Arrays.asList(followingWords.get(0).split("•")));
@@ -174,7 +182,7 @@ public class Command {
             for (int i = 0; i < resources.size(); i++) {
                 try {
                     resourceInts.add(Integer.parseInt(resources.get(i)));
-                }catch (NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Error 1.2.3: Save code not valid");
                 }
             }
@@ -195,13 +203,13 @@ public class Command {
                 }
                 try {
                     Integer.parseInt(person.get(2));
-                }catch (NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Error 1.2.4.3: Save code not valid");
                     return;
                 }
                 try {
                     Profession.valueOf(person.get(3).toUpperCase());
-                }catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println("Error 1.2.4.4: Save code not valid");
                     return;
                 }
@@ -219,7 +227,7 @@ public class Command {
             for (int i = 0; i < date.size(); i++) {
                 try {
                     dateInts.add(Integer.parseInt(date.get(i)));
-                }catch (NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Error 1.2.5: Save code not valid");
                 }
             }
@@ -248,6 +256,7 @@ public class Command {
             System.out.println("Loaded!");
         }
     }
+
     private void save() {
         StringBuilder s = new StringBuilder();
         s.append(Main.getCity(0).getName()).append("•");
@@ -257,7 +266,7 @@ public class Command {
             s.append(p.getLastName()).append("‡");
             s.append(p.getAge()).append("‡");
             s.append(p.getJob()).append("‡");
-            s.append(p.getSex().toString().substring(0,1)).append("§");
+            s.append(p.getSex().toString().substring(0, 1)).append("§");
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
         s.append(Main.getDate().simpleString()).append("•");
@@ -268,6 +277,7 @@ public class Command {
         System.out.println("Your save code is:");
         System.out.println(s.toString());
     }
+
     private void help(ArrayList<String> followingWords) {
         if (followingWords.size() == 0) {
             StringBuilder s = new StringBuilder();
@@ -289,7 +299,7 @@ public class Command {
             s.append("Quit and save can be passed arguments, but they will ignore them completely").append("\n");
             System.out.println(s.toString());
             return;
-        }else if (followingWords.size() == 1 && commands.contains(followingWords.get(0))) {
+        } else if (followingWords.size() == 1 && commands.contains(followingWords.get(0))) {
             StringBuilder s = new StringBuilder();
             switch (followingWords.get(0)) {
                 case "buy":
@@ -331,10 +341,11 @@ public class Command {
                     System.out.println("Error 1.2: Command not recognized");
             }
             System.out.println(s.toString());
-        }else {
+        } else {
             System.out.println("Error 1.2: Topic not recognized");
         }
     }
+
     private void status(ArrayList<String> followingWords) {
         if (followingWords.size() == 0) {
             System.out.println(Main.getCity(0).resources.toString());
@@ -343,8 +354,8 @@ public class Command {
         switch (followingWords.get(0).toLowerCase()) {
             case "buy":
                 System.out.println("The most you could buy of every item, without going into debt, is:");
-                for (String item: economy.getItems()) {
-                    System.out.println((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) + " " + item + ", for " + NumberFormat.getCurrencyInstance().format((int)(Math.floor(Main.getCity(0).resources.getMoney()/economy.getPrice(item))) * economy.getPrice(item)));
+                for (String item : economy.getItems()) {
+                    System.out.println((int) (Math.floor(Main.getCity(0).resources.getMoney() / economy.getPrice(item))) + " " + item + ", for " + NumberFormat.getCurrencyInstance().format((int) (Math.floor(Main.getCity(0).resources.getMoney() / economy.getPrice(item))) * economy.getPrice(item)));
                 }
                 break;
             case "sell":

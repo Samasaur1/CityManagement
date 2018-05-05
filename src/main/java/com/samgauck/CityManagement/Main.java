@@ -2,9 +2,7 @@ package com.samgauck.CityManagement;
 
 import com.samgauck.CityManagement.DateManagement.SimpleDate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -18,8 +16,14 @@ public class Main {
     private static Command command = Command.getInstance();
     private static Boolean looping = true;
     private static Boolean debug = false;
-    public static Boolean getLooping() { return looping; }
-    public static void setLooping(Boolean looping) { Main.looping = looping; }
+
+    public static Boolean getLooping() {
+        return looping;
+    }
+
+    public static void setLooping(Boolean looping) {
+        Main.looping = looping;
+    }
 
     public static City getCity(int index) {
         if (0 <= index && index <= cities.size() - 1) {
@@ -29,10 +33,14 @@ public class Main {
         }
         return new City("City");
     }
+
     public static SimpleDate getDate() {
         return date;
     }
-    public static Boolean getDebug() { return debug; }
+
+    public static Boolean getDebug() {
+        return debug;
+    }
 
     public static void main(String[] args) {
         ArrayList<String> arguments = new ArrayList<>(Arrays.asList(args));
@@ -44,8 +52,8 @@ public class Main {
                         break;
                     case "load":
                         if (arguments.size() > 1) {
-                            command.execute("Load " + arguments.get(i+1));
-                            arguments.remove(i+1);
+                            command.execute("Load " + arguments.get(i + 1));
+                            arguments.remove(i + 1);
                             break;
                         }
                     default:
@@ -71,7 +79,7 @@ public class Main {
         while (looping) {
             command.execute(input);
             System.out.println(Main.getDate().toString());
-            for (Person p: getCity(0).getCitizens()) {
+            for (Person p : getCity(0).getCitizens()) {
                 if (p.isBirthday()) {
                     p.handleBirthday();
                 }
@@ -80,32 +88,33 @@ public class Main {
             input = s.nextLine();
         }
     }
+
     private static void start() {
-        date = new SimpleDate(1,1,2020); //Sets game date to 1/1/2020
-        for (int i = 0; i < 10; i++){
+        date = new SimpleDate(1, 1, 2020); //Sets game date to 1/1/2020
+        for (int i = 0; i < 10; i++) {
             System.out.println();
         }
         System.out.println("Sam Gauck Presents:");
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             System.out.println();
         }
         millis = System.currentTimeMillis();
-        while (true){
+        while (true) {
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 50; i++) {
             System.out.println();
         }
         System.out.println("CityManagement");
         System.out.println("Version 1.0");
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             System.out.println();
         }
         millis = System.currentTimeMillis();
-        while (true){
+        while (true) {
             if (!(System.currentTimeMillis() - millis < 2000)) break; //two second wait
         }
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 50; i++) {
             System.out.println();
         }
         System.out.print("Would you like to load a save? (Y/N)");

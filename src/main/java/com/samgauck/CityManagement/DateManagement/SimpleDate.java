@@ -22,7 +22,7 @@ public class SimpleDate {
         return month.getMonth();
     }
 
-    public SimpleDate(int month, int day, int year){
+    public SimpleDate(int month, int day, int year) {
         this.dayOfMonth = day;
         this.year = year;
         this.month = new MonthClass(numberToMonth(month));
@@ -44,6 +44,7 @@ public class SimpleDate {
 
     /**
      * Takes an int, 1-12 and converts it to a month. Default is JAN.
+     *
      * @param n The number of the month.
      * @return The month represented by the number.
      */
@@ -80,6 +81,7 @@ public class SimpleDate {
 
     /**
      * Inputs a Month and converts it to an int representing that month. Default is 1 (JAN).
+     *
      * @param m The month.
      * @return The number of the month.
      */
@@ -116,6 +118,7 @@ public class SimpleDate {
 
     /**
      * Returns a date one day after the inputted date.
+     *
      * @param old The original date.
      * @return A new date one day later.
      */
@@ -152,12 +155,14 @@ public class SimpleDate {
 
     /**
      * Converts a date to a string with format Jan 1, 2017.
+     *
      * @return A string formatted Jan 1, 2017.
      */
     @Override
     public String toString() {
         return month + " " + dayOfMonth + ", " + year;
     }
+
     public String simpleString() {
         StringBuilder s = new StringBuilder();
         s.append(monthToNumber(getMonth())).append("§").append(getDayOfMonth()).append("§").append(getYear());
