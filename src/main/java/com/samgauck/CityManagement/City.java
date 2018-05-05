@@ -83,4 +83,21 @@ public class City {
     public ArrayList<Person> getCitizens() {
         return citizens;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        City other = (City) obj;
+        if (!(this.getCitizens().equals(other.getCitizens()))) return false;
+        if (!(this.resources.equals(other.resources))) return false;
+        return this.getName().equals(other.getName());
+    }
 }
