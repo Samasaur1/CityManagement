@@ -4,27 +4,76 @@ import com.samgauck.CityManagement.DateManagement.SimpleDate;
 
 import java.util.*;
 
+/**
+ * The main class for the program.
+ */
 public class Main {
 
+    /**
+     * The time in milliseconds. Used for waiting.
+     */
     private static long millis;
+    /**
+     * The scanner to get input from the command line.
+     */
     private static Scanner s = new Scanner(System.in);
+    /**
+     * The current input from the command line.
+     */
     private static String input;
+    /**
+     * The list of the player's cities.
+     */
     private static ArrayList<City> cities = new ArrayList<>();
+    /**
+     * The current date.
+     */
     private static SimpleDate date;
+    /**
+     * A local reference to the list of names.
+     */
     private static NameList nameList = NameList.getInstance();
+    /**
+     * The player's resources.
+     */
     public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
+    /**
+     * A local reference to the command handler.
+     */
     private static Command command = Command.getInstance();
+    /**
+     * A Boolean that indicates whether the game is still looping.
+     */
     private static Boolean looping = true;
+    /**
+     * A Boolean that indicates whether or not the game is in debug mode.
+     */
     private static Boolean debug = false;
 
-    public static Boolean getLooping() {
+    /**
+     * Get whether the game is looping.
+     *
+     * @return Whether or not the game is looping.
+     */
+    public static Boolean isLooping() {
         return looping;
     }
 
+    /**
+     * Sets the looping state of the game.
+     *
+     * @param looping Whether or not the game should loop.
+     */
     public static void setLooping(Boolean looping) {
         Main.looping = looping;
     }
 
+    /**
+     * Gets a player-owned city from the list.
+     *
+     * @param index The index of the city to get from the list.
+     * @return The requested city.
+     */
     public static City getCity(int index) {
         if (0 <= index && index <= cities.size() - 1) {
             return cities.get(index);
@@ -34,14 +83,29 @@ public class Main {
         return new City("City");
     }
 
+    /**
+     * Gets the date.
+     *
+     * @return The current date.
+     */
     public static SimpleDate getDate() {
         return date;
     }
 
+    /**
+     * Get whether the game is looping.
+     *
+     * @return
+     */
     public static Boolean getDebug() {
         return debug;
     }
 
+    /**
+     * The main method of the game.
+     *
+     * @param args Any command-line arguments.
+     */
     public static void main(String[] args) {
         ArrayList<String> arguments = new ArrayList<>(Arrays.asList(args));
         if (arguments.size() != 0) {
@@ -89,6 +153,9 @@ public class Main {
         }
     }
 
+    /**
+     * Sets up the game and does the introduction.
+     */
     private static void start() {
         date = new SimpleDate(1, 1, 2020); //Sets game date to 1/1/2020
         for (int i = 0; i < 10; i++) {
