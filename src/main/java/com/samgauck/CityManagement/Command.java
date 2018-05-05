@@ -304,7 +304,7 @@ public class Command {
     private void save() {
         StringBuilder s = new StringBuilder();
         s.append(Main.getCity(0).getName()).append("•");
-        s.append(Main.getCity(0).resources.simpleString()).append("•");
+        s.append(Main.getCity(0).resources.saveableString()).append("•");
         Main.getCity(0).getCitizens().forEach(p -> {
             s.append(p.getFirstName()).append("‡");
             s.append(p.getLastName()).append("‡");
