@@ -3,7 +3,13 @@ package com.samgauck.CityManagement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The singleton list of names.
+ */
 public class NameList {
+    /**
+     * Creates the list of names.
+     */
     private NameList() {
         firstNames.addAll(Arrays.asList("Anthony", "Arthur", "Aaron", "Alfred", "Alice", "Alina", "Adam"));
         firstNames.addAll(Arrays.asList("Benjamin", "Barry", "Becca"));
@@ -62,8 +68,17 @@ public class NameList {
         lastNames.addAll(Arrays.asList("Zlamal"));
     }
 
-    private ArrayList<String> firstNames = new ArrayList<String>();
-    private ArrayList<String> lastNames = new ArrayList<String>();
+    /**
+     * The list of first names.
+     */
+    private ArrayList<String> firstNames = new ArrayList<>();
+    /**
+     * The list of last names.
+     */
+    private ArrayList<String> lastNames = new ArrayList<>();
+    /**
+     * The NameList instance.
+     */
     private static NameList nameList = null;
 
     /**
