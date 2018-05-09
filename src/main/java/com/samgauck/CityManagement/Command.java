@@ -26,6 +26,11 @@ public class Command {
     private ArrayList<String> items = economy.getItems();
 
     /**
+     * The list of constructables (constructable items).
+     */
+    private ArrayList<String> constructables = economy.getConstructables();
+
+    /**
      * Creates a new Command instance. It is private so that it can be a singleton.
      */
     private Command() {
@@ -163,8 +168,27 @@ public class Command {
      * @param followingWords The user's command, minus the word "construct".
      */
     private void construct(ArrayList<String> followingWords) {
-        //TODO: Construct
-    }
+        System.out.println();
+        if (followingWords.size() == 0) {
+            System.out.println("Error 1.2: Nothing to construct");
+            return;
+        }
+        if (!constructables.contains(followingWords.get(0))) {
+            System.out.println("Error 1.2.2: Unable to construct '" + followingWords.get(0) + "'");
+            return;
+        }
+        int amount;
+        if (followingWords.size() == 1) {
+            System.out.println("No amount given, constructing 1 " + followingWords.get(0));
+            amount = 1;
+        } else if (followingWords.get(1).matches("\\D+")) {
+            System.out.println("Error 1.3.2: Not a valid amount");
+            return;
+        } else {
+            amount = Integer.parseInt(followingWords.get(1));
+        }
+        //TODO: Finish construct
+        //TODO: Add Economy.getPrice(String constructable). May return a list of needed resources. Also Economy.getConstructables()
 
     /**
      * Ends the looping command input.
