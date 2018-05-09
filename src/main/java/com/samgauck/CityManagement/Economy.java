@@ -51,6 +51,8 @@ public class Economy {
      * The list of items.
      */
     private static ArrayList<String> itemsList = new ArrayList<>(Arrays.asList("food", "wood", "stone", "iron", "steel", "oil", "coal", "uranium", "water", "carbon"));
+
+    private static ArrayList<String> constructablesList = new ArrayList<>(); //TODO: Fill
     /**
      * The list of prices.
      */
@@ -61,8 +63,12 @@ public class Economy {
      *
      * @return The list of items.
      */
-    public ArrayList<String> getItems() {
+    public static ArrayList<String> getItems() {
         return itemsList;
+    }
+
+    public static ArrayList<String> getConstructables() {
+        return constructablesList;
     }
 
     /**

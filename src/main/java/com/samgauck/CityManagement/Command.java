@@ -188,8 +188,8 @@ public class Command {
             amount = Integer.parseInt(followingWords.get(1));
         }
         //TODO: Finish construct
-        //TODO: Add Economy.getPrice(String constructable). May return a list of needed resources. Also Economy.getConstructables()
-
+        //TODO: Add Economy.getPrice(String constructable). May return a list of needed resources.
+    }
     /**
      * Ends the looping command input.
      */
