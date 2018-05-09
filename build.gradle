@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.2-master-b3'
+version '0.5.3-master-b4'
 
 apply plugin: 'java'
 

@@ -52,4 +52,12 @@ public class Utilities {
         }
         return map;
     }
+
+    public static String removeProfanity(String original) {
+        return original;
+    }
+    //TODO: Implement removeProfanity methods.
+    public static ArrayList<String> removeProfanity(ArrayList<String> original) {
+        return original;
+    }
 }
