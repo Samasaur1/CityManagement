@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.3-master-b4'
+version '0.5.2-master-b1'
 
 apply plugin: 'java'
 
@@ -28,7 +28,7 @@ def incrementBuildNumber() {
     def branchName = matcherVersionNumber.group(4)
     def buildNumber = Integer.parseInt(matcherVersionNumber.group(5))
     def mVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName + "-b" + buildNumber
-    def mNextVersionName = majorVersion + "." + minorVersion + "." + (patchVersion + 1) + "-" + branchName + "-b" + (buildNumber + 1)
+    def mNextVersionName = majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName + "-b" + (buildNumber + 1)
     def buildContent = matcherVersionNumber.replaceAll("version '" + mNextVersionName + "'")
     println(":incrementVersion - Old version: " + mVersionName);
     println(":incrementVersion - New version: " + mNextVersionName);
