@@ -194,6 +194,7 @@ public class Main {
         }
         System.out.print("Please enter a name for your city: ");
         input = s.next();
+        input = Utilities.removeProfanity(input);
         cities.add(new City(input)); //creates new city with your name
         cities.get(0).resources.setMoney(100_000);
         cities.get(0).resources.setFood(1_000);
@@ -202,13 +203,17 @@ public class Main {
         if (input.equalsIgnoreCase("y")) {
             System.out.println("What is the man's first name?");
             String first = s.next();
+            first = Utilities.removeProfanity(first);
             System.out.println("What is the man's last name?");
             String last = s.next();
+            last = Utilities.removeProfanity(last);
             cities.get(0).nameCitizen(0, first, last);
             System.out.println("What is the woman's first name?");
             first = s.next();
+            first = Utilities.removeProfanity(first);
             System.out.println("What is the woman's last name?");
             last = s.next();
+            last = Utilities.removeProfanity(last);
             cities.get(0).nameCitizen(1, first, last);
         } else {
             cities.get(0).nameCitizen(0, "Adam", "");

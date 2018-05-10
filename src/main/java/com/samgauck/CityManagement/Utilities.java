@@ -43,8 +43,8 @@ public class Utilities {
      * @param values An ArrayList of the values for the Map.
      * @return A Map consisting of the keys paired to the values.
      */
-    public static Map<String, Integer> generateMap(ArrayList<String> keys, ArrayList<Integer> values) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+    public static <K, V> Map<K, V> generateMap(ArrayList<K> keys, ArrayList<V> values) {
+        Map<K, V> map = new HashMap<>();
         if (keys.size() == values.size()) {
             for (int i = 0; i < keys.size(); i++) {
                 map.put(keys.get(i), values.get(i));
@@ -53,11 +53,43 @@ public class Utilities {
         return map;
     }
 
+    /**
+     * List of prohibited profane words.
+     */
+    private static Set<String> profaneWords = new HashSet<>(Arrays.asList("fuck", "shit", "bitch", "ass"));
+
+    /**
+     * Removes profanity from a given string.
+     * @param original The string to 'clean'.
+     * @return The cleaned string.
+     */
     public static String removeProfanity(String original) {
+        for (String bad:profaneWords) {
+            original = original.replaceAll(bad, clean(bad));
+        }
         return original;
     }
-    //TODO: Implement removeProfanity methods.
+
+    /**
+     * Removes profanity from every string in a given ArrayList.
+     * @param original The ArrayList to 'clean'.
+     * @return The cleaned ArrayList.
+     */
     public static ArrayList<String> removeProfanity(ArrayList<String> original) {
+        original.forEach(Utilities::removeProfanity);
         return original;
+    }
+
+    /**
+     * Takes a word and replaces it with a string of "*"s the same length as the given string.
+     * @param dirty The string to replace.
+     * @return A string of "*"s.
+     */
+    private static String clean(String dirty) {
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < dirty.length(); i++) {
+            s.append("*");
+        }
+        return s.toString();
     }
 }

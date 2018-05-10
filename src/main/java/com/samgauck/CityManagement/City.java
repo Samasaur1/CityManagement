@@ -30,7 +30,7 @@ public class City {
      */
     public City(String name) {
         Economy.getInstance().addCity(this); //Adds this to the economy list of cities
-        this.name = name;
+        this.name = Utilities.removeProfanity(name);
         newPerson(Sex.MALE);
         newPerson(Sex.FEMALE); //creates 2 new citizens
         citizens.forEach(person -> person.setAge(20)); //sets the citizens to a working age
@@ -79,7 +79,7 @@ public class City {
      * @param name The new name of the city.
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = Utilities.removeProfanity(name);
     }
 
     /**
@@ -90,8 +90,8 @@ public class City {
      * @param lastName  The new last name of the citizen.
      */
     public void nameCitizen(int index, String firstName, String lastName) {
-        citizens.get(index).setFirstName(firstName);
-        citizens.get(index).setLastName(lastName);
+        citizens.get(index).setFirstName(Utilities.removeProfanity(firstName));
+        citizens.get(index).setLastName(Utilities.removeProfanity(lastName));
     }
 
     /**

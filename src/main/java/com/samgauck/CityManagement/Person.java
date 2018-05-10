@@ -129,7 +129,7 @@ public class Person {
      * @param firstName The new first name.
      */
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = Utilities.removeProfanity(firstName);
     }
 
     /**
@@ -147,7 +147,7 @@ public class Person {
      * @param lastName The new last name.
      */
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = Utilities.removeProfanity(lastName);
     }
 
     /**

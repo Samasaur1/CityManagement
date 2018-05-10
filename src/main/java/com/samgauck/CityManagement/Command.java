@@ -52,6 +52,7 @@ public class Command {
      * @param command The command given by the user.
      */
     public void execute(String command) {
+        command = Utilities.removeProfanity(command);
         command = command.toLowerCase();
         ArrayList<String> words = new ArrayList<>(Arrays.asList(command.split(" ")));
         String word1 = words.get(0);
