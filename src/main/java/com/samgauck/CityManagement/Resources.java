@@ -386,4 +386,19 @@ public class Resources {
     public boolean isSupersetOf(Resources other) {
         return encompasses(other);
     }
+
+    public void multiplyBy(int quantity) {
+        setAll(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
+                getIron() * quantity, getSteel() * quantity, getOil() * quantity,
+                getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
+                getCarbon() * quantity);
+    }
+
+    public void multiply(int quantity) {
+        multiplyBy(quantity);
+    }
+
+    public void times(int quantity) {
+        multiplyBy(quantity);
+    }
 }
