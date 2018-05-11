@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.4-master-b4'
+version '0.5.5-master-b1'
 
 apply plugin: 'java'
 
@@ -51,6 +51,7 @@ def incrementVersion(Boolean inBuildGradle, Boolean major, Boolean minor, Boolea
         println(":incrementVersion - Incrementing Build Number...")
     }
     println(":incrementVersion - In " + (inBuildGradle ? "build.gradle" : "Main.java"))
+    println()
 
     def file = file(inBuildGradle ? "build.gradle" : "src/main/java/com/samgauck/CityManagement/Main.java")
     def patternVersionNumber = Pattern.compile(inBuildGradle ? "version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)'" : "\"(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)\"")
@@ -75,57 +76,142 @@ def incrementVersion(Boolean inBuildGradle, Boolean major, Boolean minor, Boolea
     file.write(content)
 }
 
+def setVersion(boolean inBuildGradle, int major, int minor, int patch, int build, String branch) {
+    println()
+    print(":setVersion - Setting version to ")
+
+    def file = file(inBuildGradle ? "build.gradle" : "src/main/java/com/samgauck/CityManagement/Main.java")
+    def patternVersionNumber = Pattern.compile(inBuildGradle ? "version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)'" : "\"(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)\"")
+    def text = file.getText()
+    def matcherVersionNumber = patternVersionNumber.matcher(text)
+    matcherVersionNumber.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
+    def patchVersion = Integer.parseInt(matcherVersionNumber.group(3))
+    def branchName = matcherVersionNumber.group(4)
+    def buildNumber = Integer.parseInt(matcherVersionNumber.group(5))
+    def newBranchName = branch == null ? branchName : branch
+    def newVersion = major + "." + minor + "." + patch + "-" + newBranchName + "-b" + build
+    println(newVersion)//see line 2 of this method
+    println(":setVersion - In " + (inBuildGradle ? "build.gradle" : "Main.java"))
+    println()
+
+    println(":setVersion - Old version: " + majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName + "-b" + buildNumber)
+    println(":setVersion - New version: " + newVersion)
+    println()
+    def content = matcherVersionNumber.replaceAll(inBuildGradle ? "version '" + newVersion + "'" : "\"" + newVersion + "\"")
+    file.write(content)
+}
+
+def setVersion(String version, boolean dummy) {
+    println()
+    println(":setVersion - Setting version to " + version)
+    println()
+
+    def file1 = file("build.gradle")
+    def patternVersionNumber1 = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)'")
+    def text1 = file1.getText()
+    def matcherVersionNumber1 = patternVersionNumber1.matcher(text1)
+    matcherVersionNumber1.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber1.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber1.group(2))
+    def patchVersion = Integer.parseInt(matcherVersionNumber1.group(3))
+    def branchName = matcherVersionNumber1.group(4)
+    def buildNumber = Integer.parseInt(matcherVersionNumber1.group(5))
+
+    def content1 = matcherVersionNumber1.replaceAll("version '" + version + "'")
+    file1.write(content1)
+
+    def file2 = file("src/main/java/com/samgauck/CityManagement/Main.java")
+    def patternVersionNumber2 = Pattern.compile("\"(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)\"")
+    def text2 = file2.getText()
+    def matcherVersionNumber2 = patternVersionNumber2.matcher(text2)
+    matcherVersionNumber2.find()
+
+    println(":setVersion - Old version: " + majorVersion + "." + minorVersion + "." + patchVersion + "-" + branchName + "-b" + buildNumber)
+    println(":setVersion - New version: " + version)
+    println()
+    def content2 = matcherVersionNumber2.replaceAll("\"" + version + "\"")
+    file2.write(content2)
+}
+
 //noinspection GroovyAssignabilityCheck
-task updateMajor() << {
-    incrementMajorVersion()
+task updateMajor() {
+    doFirst {
+        incrementMajorVersion()
+    }
 }
 //noinspection GroovyAssignabilityCheck
-task updateMinor() << {
-    incrementMinorVersion()
+task updateMinor() {
+    doFirst {
+        incrementMinorVersion()
+    }
 }
 //noinspection GroovyAssignabilityCheck
-task updatePatch() << {
-    incrementPatchVersion()
+task updatePatch() {
+    doFirst {
+        incrementPatchVersion()
+    }
 }
 //noinspection GroovyAssignabilityCheck
-task updateBuild() << {
-    incrementBuildNumber()
+task updateBuild() {
+    doFirst {
+        incrementBuildNumber()
+    }
 }
 //noinspection GroovyAssignabilityCheck
-task update(dependsOn: ':version') << {
-    println(":update - What type of update would you like? (major, minor, patch, build)")
-    println(":update - Enter a number 1-4 that corresponds to the above")
-    println(":update - Anything that is not a number will act as if it was a 4 (build)")
-    def type = System.in.newReader().readLine()
-    switch (type) {
-        case "1":
-            incrementMajorVersion()
-            break
-        case "2":
-            incrementMinorVersion()
-            break
-        case "3":
-            incrementPatchVersion()
-            break
-        default:
-            incrementBuildNumber()
+task update(dependsOn: ':version') {
+    doFirst {
+        println(":update - What type of update would you like? (major, minor, patch, build)")
+        println(":update - Enter a number 1-4 that corresponds to the above")
+        println(":update - Anything that is not a number will act as if it was a 4 (build)")
+        def type = System.in.newReader().readLine()
+        switch (type) {
+            case "1":
+                incrementMajorVersion()
+                break
+            case "2":
+                incrementMinorVersion()
+                break
+            case "3":
+                incrementPatchVersion()
+                break
+            default:
+                incrementBuildNumber()
+        }
     }
 }
 
 //noinspection GroovyAssignabilityCheck
-task renameBranch << {
-    println(":renameBranch - Enter new branch name:")
-    def name = System.in.newReader().readLine()
-    incrementVersion(true, false, false, false, name)
-    incrementVersion(false, false, false, false, name)
+task renameBranch {
+    doFirst {
+        println(":renameBranch - Enter new branch name:")
+        def name = System.in.newReader().readLine()
+        incrementVersion(true, false, false, false, name)
+        incrementVersion(false, false, false, false, name)
+    }
 }
 
 //noinspection GroovyAssignabilityCheck
-task version << {
-    println(version)
+task version {
+    doFirst {
+        println(version)
+    }
 }
 
 //noinspection GroovyAssignabilityCheck
-task testing << {
-    //Whatever
+task testing {
+    doFirst {
+        //Whatever
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+task resetVersion(dependsOn: ':version') {
+    doFirst {
+        println("What version would you like to reset to?")
+        println("Please be very careful that this is the correct format.")
+        println("It should be: \${MAJOR}.\${MINOR}.\${PATCH}-\${BRANCHNAME}-b\${BUILDNUMBER}")
+        setVersion(System.in.newReader().readLine(), true)
+    }
 }
