@@ -11,6 +11,7 @@ public class Economy {
      */
     private Economy() {
         items.putAll(Utilities.generateMap(itemsList, pricesList));
+        constructables.putAll(Utilities.generateMap(constructablesList, requirementsList));
     }
 
     /**
@@ -47,16 +48,23 @@ public class Economy {
      */
     private Map<String, Integer> items = new HashMap<>();
 
+    private Map<String, Resources> constructables = new HashMap<>();
+
     /**
      * The list of items.
      */
     private static ArrayList<String> itemsList = new ArrayList<>(Arrays.asList("food", "wood", "stone", "iron", "steel", "oil", "coal", "uranium", "water", "carbon"));
 
-    private static ArrayList<String> constructablesList = new ArrayList<>(); //TODO: Fill
+    private static ArrayList<String> constructablesList = new ArrayList<>(Arrays.asList("Steel", "City")); //TODO: Fill (& requirementsList [64])
     /**
      * The list of prices.
      */
     private static ArrayList<Integer> pricesList = new ArrayList<>(Arrays.asList(5, 1, 2, 5, 10, 10, 10, 10, 5, 5));
+
+    private static ArrayList<Resources> requirementsList = new ArrayList<>(Arrays.asList(
+            new Resources(0,0,0,0,0,0,0,0,0,0),//Steel
+            new Resources(0,0,0,0,0,0,0,0,0,0)//City
+    ));
 
     /**
      * Get the list of items.
@@ -82,6 +90,9 @@ public class Economy {
         //TODO: make supply and demand have an impact
     }
 
+    public Resources getRequirements(String constructable) {
+        return constructables.get(constructable);
+    }
     /**
      * Sets all prices. Should only be used for loading saves.
      *
