@@ -361,4 +361,29 @@ public class Resources {
         if (this.getWater() != other.getWater()) return false;
         return this.getCarbon() == other.getCarbon();
     }
+
+    public boolean encompasses(Resources other) {
+        if (getMoney() < other.getMoney()) return false;
+        if (getFood() < other.getFood()) return false;
+        if (getStone() < other.getStone()) return false;
+        if (getIron() < other.getIron()) return false;
+        if (getSteel() < other.getSteel()) return false;
+        if (getOil() < other.getOil()) return false;
+        if (getCoal() < other.getCoal()) return false;
+        if (getUranium() < other.getUranium()) return false;
+        if (getWater() < other.getWater()) return false;
+        return getCarbon() >= other.getCarbon();
+    }
+
+    public boolean greaterThanOrEqualTo(Resources other) {
+        return encompasses(other);
+    }
+
+    public boolean gte(Resources other) {
+        return encompasses(other);
+    }
+
+    public boolean isSupersetOf(Resources other) {
+        return encompasses(other);
+    }
 }
