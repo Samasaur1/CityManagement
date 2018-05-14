@@ -179,7 +179,7 @@ public class Resources {
 
     /**
      * Gets the total number of resources
-     * @return
+     * @return The number of resources that exist in the game.
      */
     public static int getNumberOfResources() {
         return numberOfResources;

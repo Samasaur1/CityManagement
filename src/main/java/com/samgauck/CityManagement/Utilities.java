@@ -38,9 +38,10 @@ public class Utilities {
 
     /**
      * Returns a map (dictionary in other languages) from an ArrayList of keys and one of values.
-     *
-     * @param keys   An ArrayList of the keys for the Map.
+     * @param keys An ArrayList of the keys for the Map.
      * @param values An ArrayList of the values for the Map.
+     * @param <K> The type of the keys for the map.
+     * @param <V> The type of the values for the map.
      * @return A Map consisting of the keys paired to the values.
      */
     public static <K, V> Map<K, V> generateMap(ArrayList<K> keys, ArrayList<V> values) {
