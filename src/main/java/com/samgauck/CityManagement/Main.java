@@ -10,6 +10,11 @@ import java.util.*;
 public class Main {
 
     /**
+     * The private constructor for Main. Should <strong>NEVER</strong> be used.
+     */
+    private Main() {}
+
+    /**
      * The time in milliseconds. Used for waiting.
      */
     private static long millis;
@@ -173,7 +178,7 @@ public class Main {
             System.out.println();
         }
         System.out.println("CityManagement");
-        System.out.println("Version " + "0.5.5-master-b2"); //Gradle changes this version string.
+        System.out.println("Version " + "0.5.5-master-b3"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
         }

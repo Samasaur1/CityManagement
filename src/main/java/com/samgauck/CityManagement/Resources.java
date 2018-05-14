@@ -7,6 +7,10 @@ import java.text.NumberFormat;
  */
 public class Resources {
     /**
+     * The number of resources in total.
+     */
+    private static final int numberOfResources = 10;
+    /**
      * The money in this collection of resources.
      */
     private int money;
@@ -46,21 +50,58 @@ public class Resources {
      * The carbon in this collection of resources.
      */
     private int carbon;
+
+    public Resources() {
+        this.setMoney(0);
+        this.setFood(0);
+        this.setStone(0);
+        this.setIron(0);
+        this.setSteel(0);
+        this.setOil(0);
+        this.setCoal(0);
+        this.setUranium(0);
+        this.setWater(0);
+        this.setCarbon(0);
+    }
+
+    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
+        this.setMoney(money);
+        this.setFood(food);
+        this.setStone(stone);
+        this.setIron(iron);
+        this.setSteel(steel);
+        this.setOil(oil);
+        this.setCoal(coal);
+        this.setUranium(uranium);
+        this.setWater(water);
+        this.setCarbon(carbon);
+    }
+
     /**
-     * The number of resources in total.
+     * Gets the total number of resources
+     *
+     * @return The number of resources that exist in the game.
      */
-    private static final int numberOfResources = 10;
+    public static int getNumberOfResources() {
+        return numberOfResources;
+    }
 
     /**
      * Gets the money of this collection of resources.
+     *
      * @return The contained money.
      */
     public int getMoney() {
         return money;
     }
 
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     /**
      * Gets the money, formatted correctly.
+     *
      * @return The formatted money.
      */
     public String getFormattedMoney() {
@@ -69,86 +110,124 @@ public class Resources {
 
     /**
      * Gets the food of this collection of resources.
+     *
      * @return The contained food.
      */
     public int getFood() {
         return food;
     }
 
+    public void setFood(int food) {
+        this.food = food;
+    }
 
     /**
      * Gets the stone of this collection of resources.
+     *
      * @return The contained stone.
      */
     public int getStone() {
         return stone;
     }
 
+    public void setStone(int stone) {
+        this.stone = stone;
+    }
 
     /**
      * Gets the iron of this collection of resources.
+     *
      * @return The contained iron.
      */
     public int getIron() {
         return iron;
     }
 
+    public void setIron(int iron) {
+        this.iron = iron;
+    }
 
     /**
      * Gets the steel of this collection of resources.
+     *
      * @return The contained steel.
      */
     public int getSteel() {
         return steel;
     }
 
+    public void setSteel(int steel) {
+        this.steel = steel;
+    }
 
     /**
      * Gets the oil of this collection of resources.
+     *
      * @return The contained oil.
      */
     public int getOil() {
         return oil;
     }
 
+    public void setOil(int oil) {
+        this.oil = oil;
+    }
 
     /**
      * Gets the coal of this collection of resources.
+     *
      * @return The contained coal.
      */
     public int getCoal() {
         return coal;
     }
 
+    public void setCoal(int coal) {
+        this.coal = coal;
+    }
 
     /**
      * Gets the uranium of this collection of resources.
+     *
      * @return The contained uranium.
      */
     public int getUranium() {
         return uranium;
     }
 
+    public void setUranium(int uranium) {
+        this.uranium = uranium;
+    }
 
     /**
      * Gets the water of this collection of resources.
+     *
      * @return The contained water.
      */
     public int getWater() {
         return water;
     }
 
+    public void setWater(int water) {
+        this.water = water;
+    }
 
     /**
      * Gets the carbon of this collection of resources.
+     *
      * @return The contained carbon.
      */
     public int getCarbon() {
         return carbon;
     }
 
+    public void setCarbon(int carbon) {
+        this.carbon = carbon;
+    }
+
     /**
      * Gets the amount of a given item.
+     *
      * @param item The item of which the amount has been requested.
      * @return The amount of the given item.
      */
@@ -178,56 +257,9 @@ public class Resources {
     }
 
     /**
-     * Gets the total number of resources
-     * @return The number of resources that exist in the game.
-     */
-    public static int getNumberOfResources() {
-        return numberOfResources;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
-    }
-
-    public void setFood(int food) {
-        this.food = food;
-    }
-
-    public void setStone(int stone) {
-        this.stone = stone;
-    }
-
-    public void setIron(int iron) {
-        this.iron = iron;
-    }
-
-    public void setSteel(int steel) {
-        this.steel = steel;
-    }
-
-    public void setOil(int oil) {
-        this.oil = oil;
-    }
-
-    public void setCoal(int coal) {
-        this.coal = coal;
-    }
-
-    public void setUranium(int uranium) {
-        this.uranium = uranium;
-    }
-
-    public void setWater(int water) {
-        this.water = water;
-    }
-
-    public void setCarbon(int carbon) {
-        this.carbon = carbon;
-    }
-
-    /**
      * Sets a given item to a given amount.
-     * @param item The item to set to the amount.
+     *
+     * @param item   The item to set to the amount.
      * @param amount The amount to set the item to.
      */
     public void setItem(String item, int amount) {
@@ -277,32 +309,6 @@ public class Resources {
         this.setCarbon(carbon);
     }
 
-    public Resources() {
-        this.setMoney(0);
-        this.setFood(0);
-        this.setStone(0);
-        this.setIron(0);
-        this.setSteel(0);
-        this.setOil(0);
-        this.setCoal(0);
-        this.setUranium(0);
-        this.setWater(0);
-        this.setCarbon(0);
-    }
-
-    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
-        this.setMoney(money);
-        this.setFood(food);
-        this.setStone(stone);
-        this.setIron(iron);
-        this.setSteel(steel);
-        this.setOil(oil);
-        this.setCoal(coal);
-        this.setUranium(uranium);
-        this.setWater(water);
-        this.setCarbon(carbon);
-    }
-
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -321,6 +327,7 @@ public class Resources {
 
     /**
      * Gets a string that is optomized for saving.
+     *
      * @return The resources in a string formatted 0§0§0§0§0§0§0§0§0§0
      */
     public String saveableString() {
@@ -362,6 +369,13 @@ public class Resources {
         return this.getCarbon() == other.getCarbon();
     }
 
+    /**
+     * A method that determines whether or not one Resources is a superset of another.
+     * Can be used to determine whether one Resources can be payed by another.
+     *
+     * @param other The Resources that is (potentially) smaller.
+     * @return Whether or not the given Resources is a subset of the calling one.
+     */
     public boolean encompasses(Resources other) {
         if (getMoney() < other.getMoney()) return false;
         if (getFood() < other.getFood()) return false;
@@ -375,18 +389,37 @@ public class Resources {
         return getCarbon() >= other.getCarbon();
     }
 
+    /**
+     * An alias for the {@link #encompasses(Resources) encompasses} method.
+     * @param other The Resources that is (potentially) smaller.
+     * @return Whether or not the given Resources is a subset of the calling one.
+     */
     public boolean greaterThanOrEqualTo(Resources other) {
         return encompasses(other);
     }
 
+    /**
+     * An alias for the {@link #encompasses(Resources) encompasses} method.
+     * @param other The Resources that is (potentially) smaller.
+     * @return Whether or not the given Resources is a subset of the calling one.
+     */
     public boolean gte(Resources other) {
         return encompasses(other);
     }
 
+    /**
+     * An alias for the {@link #encompasses(Resources) encompasses} method.
+     * @param other The Resources that is (potentially) smaller.
+     * @return Whether or not the given Resources is a subset of the calling one.
+     */
     public boolean isSupersetOf(Resources other) {
         return encompasses(other);
     }
 
+    /**
+     * Multiplies every resources in the Resources by the given quantity.
+     * @param quantity The quantity to multiply by.
+     */
     public void multiplyBy(int quantity) {
         setAll(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
                 getIron() * quantity, getSteel() * quantity, getOil() * quantity,
@@ -394,10 +427,18 @@ public class Resources {
                 getCarbon() * quantity);
     }
 
+    /**
+     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
+     * @param quantity The quantity to multiply by.
+     */
     public void multiply(int quantity) {
         multiplyBy(quantity);
     }
 
+    /**
+     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
+     * @param quantity The quantity to multiply by.
+     */
     public void times(int quantity) {
         multiplyBy(quantity);
     }
