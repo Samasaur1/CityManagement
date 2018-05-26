@@ -40,7 +40,7 @@ public class NameList {
         /*
          * In the constructor, initialize the first and last name lists.
          */
-        lastNames.addAll(Arrays.asList("Aaronson", "Amato", "Arteaga", "Adler", "Aguilar", "Applefeld", "Avril"));
+        lastNames.addAll(Arrays.asList("Aaronson", "Amato", "Arteaga", "Adler", "Aguilar", "Applefeld", "Avril", "Abell", "Aber", "Abbett", "Abram", "Acker"));
         lastNames.addAll(Arrays.asList("Berkowitz", "Benito", "Blickely", "Blumenthal", "Banner", "Barton", "Baran", "Barker", "Brier", "Burney", "Bryne"));
         lastNames.addAll(Arrays.asList("Craven", "Cain", "Clover", "Corbett", "Cunningham", "Callahan", "Campbell", "Cidecian", "Coles"));
         lastNames.addAll(Arrays.asList("Darnell", "Darmond", "Deane", "DeLuca", "Dente", "Dhruv", "Doran", "Dai", "Dente"));
@@ -59,7 +59,7 @@ public class NameList {
         lastNames.addAll(Arrays.asList("Quasar", "Quill"));
         lastNames.addAll(Arrays.asList("Richardson", "Rifkin", "Rollfinke", "Rudow", "Romanoff"));
         lastNames.addAll(Arrays.asList("Smith", "Sachs", "Schneider", "Seidenman", "Stark", "Strange"));
-        lastNames.addAll(Arrays.asList("Thompson"));
+        lastNames.addAll(Arrays.asList("Thompson", "Trench"));
         lastNames.addAll(Arrays.asList("Underwood"));
         lastNames.addAll(Arrays.asList("Vernick", "Varley", "Van Der Velpen"));
         lastNames.addAll(Arrays.asList("Woodson", "Walsh", "Watson", "Weiss", "Weinstein", "Wolf"));
