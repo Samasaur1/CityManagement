@@ -57,7 +57,9 @@ public class Utilities {
     /**
      * List of prohibited profane words.
      */
-    private static Set<String> profaneWords = new HashSet<>(Arrays.asList("fuck", "shit", "bitch", "ass"));
+    private static Set<String> profaneWords = new HashSet<>(Arrays.asList(
+    "fuck", "shit", "bitch", "ass", "crap", "piss", "dick", "cock", "pussy",
+    "asshole", "fag", "bastard", "slut", "douche", "cunt", "damn"));
 
     /**
      * Removes profanity from a given string.
