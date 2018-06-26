@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.5-development-b1'
+version '0.5.6-development-b1'
 
 apply plugin: 'java'
 
@@ -39,7 +39,7 @@ def incrementMajorVersion() {
     incrementVersion(false, true, false, false, null)
 }
 
-def incrementVersion(Boolean inBuildGradle, Boolean major, Boolean minor, Boolean patch, String branch) {
+def incrementVersion(boolean inBuildGradle, boolean major, boolean minor, boolean patch, String branch) {
     println()
     if (major) {
         println(":incrementVersion - Incrementing Major Version...")

@@ -60,7 +60,7 @@ public class City {
      * @param person The person to remove.
      * @return Whether or not the person was in the list, and therefore removed.
      */
-    public Boolean removePerson(Person person) {
+    public boolean removePerson(Person person) {
         return citizens.remove(person);
     }
 
