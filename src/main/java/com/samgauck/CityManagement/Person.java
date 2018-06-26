@@ -186,11 +186,11 @@ public class Person {
     /**
      * Whether this person is old enough to work.
      */
-    private Boolean canWork;
+    private boolean canWork;
     /**
      * Whether this person is old enough to mate.
      */
-    private Boolean canMate;
+    private boolean canMate;
     /**
      * The person's birthday.
      */
@@ -210,7 +210,7 @@ public class Person {
      *
      * @return Whether it is this person's birthday.
      */
-    public Boolean isBirthday() {
+    public boolean isBirthday() {
         return ((getBirthday().getMonth() == Main.getDate().getMonth()) && getBirthday().getDayOfMonth() == Main.getDate().getDayOfMonth());
     }
 

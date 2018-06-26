@@ -47,20 +47,20 @@ public class Main {
      */
     private static Command command = Command.getInstance();
     /**
-     * A Boolean that indicates whether the game is still looping.
+     * A boolean that indicates whether the game is still looping.
      */
-    private static Boolean looping = true;
+    private static boolean looping = true;
     /**
-     * A Boolean that indicates whether or not the game is in debug mode.
+     * A boolean that indicates whether or not the game is in debug mode.
      */
-    private static Boolean debug = false;
+    private static boolean debug = false;
 
     /**
      * Get whether the game is looping.
      *
      * @return Whether or not the game is looping.
      */
-    public static Boolean isLooping() {
+    public static boolean isLooping() {
         return looping;
     }
 
@@ -69,7 +69,7 @@ public class Main {
      *
      * @param looping Whether or not the game should loop.
      */
-    public static void setLooping(Boolean looping) {
+    public static void setLooping(boolean looping) {
         Main.looping = looping;
     }
 
@@ -102,7 +102,7 @@ public class Main {
      *
      * @return Whether the game is in debug mode.
      */
-    public static Boolean getDebug() {
+    public static boolean getDebug() {
         return debug;
     }
 
@@ -178,7 +178,7 @@ public class Main {
             System.out.println();
         }
         System.out.println("CityManagement");
-        System.out.println("Version " + "0.5.5-master-b8"); //Gradle changes this version string.
+        System.out.println("Version " + "0.5.6-development-b1"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
         }
