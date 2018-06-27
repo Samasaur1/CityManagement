@@ -1,9 +1,16 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.6-development-b1'
+version '0.6.0-development-b1'
 
 apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes("Manifest-Version": "1.0",
+        "Main-Class": "com.samgauck.CityManagement.Main")
+    }
+}
 
 sourceCompatibility = 1.8
 
