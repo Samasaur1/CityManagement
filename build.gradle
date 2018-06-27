@@ -1,9 +1,16 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.5.5-master-b8'
+version '0.6.0-development-b1'
 
 apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes("Manifest-Version": "1.0",
+        "Main-Class": "com.samgauck.CityManagement.Main")
+    }
+}
 
 sourceCompatibility = 1.8
 
@@ -39,7 +46,7 @@ def incrementMajorVersion() {
     incrementVersion(false, true, false, false, null)
 }
 
-def incrementVersion(Boolean inBuildGradle, Boolean major, Boolean minor, Boolean patch, String branch) {
+def incrementVersion(boolean inBuildGradle, boolean major, boolean minor, boolean patch, String branch) {
     println()
     if (major) {
         println(":incrementVersion - Incrementing Major Version...")
