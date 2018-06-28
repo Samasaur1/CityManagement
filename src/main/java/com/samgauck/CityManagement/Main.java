@@ -120,7 +120,7 @@ public class Main {
                         debug = true;
                         break;
                     case "load":
-                        if (arguments.size() > 1) {
+                        if (arguments.size() > i) {
                             command.execute("Load " + arguments.get(i + 1));
                             arguments.remove(i + 1);
                             break;
