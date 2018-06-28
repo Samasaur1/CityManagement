@@ -191,13 +191,14 @@ public class Command {
         Resources price = economy.getRequirements(followingWords.get(0));
         if (!(Main.getCity(0).resources.encompasses(price.multipliedBy(amount)))) {
             System.out.println("You don't have enough resources to construct '" +  followingWords.get(0) + "' x" + amount + " and you can't go into debt in construction.");
-            System.out.println("You have:\n\n" + Main.getCity(0).resources.toString());
-            System.out.println("You need\n\n" + price.multipliedBy(amount).toString());
+            System.out.println("You have:\n" + Main.getCity(0).resources.toString());
+            System.out.println("You need:\n" + price.multipliedBy(amount).toString());
             System.out.println("Construction not completed");
+            return;
         }
         Main.getCity(0).resources.subtract(price.multipliedBy(amount));
         //TODO: Add constructed item to player's resources.
-        System.out.println("Transaction completed");
+        System.out.println("Construction completed");
         System.out.println(Main.getCity(0).resources.toString());
     }
     /**
