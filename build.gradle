@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.6.0-development-b1'
+version '0.6.1-development-b1'
 
 apply plugin: 'java'
 
@@ -142,6 +142,37 @@ def setVersion(String version, boolean dummy) {
     file2.write(content2)
 }
 
+def releaseVersion() {
+    println()
+    println(":releaseVersion - Removing branch name and build number")
+    println()
+
+    def file1 = file("build.gradle")
+    def patternVersionNumber1 = Pattern.compile("version '(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)'")
+    def text1 = file1.getText()
+    def matcherVersionNumber1 = patternVersionNumber1.matcher(text1)
+    matcherVersionNumber1.find()
+    def majorVersion = Integer.parseInt(matcherVersionNumber1.group(1))
+    def minorVersion = Integer.parseInt(matcherVersionNumber1.group(2))
+    def patchVersion = Integer.parseInt(matcherVersionNumber1.group(3))
+    def newVersion = majorVersion + "." + minorVersion + "." + patchVersion
+
+    def content1 = matcherVersionNumber1.replaceAll("version '" + newVersion + "'")
+    file1.write(content1)
+
+    def file2 = file("src/main/java/com/samgauck/CityManagement/Main.java")
+    def patternVersionNumber2 = Pattern.compile("\"(\\d+)\\.(\\d+)\\.(\\d+)-(.+)-b(\\d+)\"")
+    def text2 = file2.getText()
+    def matcherVersionNumber2 = patternVersionNumber2.matcher(text2)
+    matcherVersionNumber2.find()
+
+    println(":setVersion - Old version: " + version)
+    println(":setVersion - New version: " + newVersion)
+    println()
+    def content2 = matcherVersionNumber2.replaceAll("\"" + newVersion + "\"")
+    file2.write(content2)
+}
+
 //noinspection GroovyAssignabilityCheck
 task updateMajor() {
     doFirst {
@@ -220,5 +251,12 @@ task resetVersion(dependsOn: ':version') {
         println("Please be very careful that this is the correct format.")
         println("It should be: \${MAJOR}.\${MINOR}.\${PATCH}-\${BRANCHNAME}-b\${BUILDNUMBER}")
         setVersion(System.in.newReader().readLine(), true)
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+task releaseVersion(dependsOn: ':version') {
+    doFirst {
+        releaseVersion()
     }
 }
