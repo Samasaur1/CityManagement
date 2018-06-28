@@ -8,7 +8,6 @@ script: "./gradlew build"
 
 before_deploy:
   - ./gradlew clean
-  - ./gradlew releaseVersion
   - ./gradlew jar
   - git config --local user.name "Sam Gauck"
   - git config --local user.email "30577766+Samasaur1@users.noreply.github.com"
