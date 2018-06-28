@@ -438,13 +438,40 @@ public class Resources {
      * <p>
      * This method does not change the caller, creating a new Resources and returning that.
      *
-     * @param quantity
-     * @return
+     * @param quantity The quantity to multiply by.
+     * @return A new Resources with all its values multiplied by the given quantity.
      */
     public Resources multipliedBy(int quantity) {
         return new Resources(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
                 getIron() * quantity, getSteel() * quantity, getOil() * quantity,
                 getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
                 getCarbon() * quantity);
+    }
+
+    /**
+     * Subtracts the given Resources from this Resources. This method mutates the caller.
+     *
+     * @param amount The Resources to subtract from the caller.
+     */
+    public void subtract(Resources amount) {
+        setAll(getMoney() - amount.getMoney(), getFood() - amount.getFood(), getStone() - amount.getStone(),
+                getIron() - amount.getIron(), getSteel() - amount.getSteel(), getOil() - amount.getOil(),
+                getCoal() - amount.getCoal(), getUranium() - amount.getUranium(), getWater() - amount.getWater(),
+                getCarbon() - amount.getCarbon());
+    }
+
+    /**
+     * Returns a new Resources object with all its values equal to this Resources' values minus the given Resources.
+     * <p>
+     * This method does not change the caller, creating a new Resources and returning that.
+     *
+     * @param other The Resources to subtract.
+     * @return A new Resources equal to this Resources' values minus the given one's.
+     */
+    public Resources difference(Resources other) {
+        return new Resources(getMoney() - other.getMoney(), getFood() - other.getFood(), getStone() - other.getStone(),
+                getIron() - other.getIron(), getSteel() - other.getSteel(), getOil() - other.getOil(),
+                getCoal() - other.getCoal(), getUranium() - other.getUranium(), getWater() - other.getWater(),
+                getCarbon() - other.getCarbon());
     }
 }
