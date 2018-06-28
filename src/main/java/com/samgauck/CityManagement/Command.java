@@ -188,8 +188,17 @@ public class Command {
         } else {
             amount = Integer.parseInt(followingWords.get(1));
         }
-        //TODO: Finish construct
-        //TODO: Add Economy.getPrice(String constructable). May return a list of needed resources.
+        Resources price = economy.getRequirements(followingWords.get(0));
+        if (!(Main.getCity(0).resources.encompasses(price.multipliedBy(amount)))) {
+            System.out.println("You don't have enough resources to construct '" +  followingWords.get(0) + "' x" + amount + " and you can't go into debt in construction.");
+            System.out.println("You have:\n\n" + Main.getCity(0).resources.toString());
+            System.out.println("You need\n\n" + price.multipliedBy(amount).toString());
+            System.out.println("Construction not completed");
+        }
+        Main.getCity(0).resources.subtract(price.multipliedBy(amount));
+        //TODO: Add constructed item to player's resources.
+        System.out.println("Transaction completed");
+        System.out.println(Main.getCity(0).resources.toString());
     }
     /**
      * Ends the looping command input.
@@ -316,7 +325,7 @@ public class Command {
             //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
 
-            //Sets currrent prices. Can fail if they don't pass Integers
+            //Sets current prices. Can fail if they don't pass Integers
             economy.setPrices(prices);
 
             System.out.println("Loaded!");
