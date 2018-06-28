@@ -391,6 +391,7 @@ public class Resources {
 
     /**
      * An alias for the {@link #encompasses(Resources) encompasses} method.
+     *
      * @param other The Resources that is (potentially) smaller.
      * @return Whether or not the given Resources is a subset of the calling one.
      */
@@ -400,6 +401,7 @@ public class Resources {
 
     /**
      * An alias for the {@link #encompasses(Resources) encompasses} method.
+     *
      * @param other The Resources that is (potentially) smaller.
      * @return Whether or not the given Resources is a subset of the calling one.
      */
@@ -409,6 +411,7 @@ public class Resources {
 
     /**
      * An alias for the {@link #encompasses(Resources) encompasses} method.
+     *
      * @param other The Resources that is (potentially) smaller.
      * @return Whether or not the given Resources is a subset of the calling one.
      */
@@ -418,6 +421,9 @@ public class Resources {
 
     /**
      * Multiplies every resources in the Resources by the given quantity.
+     * <p>
+     * This method mutates the Resources itself and returns void.
+     *
      * @param quantity The quantity to multiply by.
      */
     public void multiplyBy(int quantity) {
@@ -428,18 +434,44 @@ public class Resources {
     }
 
     /**
-     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
+     * Returns a new Resources object with all its values equal to this Resources' values times the given quantity.
+     * <p>
+     * This method does not change the caller, creating a new Resources and returning that.
+     *
      * @param quantity The quantity to multiply by.
+     * @return A new Resources with all its values multiplied by the given quantity.
      */
-    public void multiply(int quantity) {
-        multiplyBy(quantity);
+    public Resources multipliedBy(int quantity) {
+        return new Resources(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
+                getIron() * quantity, getSteel() * quantity, getOil() * quantity,
+                getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
+                getCarbon() * quantity);
     }
 
     /**
-     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
-     * @param quantity The quantity to multiply by.
+     * Subtracts the given Resources from this Resources. This method mutates the caller.
+     *
+     * @param amount The Resources to subtract from the caller.
      */
-    public void times(int quantity) {
-        multiplyBy(quantity);
+    public void subtract(Resources amount) {
+        setAll(getMoney() - amount.getMoney(), getFood() - amount.getFood(), getStone() - amount.getStone(),
+                getIron() - amount.getIron(), getSteel() - amount.getSteel(), getOil() - amount.getOil(),
+                getCoal() - amount.getCoal(), getUranium() - amount.getUranium(), getWater() - amount.getWater(),
+                getCarbon() - amount.getCarbon());
+    }
+
+    /**
+     * Returns a new Resources object with all its values equal to this Resources' values minus the given Resources.
+     * <p>
+     * This method does not change the caller, creating a new Resources and returning that.
+     *
+     * @param other The Resources to subtract.
+     * @return A new Resources equal to this Resources' values minus the given one's.
+     */
+    public Resources difference(Resources other) {
+        return new Resources(getMoney() - other.getMoney(), getFood() - other.getFood(), getStone() - other.getStone(),
+                getIron() - other.getIron(), getSteel() - other.getSteel(), getOil() - other.getOil(),
+                getCoal() - other.getCoal(), getUranium() - other.getUranium(), getWater() - other.getWater(),
+                getCarbon() - other.getCarbon());
     }
 }

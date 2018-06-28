@@ -178,9 +178,10 @@ public class Command {
             System.out.println("Error 1.2.2: Unable to construct '" + followingWords.get(0) + "'");
             return;
         }
+        String constructable = followingWords.get(0);
         int amount;
         if (followingWords.size() == 1) {
-            System.out.println("No amount given, constructing 1 " + followingWords.get(0));
+            System.out.println("No amount given, constructing 1 " + constructable);
             amount = 1;
         } else if (followingWords.get(1).matches("\\D+")) {
             System.out.println("Error 1.3.2: Not a valid amount");
@@ -188,8 +189,23 @@ public class Command {
         } else {
             amount = Integer.parseInt(followingWords.get(1));
         }
-        //TODO: Finish construct
-        //TODO: Add Economy.getPrice(String constructable). May return a list of needed resources.
+        Resources price = economy.getRequirements(constructable);
+        if (!(Main.getCity(0).resources.encompasses(price.multipliedBy(amount)))) {
+            System.out.println("You don't have enough resources to construct '" +  constructable + "' x" + amount + " and you can't go into debt in construction.");
+            System.out.println("You have:\n" + Main.getCity(0).resources.toString());
+            System.out.println("You need:\n" + price.multipliedBy(amount).toString());
+            System.out.println("Construction not completed");
+            return;
+        }
+        Main.getCity(0).resources.subtract(price.multipliedBy(amount));
+        //TODO: Add constructed item to player's resources.
+        if (constructable.equalsIgnoreCase("city")) {
+            //TODO: Add city
+        } else if (items.contains(constructable)) {
+            Main.getCity(0).resources.setItem(constructable, Main.getCity(0).resources.getItem(constructable) + amount);
+        }
+        System.out.println("Construction completed");
+        System.out.println(Main.getCity(0).resources.toString());
     }
     /**
      * Ends the looping command input.
@@ -316,7 +332,7 @@ public class Command {
             //Sets date. Can fail if they don't pass Integers
             Main.getDate().setDate(dateInts.get(0), dateInts.get(1), dateInts.get(2));
 
-            //Sets currrent prices. Can fail if they don't pass Integers
+            //Sets current prices. Can fail if they don't pass Integers
             economy.setPrices(prices);
 
             System.out.println("Loaded!");

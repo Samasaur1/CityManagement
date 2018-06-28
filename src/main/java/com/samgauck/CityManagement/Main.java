@@ -120,7 +120,7 @@ public class Main {
                         debug = true;
                         break;
                     case "load":
-                        if (arguments.size() > 1) {
+                        if (arguments.size() > i) {
                             command.execute("Load " + arguments.get(i + 1));
                             arguments.remove(i + 1);
                             break;
@@ -178,7 +178,7 @@ public class Main {
             System.out.println();
         }
         System.out.println("CityManagement");
-        System.out.println("Version " + "0.6.2-development-b1"); //Gradle changes this version string.
+        System.out.println("Version " + "0.7.0"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
         }
