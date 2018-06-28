@@ -427,19 +427,10 @@ public class Resources {
                 getCarbon() * quantity);
     }
 
-    /**
-     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
-     * @param quantity The quantity to multiply by.
-     */
-    public void multiply(int quantity) {
-        multiplyBy(quantity);
-    }
-
-    /**
-     * An alias for the {@link #multiplyBy(int) multiplyBy} method.
-     * @param quantity The quantity to multiply by.
-     */
-    public void times(int quantity) {
-        multiplyBy(quantity);
+    public Resources multipliedBy(int quantity) {
+        return new Resources(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
+                getIron() * quantity, getSteel() * quantity, getOil() * quantity,
+                getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
+                getCarbon() * quantity);
     }
 }
