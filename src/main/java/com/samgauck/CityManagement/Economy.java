@@ -62,7 +62,7 @@ public class Economy {
     private static ArrayList<Integer> pricesList = new ArrayList<>(Arrays.asList(5, 1, 2, 5, 10, 10, 10, 10, 5, 5));
 
     private static ArrayList<Resources> requirementsList = new ArrayList<>(Arrays.asList(
-            new Resources(0,0,0,0,0,0,0,0,0,0),//Steel
+            new Resources(0,0,0,1,0,0,1,0,0,0),//Steel
             new Resources(0,0,0,0,0,0,0,0,0,0)//City
     ));
 
