@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.6.2'
+version '0.7.0'
 
 apply plugin: 'java'
 
@@ -148,7 +148,7 @@ task update(dependsOn: ':version') {
     doFirst {
         println(":update - What type of update would you like? (major, minor, patch)")
         println(":update - Enter a number 1-3 that corresponds to the above")
-        println(":update - Anything that is not 1-3  will not do anythin")
+        println(":update - Anything that is not 1-3  will not update anything")
         def type = System.in.newReader().readLine()
         switch (type) {
             case "1":
