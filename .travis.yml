@@ -8,11 +8,12 @@ script: "./gradlew build"
 
 before_deploy:
   - ./gradlew clean
-  - ./gradlew jar
   - ./gradlew releaseVersion
+  - ./gradlew jar
   - git config --local user.name "Sam Gauck"
   - git config --local user.email "30577766+Samasaur1@users.noreply.github.com"
-  - git tag "v$(gradle properties -q | grep "version:" | awk '{print $2}')"
+  - export NAME="v$(gradle properties -q | grep "version:" | awk '{print $2}')"
+  - git tag $NAME
 
 deploy:
   provider: releases
@@ -20,5 +21,7 @@ deploy:
   file_glob: true
   file: "build/libs/*"
   skip_cleanup: true
+  name: $NAME
+  prerelease: true
   on:
       branch: master
