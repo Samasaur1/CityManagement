@@ -108,14 +108,17 @@ public class Economy {
     }
 
     public void updatePrice(EconomicalActionType action, String item, int amount) { //TODO: Add more accurate economic impact
-        if (!item.contains(item))
+        if (!item.contains(item)) return;
         switch (action) {
             case BUYING:
                 setPrice(item, getPrice(item) + amount);
+                break;
             case SELLING:
                 setPrice(item, getPrice(item) - amount);
+                break;
             case CONSTRUCTING:
                 setPrice(item, getPrice(item) - ((int) Math.floor(amount / 10)));
+                break;
         }
     }
 
