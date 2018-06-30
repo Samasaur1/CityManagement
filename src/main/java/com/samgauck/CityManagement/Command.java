@@ -124,6 +124,8 @@ public class Command {
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) + amount);
         System.out.println("Transaction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.BUYING, item, amount);
     }
 
     /**
@@ -161,6 +163,8 @@ public class Command {
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) - amount);
         System.out.println("Transaction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.SELLING, item, amount);
     }
 
     /**
@@ -205,6 +209,8 @@ public class Command {
         }
         System.out.println("Construction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.CONSTRUCTING, constructable, amount);
     }
     /**
      * Ends the looping command input.
