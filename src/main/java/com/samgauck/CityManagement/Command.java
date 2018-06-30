@@ -198,7 +198,6 @@ public class Command {
             return;
         }
         Main.getCity(0).resources.subtract(price.multipliedBy(amount));
-        //TODO: Add constructed item to player's resources.
         if (constructable.equalsIgnoreCase("city")) {
             //TODO: Add city
         } else if (items.contains(constructable)) {
@@ -407,7 +406,10 @@ public class Command {
                     s.append("Both the [item] and [amount] fields are necessary").append("\n");
                     break;
                 case "construct":
-                    //TODO: Help construct
+                    s.append("The 'construct' command lets you construct items, both items that one could buy and ones that are otherwise exclusive.").append("\n");
+                    s.append("Usage is \"construct [constructable] [amount]\". For example:").append("\n");
+                    s.append("construct city 1").append("\n");
+                    s.append("Both the [item] and [amount] fields are necessary").append("\n");
                     break;
                 case "quit":
                     s.append("The 'quit' command quits the game. It does not ask you if you are sure, and it will not save").append("\n");
