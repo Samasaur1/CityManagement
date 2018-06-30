@@ -106,7 +106,7 @@ public class Command {
         if (followingWords.size() == 1) {
             System.out.println("Error 1.3.1: No amount given");
         }
-        if (followingWords.get(1).matches("\\D+")) {
+        if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
@@ -147,7 +147,7 @@ public class Command {
             System.out.println("Error 1.3.1: No amount given");
             return;
         }
-        if (followingWords.get(1).matches("\\D+")) {
+        if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
@@ -187,7 +187,7 @@ public class Command {
         if (followingWords.size() == 1) {
             System.out.println("No amount given, constructing 1 " + constructable);
             amount = 1;
-        } else if (followingWords.get(1).matches("\\D+")) {
+        } else if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         } else {
