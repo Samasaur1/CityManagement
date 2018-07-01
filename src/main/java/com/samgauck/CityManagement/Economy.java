@@ -87,7 +87,6 @@ public class Economy {
      */
     public int getPrice(String item) {
         return items.get(item);
-        //TODO: make supply and demand have an impact
     }
 
     public Resources getRequirements(String constructable) {
@@ -102,5 +101,28 @@ public class Economy {
         if (prices.size() != pricesList.size()) return;
         items.clear();
         items.putAll(Utilities.generateMap(itemsList, prices));
+    }
+
+    private void setPrice(String item, int price) {
+        items.put(item, price);
+    }
+
+    public void updatePrice(EconomicalActionType action, String item, int amount) { //TODO: Add more accurate economic impact
+        if (!item.contains(item)) return;
+        switch (action) {
+            case BUYING:
+                setPrice(item, getPrice(item) + amount);
+                break;
+            case SELLING:
+                setPrice(item, getPrice(item) - amount);
+                break;
+            case CONSTRUCTING:
+                setPrice(item, getPrice(item) - ((int) Math.floor(amount / 10)));
+                break;
+        }
+    }
+
+    public enum EconomicalActionType {
+        BUYING, SELLING, CONSTRUCTING;
     }
 }

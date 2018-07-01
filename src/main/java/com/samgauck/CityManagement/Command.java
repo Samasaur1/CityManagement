@@ -106,7 +106,7 @@ public class Command {
         if (followingWords.size() == 1) {
             System.out.println("Error 1.3.1: No amount given");
         }
-        if (followingWords.get(1).matches("\\D+")) {
+        if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
@@ -124,6 +124,8 @@ public class Command {
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) + amount);
         System.out.println("Transaction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.BUYING, item, amount);
     }
 
     /**
@@ -145,7 +147,7 @@ public class Command {
             System.out.println("Error 1.3.1: No amount given");
             return;
         }
-        if (followingWords.get(1).matches("\\D+")) {
+        if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         }
@@ -161,6 +163,8 @@ public class Command {
         Main.getCity(0).resources.setItem(item, Main.getCity(0).resources.getItem(item) - amount);
         System.out.println("Transaction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.SELLING, item, amount);
     }
 
     /**
@@ -183,7 +187,7 @@ public class Command {
         if (followingWords.size() == 1) {
             System.out.println("No amount given, constructing 1 " + constructable);
             amount = 1;
-        } else if (followingWords.get(1).matches("\\D+")) {
+        } else if (followingWords.get(1).matches(".*\\D.*")) {
             System.out.println("Error 1.3.2: Not a valid amount");
             return;
         } else {
@@ -198,7 +202,6 @@ public class Command {
             return;
         }
         Main.getCity(0).resources.subtract(price.multipliedBy(amount));
-        //TODO: Add constructed item to player's resources.
         if (constructable.equalsIgnoreCase("city")) {
             //TODO: Add city
         } else if (items.contains(constructable)) {
@@ -206,6 +209,8 @@ public class Command {
         }
         System.out.println("Construction completed");
         System.out.println(Main.getCity(0).resources.toString());
+
+        economy.updatePrice(Economy.EconomicalActionType.CONSTRUCTING, constructable, amount);
     }
     /**
      * Ends the looping command input.
@@ -407,7 +412,10 @@ public class Command {
                     s.append("Both the [item] and [amount] fields are necessary").append("\n");
                     break;
                 case "construct":
-                    //TODO: Help construct
+                    s.append("The 'construct' command lets you construct items, both items that one could buy and ones that are otherwise exclusive.").append("\n");
+                    s.append("Usage is \"construct [constructable] [amount]\". For example:").append("\n");
+                    s.append("construct city 1").append("\n");
+                    s.append("Both the [item] and [amount] fields are necessary").append("\n");
                     break;
                 case "quit":
                     s.append("The 'quit' command quits the game. It does not ask you if you are sure, and it will not save").append("\n");
