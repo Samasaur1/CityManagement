@@ -188,9 +188,29 @@ public class Command {
             System.out.println("No amount given, constructing 1 " + constructable);
             amount = 1;
         } else if (followingWords.get(1).matches(".*\\D.*")) {
-            System.out.println("Error 1.3.2: Not a valid amount");
+            System.out.println("Error 1.3.2.1: Not a valid amount");
             return;
         } else {
+            try {
+                long x = Long.parseLong(followingWords.get(1));
+                if (x > Integer.MAX_VALUE) {
+                    System.out.println("Error 1.3.2.2: Amount too large for one transaction");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error 1.3.2.3: Amount too large for one transaction");
+                return;
+            } catch (Exception e) {
+                System.out.println("Error 1.3.2.4: Undetermined");
+                if (Main.getDebug()) {
+                    System.out.println("In debug mode, so printing information");
+                    System.out.println(e);
+                    e.printStackTrace();
+                    System.out.println(e.getCause());
+                    System.out.println(e.getMessage());
+                }
+                return;
+            }
             amount = Integer.parseInt(followingWords.get(1));
         }
         Resources price = economy.getRequirements(constructable);
