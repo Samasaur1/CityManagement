@@ -104,6 +104,9 @@ public class Economy {
     }
 
     private void setPrice(String item, int price) {
+        if (price < 1) {
+            price = 1;
+        }
         items.put(item, price);
     }
 
