@@ -143,16 +143,37 @@ public class Command {
             System.out.println("Error 1.2.2: Item not recognized");
             return;
         }
-        if (followingWords.size() == 1) {
-            System.out.println("Error 1.3.1: No amount given");
-            return;
-        }
-        if (followingWords.get(1).matches(".*\\D.*")) {
-            System.out.println("Error 1.3.2: Not a valid amount");
-            return;
-        }
         String item = followingWords.get(0);
-        int amount = Integer.parseInt(followingWords.get(1));
+        int amount;
+        if (followingWords.size() == 1) {
+            System.out.println("No amount given, selling 1 " + item);
+            amount = 1;
+        } else if (followingWords.get(1).matches(".*\\D.*")) {
+            System.out.println("Error 1.3.2.1: Not a valid amount");
+            return;
+        } else {
+            try {
+                long x = Long.parseLong(followingWords.get(1));
+                if (x > Integer.MAX_VALUE) {
+                    System.out.println("Error 1.3.2.2: Amount too large for one transaction");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error 1.3.2.3: Amount too large for one transaction");
+                return;
+            } catch (Exception e) {
+                System.out.println("Error 1.3.2.4: Undetermined");
+                if (Main.getDebug()) {
+                    System.out.println("In debug mode, so printing information");
+                    System.out.println(e);
+                    e.printStackTrace();
+                    System.out.println(e.getCause());
+                    System.out.println(e.getMessage());
+                }
+                return;
+            }
+            amount = Integer.parseInt(followingWords.get(1));
+        }
         if ((Main.getCity(0).resources.getItem(item) - amount) < 0) {
             System.out.println("You don't have enough " + item);
             System.out.println("The most you could sell is " + Main.getCity(0).resources.getItem(item));
