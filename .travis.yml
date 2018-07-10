@@ -11,7 +11,7 @@ before_deploy:
   - ./gradlew jar
   - git config --local user.name "Sam Gauck"
   - git config --local user.email "30577766+Samasaur1@users.noreply.github.com"
-  - export NAME="v$(gradle properties -q | grep "version:" | awk '{print $2}')"
+  - export NAME="v$(./gradlew version -q)"
   - git tag $NAME
 
 deploy:
