@@ -4,6 +4,7 @@ group 'CityManagement'
 version '0.8.0'
 
 apply plugin: 'java'
+apply plugin: 'idea'
 
 jar {
     manifest {
