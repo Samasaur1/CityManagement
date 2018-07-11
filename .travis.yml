@@ -7,11 +7,14 @@ jdk: "oraclejdk8"
 script: "./gradlew build"
 
 before_deploy:
-  - ./gradlew clean
-  - ./gradlew jar
-  - ./gradlew fixREADME
   - git config --local user.name "Sam Gauck"
   - git config --local user.email "30577766+Samasaur1@users.noreply.github.com"
+  - ./gradlew fixREADME
+  - git add README.md
+  - git commit -m "Change Travis badge to reference master [skip ci]"
+  - git push "https://${GH_TOKEN}@github.com/Samasaur1/Utilities.git" master > /dev/null 2>&1
+  - ./gradlew clean
+  - ./gradlew jar
   - export NAME="v$(./gradlew version -q)"
   - if git tag $NAME 2>/dev/null; then export DEPLOY=true; else echo "Tag already exists; not deploying"; fi
 
