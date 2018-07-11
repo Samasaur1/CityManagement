@@ -1,6 +1,7 @@
 package com.samgauck.CityManagement;
 
 import java.util.*;
+import com.gauck.sam.Utilities.*;
 
 /**
  * A singleton class that represents the global economy in the game.

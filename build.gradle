@@ -16,10 +16,12 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "com.github.Samasaur1:Utilities:v+"
 }
 
 def incrementPatchVersion() {

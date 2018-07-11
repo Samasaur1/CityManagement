@@ -1,4 +1,5 @@
 package com.samgauck.CityManagement;
+import com.gauck.sam.Utilities.*;
 
 /**
  * A enum representation of a sex (not a gender).
@@ -13,6 +14,6 @@ public enum Sex {
      */
     @Override
     public String toString() {
-        return Utilities.capitailze(super.toString());
+        return Utilities.capitalize(super.toString());
     }
 }
