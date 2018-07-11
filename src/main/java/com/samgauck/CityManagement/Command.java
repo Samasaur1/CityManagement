@@ -3,6 +3,7 @@ package com.samgauck.CityManagement;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.gauck.sam.Utilities.*;
 
 /**
  * A singleton class that manages all commands.

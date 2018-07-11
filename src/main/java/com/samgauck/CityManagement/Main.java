@@ -1,5 +1,6 @@
 package com.samgauck.CityManagement;
 
+import com.gauck.sam.Utilities.Utilities;
 import com.samgauck.CityManagement.DateManagement.SimpleDate;
 
 import java.util.*;
@@ -10,10 +11,9 @@ import java.util.*;
 public class Main {
 
     /**
-     * The private constructor for Main. Should <strong>NEVER</strong> be used.
+     * The player's resources.
      */
-    private Main() {}
-
+    public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
     /**
      * The time in milliseconds. Used for waiting.
      */
@@ -39,10 +39,6 @@ public class Main {
      */
     private static NameList nameList = NameList.getInstance();
     /**
-     * The player's resources.
-     */
-    public static Resources resources; //TODO: Add ways to get a new city, implement Resources then
-    /**
      * A local reference to the command handler.
      */
     private static Command command = Command.getInstance();
@@ -54,6 +50,11 @@ public class Main {
      * A boolean that indicates whether or not the game is in debug mode.
      */
     private static boolean debug = false;
+    /**
+     * The private constructor for Main. Should <strong>NEVER</strong> be used.
+     */
+    private Main() {
+    }
 
     /**
      * Get whether the game is looping.
@@ -178,7 +179,7 @@ public class Main {
             System.out.println();
         }
         System.out.println("CityManagement");
-        System.out.println("Version " + "0.7.4"); //Gradle changes this version string.
+        System.out.println("Version " + "0.8.0"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
         }

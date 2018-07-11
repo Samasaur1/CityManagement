@@ -1,6 +1,6 @@
 package com.samgauck.CityManagement.DateManagement;
 
-import com.samgauck.CityManagement.Utilities;
+import com.gauck.sam.Utilities.*;
 
 /**
  * A three-letter enum representation of a month.
@@ -15,6 +15,6 @@ public enum Month {
      */
     @Override
     public String toString() {
-        return Utilities.capitailze(super.toString());
+        return Utilities.capitalize(super.toString());
     }
 }

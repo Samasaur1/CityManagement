@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.7.4'
+version '0.8.0'
 
 apply plugin: 'java'
 
@@ -16,10 +16,12 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "com.github.Samasaur1:Utilities:v+"
 }
 
 def incrementPatchVersion() {
@@ -187,5 +189,23 @@ task resetVersion(dependsOn: ':version') {
         println("Please be very careful that this is the correct format.")
         println("It should be: \${MAJOR}.\${MINOR}.\${PATCH}-\${BRANCHNAME}-b\${BUILDNUMBER}")
         setVersion(System.in.newReader().readLine(), true)
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+task fixREADME {
+    doFirst {
+        println()
+        println("::fixREADME - Setting Travis badge to reference master")
+        println()
+
+        def file1 = file("README.md")
+        def pattern = Pattern.compile(/CityManagement\.svg\?branch=.+?\)]/)
+        def text = file.getText()
+        def matcher = pattern.matcher(text)
+        matcher.find()
+
+        def content = matcher.replaceAll("CityManagement.svg?branch=master)]")
+        file.write(content)
     }
 }

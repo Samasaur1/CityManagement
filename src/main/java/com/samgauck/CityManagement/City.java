@@ -1,6 +1,7 @@
 package com.samgauck.CityManagement;
 
 import java.util.ArrayList;
+import com.gauck.sam.Utilities.*;
 
 /**
  * A class that represents a city.
