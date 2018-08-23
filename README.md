@@ -16,7 +16,7 @@ See [the contributing guidelines](CONTRIBUTING.md) for how to help out.
 4. Run `./gradlew update` and choose the appropriate option to bump the version number
 5. Review the new code and make any necessary changes
 6. If the CI builds pass, merge the PR
-7. Run `git rebase development master` (or, if on `development`, simply `git rebase master`)
+7. Run `git checkout development && git rebase master`
 8. Continue working on the `development` branch
 
 ##### Priorities
