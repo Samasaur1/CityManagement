@@ -56,7 +56,7 @@ public class Economy {
      */
     private static ArrayList<String> itemsList = new ArrayList<>(Arrays.asList("food", "wood", "stone", "iron", "steel", "oil", "coal", "uranium", "water", "carbon", "bronze"));
 
-    private static ArrayList<String> constructablesList = new ArrayList<>(Arrays.asList("steel", "city")); //TODO: Fill (& requirementsList [64])
+    private static ArrayList<String> constructablesList = new ArrayList<>(Arrays.asList("steel", "city", "bronze")); //TODO: Fill (& requirementsList [64])
     /**
      * The list of prices.
      */
@@ -64,7 +64,8 @@ public class Economy {
 
     private static ArrayList<Resources> requirementsList = new ArrayList<>(Arrays.asList(
             new Resources(0,0,0,1,0,0,1,0,0,0,0),//Steel
-            new Resources(0,0,0,0,0,0,0,0,0,0,0)//City
+            new Resources(0,0,0,0,0,0,0,0,0,0,0),//City
+            new Resources(0,0,0,0,0,0,0,0,0,0,0)//Bronze
     ));
 
     /**
