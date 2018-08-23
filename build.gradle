@@ -1,9 +1,10 @@
 import java.util.regex.Pattern
 
 group 'CityManagement'
-version '0.8.0'
+version '0.8.1'
 
 apply plugin: 'java'
+apply plugin: 'idea'
 
 jar {
     manifest {
@@ -189,23 +190,5 @@ task resetVersion(dependsOn: ':version') {
         println("Please be very careful that this is the correct format.")
         println("It should be: \${MAJOR}.\${MINOR}.\${PATCH}-\${BRANCHNAME}-b\${BUILDNUMBER}")
         setVersion(System.in.newReader().readLine(), true)
-    }
-}
-
-//noinspection GroovyAssignabilityCheck
-task fixREADME {
-    doFirst {
-        println()
-        println("::fixREADME - Setting Travis badge to reference master")
-        println()
-
-        def file1 = file("README.md")
-        def pattern = Pattern.compile(/CityManagement\.svg\?branch=.+?\)]/)
-        def text = file.getText()
-        def matcher = pattern.matcher(text)
-        matcher.find()
-
-        def content = matcher.replaceAll("CityManagement.svg?branch=master)]")
-        file.write(content)
     }
 }
