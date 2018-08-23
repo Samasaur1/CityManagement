@@ -385,7 +385,7 @@ public class Command {
             Main.getCity(0).setName(code.get(0));
 
             //Sets number of resources. Can fail if they don't pass Integers
-            Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
+            Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9), resourceInts.get(10));
 
             //Sets people. Can fail if they mess with the fields
             for (int i = 0; i < people.size(); i++) {
