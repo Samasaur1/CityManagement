@@ -14,10 +14,6 @@ script: "./gradlew build"
 before_deploy:
   - git config --local user.name "Sam Gauck"
   - git config --local user.email "30577766+Samasaur1@users.noreply.github.com"
-  - ./gradlew fixREADME
-  - git add README.md
-  - git commit -m "Change Travis badge to reference master [skip ci]"
-  - git push "https://${GH_TOKEN}@github.com/Samasaur1/Utilities.git" master > /dev/null 2>&1
   - ./gradlew clean
   - ./gradlew jar
   - export NAME="v$(./gradlew version -q)"

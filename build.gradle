@@ -192,21 +192,3 @@ task resetVersion(dependsOn: ':version') {
         setVersion(System.in.newReader().readLine(), true)
     }
 }
-
-//noinspection GroovyAssignabilityCheck
-task fixREADME {
-    doFirst {
-        println()
-        println("::fixREADME - Setting Travis badge to reference master")
-        println()
-
-        def file1 = file("README.md")
-        def pattern = Pattern.compile(/CityManagement\.svg\?branch=.+?\)]/)
-        def text = file.getText()
-        def matcher = pattern.matcher(text)
-        matcher.find()
-
-        def content = matcher.replaceAll("CityManagement.svg?branch=master)]")
-        file.write(content)
-    }
-}
