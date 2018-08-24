@@ -16,7 +16,7 @@ public class Command {
     /**
      * The list of all possible commands.
      */
-    private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
+    public final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
     /**
      * A local reference to the economy.
      */
