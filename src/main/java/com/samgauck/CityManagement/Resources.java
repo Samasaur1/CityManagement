@@ -50,6 +50,10 @@ public class Resources {
      * The carbon in this collection of resources.
      */
     private int carbon;
+    /**
+     * The bronze in this collection of resources.
+     */
+    private int bronze;
 
     public Resources() {
         this.setMoney(0);
@@ -62,9 +66,10 @@ public class Resources {
         this.setUranium(0);
         this.setWater(0);
         this.setCarbon(0);
+        this.setBronze(0);
     }
 
-    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
+    public Resources(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon, int bronze) {
         this.setMoney(money);
         this.setFood(food);
         this.setStone(stone);
@@ -75,6 +80,7 @@ public class Resources {
         this.setUranium(uranium);
         this.setWater(water);
         this.setCarbon(carbon);
+        this.setBronze(bronze);
     }
 
     /**
@@ -226,6 +232,19 @@ public class Resources {
     }
 
     /**
+     * Gets the bronze of this collection of resources.
+     *
+     * @return The contained bronze.
+     */
+    public int getBronze() {
+        return bronze;
+    }
+
+    public void setBronze(int bronze) {
+        this.bronze = bronze;
+    }
+
+    /**
      * Gets the amount of a given item.
      *
      * @param item The item of which the amount has been requested.
@@ -251,6 +270,8 @@ public class Resources {
                 return getWater();
             case "carbon":
                 return getCarbon();
+            case "bronze":
+                return getBronze();
             default:
                 return getFood();
         }
@@ -291,12 +312,15 @@ public class Resources {
             case "carbon":
                 setCarbon(amount);
                 break;
+            case "bronze":
+                setBronze(amount);
+                break;
             default:
                 setFood(amount);
         }
     }
 
-    public void setAll(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon) {
+    public void setAll(int money, int food, int stone, int iron, int steel, int oil, int coal, int uranium, int water, int carbon, int bronze) {
         this.setMoney(money);
         this.setFood(food);
         this.setStone(stone);
@@ -307,6 +331,7 @@ public class Resources {
         this.setUranium(uranium);
         this.setWater(water);
         this.setCarbon(carbon);
+        this.setBronze(bronze);
     }
 
     @Override
@@ -322,6 +347,7 @@ public class Resources {
         s.append("Uranium: ").append(uranium).append("\n");
         s.append("Water: ").append(water).append("\n");
         s.append("Carbon: ").append(carbon).append("\n");
+        s.append("Bronze: ").append(bronze).append("\n");
         return s.toString();
     }
 
@@ -341,7 +367,8 @@ public class Resources {
         s.append(coal).append("§");
         s.append(uranium).append("§");
         s.append(water).append("§");
-        s.append(carbon);
+        s.append(carbon).append("§");
+        s.append(bronze);
         return s.toString();
     }
 
@@ -366,7 +393,8 @@ public class Resources {
         if (this.getCoal() != other.getCoal()) return false;
         if (this.getUranium() != other.getUranium()) return false;
         if (this.getWater() != other.getWater()) return false;
-        return this.getCarbon() == other.getCarbon();
+        if (this.getCarbon() != other.getCarbon()) return false;
+        return this.getBronze() == other.getBronze();
     }
 
     /**
@@ -386,6 +414,7 @@ public class Resources {
         if (getCoal() < other.getCoal()) return false;
         if (getUranium() < other.getUranium()) return false;
         if (getWater() < other.getWater()) return false;
+        if (getBronze() < other.getBronze()) return false;
         return getCarbon() >= other.getCarbon();
     }
 
@@ -430,7 +459,7 @@ public class Resources {
         setAll(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
                 getIron() * quantity, getSteel() * quantity, getOil() * quantity,
                 getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
-                getCarbon() * quantity);
+                getCarbon() * quantity, getBronze() * quantity);
     }
 
     /**
@@ -445,7 +474,7 @@ public class Resources {
         return new Resources(getMoney() * quantity, getFood() * quantity, getStone() * quantity,
                 getIron() * quantity, getSteel() * quantity, getOil() * quantity,
                 getCoal() * quantity, getUranium() * quantity, getWater() * quantity,
-                getCarbon() * quantity);
+                getCarbon() * quantity, getBronze() * quantity);
     }
 
     /**
@@ -457,7 +486,7 @@ public class Resources {
         setAll(getMoney() - amount.getMoney(), getFood() - amount.getFood(), getStone() - amount.getStone(),
                 getIron() - amount.getIron(), getSteel() - amount.getSteel(), getOil() - amount.getOil(),
                 getCoal() - amount.getCoal(), getUranium() - amount.getUranium(), getWater() - amount.getWater(),
-                getCarbon() - amount.getCarbon());
+                getCarbon() - amount.getCarbon(), getBronze() - amount.getBronze());
     }
 
     /**
@@ -472,6 +501,6 @@ public class Resources {
         return new Resources(getMoney() - other.getMoney(), getFood() - other.getFood(), getStone() - other.getStone(),
                 getIron() - other.getIron(), getSteel() - other.getSteel(), getOil() - other.getOil(),
                 getCoal() - other.getCoal(), getUranium() - other.getUranium(), getWater() - other.getWater(),
-                getCarbon() - other.getCarbon());
+                getCarbon() - other.getCarbon(), getBronze() - other.getBronze());
     }
 }
