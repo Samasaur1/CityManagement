@@ -4,4 +4,6 @@ out/*
 .gradle/*
 build/*
 .idea
-CityManagement.iml
+*.iml
+*.ipr
+*.iws
