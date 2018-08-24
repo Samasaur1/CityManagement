@@ -136,7 +136,7 @@ public class Main {
             }
         }
         start();
-        System.out.println("There are " + command.commands.size() + " commands in City Managment");
+        System.out.println("There are " + command.commands.size() + " commands in CityManagment");
         command.execute("help");
         s.nextLine();
         input = s.nextLine();
