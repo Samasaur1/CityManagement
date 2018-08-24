@@ -136,7 +136,7 @@ public class Main {
             }
         }
         start();
-        System.out.println("There are " + command.commands.size() + " commands in City Managment");
+        System.out.println("There are " + command.commands.size() + " commands in CityManagment");
         command.execute("help");
         s.nextLine();
         input = s.nextLine();
@@ -172,7 +172,7 @@ public class Main {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
-        System.out.println("City Management");
+        System.out.println("CityManagement");
         System.out.println("Version " + "0.8.1"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
