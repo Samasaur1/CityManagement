@@ -128,6 +128,6 @@ public class Economy {
     }
 
     public enum EconomicalActionType {
-        BUYING, SELLING, CONSTRUCTING;
+        BUYING, SELLING, CONSTRUCTING
     }
 }
