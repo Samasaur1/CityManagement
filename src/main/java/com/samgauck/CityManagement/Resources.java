@@ -336,40 +336,36 @@ public class Resources {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append("Money: ").append(NumberFormat.getCurrencyInstance().format(money)).append("\n");
-        s.append("Food: ").append(food).append("\n");
-        s.append("Stone: ").append(stone).append("\n");
-        s.append("Iron: ").append(iron).append("\n");
-        s.append("Steel: ").append(steel).append("\n");
-        s.append("Oil: ").append(oil).append("\n");
-        s.append("Coal: ").append(coal).append("\n");
-        s.append("Uranium: ").append(uranium).append("\n");
-        s.append("Water: ").append(water).append("\n");
-        s.append("Carbon: ").append(carbon).append("\n");
-        s.append("Bronze: ").append(bronze).append("\n");
-        return s.toString();
+        return "Money: " + NumberFormat.getCurrencyInstance().format(money) + "\n" +
+                "Food: " + food + "\n" +
+                "Stone: " + stone + "\n" +
+                "Iron: " + iron + "\n" +
+                "Steel: " + steel + "\n" +
+                "Oil: " + oil + "\n" +
+                "Coal: " + coal + "\n" +
+                "Uranium: " + uranium + "\n" +
+                "Water: " + water + "\n" +
+                "Carbon: " + carbon + "\n" +
+                "Bronze: " + bronze + "\n";
     }
 
     /**
-     * Gets a string that is optomized for saving.
+     * Gets a string that is optimized for saving.
      *
      * @return The resources in a string formatted 0§0§0§0§0§0§0§0§0§0
      */
     public String saveableString() {
-        StringBuilder s = new StringBuilder();
-        s.append(money).append("§");
-        s.append(food).append("§");
-        s.append(stone).append("§");
-        s.append(iron).append("§");
-        s.append(steel).append("§");
-        s.append(oil).append("§");
-        s.append(coal).append("§");
-        s.append(uranium).append("§");
-        s.append(water).append("§");
-        s.append(carbon).append("§");
-        s.append(bronze);
-        return s.toString();
+        return String.valueOf(money) + "§" +
+                food + "§" +
+                stone + "§" +
+                iron + "§" +
+                steel + "§" +
+                oil + "§" +
+                coal + "§" +
+                uranium + "§" +
+                water + "§" +
+                carbon + "§" +
+                bronze;
     }
 
     @Override
