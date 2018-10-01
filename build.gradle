@@ -6,13 +6,6 @@ version '0.8.1'
 apply plugin: 'java'
 apply plugin: 'idea'
 
-jar {
-    manifest {
-        attributes("Manifest-Version": "1.0",
-        "Main-Class": "com.samgauck.CityManagement.Main")
-    }
-}
-
 sourceCompatibility = 1.8
 
 repositories {
@@ -23,6 +16,16 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile "com.github.Samasaur1:Utilities:v+"
+}
+
+jar {
+
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+
+    manifest {
+        attributes("Manifest-Version": "1.0",
+        "Main-Class": "com.samgauck.CityManagement.Main")
+    }
 }
 
 def incrementPatchVersion() {
