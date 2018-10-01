@@ -16,7 +16,7 @@ public class Command {
     /**
      * The list of all possible commands.
      */
-    private final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help,", "status"));
+    public final ArrayList<String> commands = new ArrayList<>(Arrays.asList("buy", "sell", "construct", "quit", "load", "save", "help", "status"));
     /**
      * A local reference to the economy.
      */
@@ -24,12 +24,12 @@ public class Command {
     /**
      * The list of items.
      */
-    private ArrayList<String> items = economy.getItems();
+    private ArrayList<String> items = Economy.getItems();
 
     /**
      * The list of constructables (constructable items).
      */
-    private ArrayList<String> constructables = economy.getConstructables();
+    private ArrayList<String> constructables = Economy.getConstructables();
 
     /**
      * Creates a new Command instance. It is private so that it can be a singleton.
@@ -297,8 +297,7 @@ public class Command {
             System.out.println("Error 1.3: To load, execute \"load [save-code]\", but replace \"[save-code]\" with your save code.");
         } else {
             /* General checking start*/
-            ArrayList<String> code = new ArrayList<>();
-            code.addAll(Arrays.asList(followingWords.get(0).split("•")));
+            ArrayList<String> code = new ArrayList<>(Arrays.asList(followingWords.get(0).split("•")));
             if (code.size() != 5) {
                 System.out.println("Error 1.2.1: Save code not valid");
                 return;
@@ -308,12 +307,11 @@ public class Command {
             //No checking; anything is accepted
             /*Name checking end*/
             /*Resource checking start*/
-            ArrayList<String> resources = new ArrayList<>();
             ArrayList<Integer> resourceInts = new ArrayList<>();
-            resources.addAll(Arrays.asList(code.get(1).split("§")));
-            for (int i = 0; i < resources.size(); i++) {
+            ArrayList<String> resources = new ArrayList<>(Arrays.asList(code.get(1).split("§")));
+            for (String resource : resources) {
                 try {
-                    resourceInts.add(Integer.parseInt(resources.get(i)));
+                    resourceInts.add(Integer.parseInt(resource));
                 } catch (NumberFormatException e) {
                     System.out.println("Error 1.2.3: Save code not valid");
                 }
@@ -324,11 +322,10 @@ public class Command {
             }
             /*Resource checking end*/
             /*Person checking starts*/
-            ArrayList<String> people = new ArrayList<>();
             ArrayList<String> person = new ArrayList<>();
-            people.addAll(Arrays.asList(code.get(2).split("§")));
-            for (int i = 0; i < people.size(); i++) {
-                person.addAll(Arrays.asList(people.get(i).split("‡")));
+            ArrayList<String> people = new ArrayList<>(Arrays.asList(code.get(2).split("§")));
+            for (String thePerson : people) {
+                person.addAll(Arrays.asList(thePerson.split("‡")));
                 if (person.size() != 5) { //wrong number of fields = 1.2.4
                     System.out.println("Error 1.2.4: Save code not valid");
                     return;
@@ -349,9 +346,8 @@ public class Command {
             }
             /*Person checking ends*/
             /*Date checking starts*/
-            ArrayList<String> date = new ArrayList<>();
             ArrayList<Integer> dateInts = new ArrayList<>();
-            date.addAll(Arrays.asList(code.get(3).split("§")));
+            ArrayList<String> date = new ArrayList<>(Arrays.asList(code.get(3).split("§")));
             if (date.size() != 3) { //Failure checking for changing the date
                 System.out.println("Error 1.2.5.1: Save code not valid");
                 return;
@@ -365,10 +361,9 @@ public class Command {
             });
             /*Date checking ends*/
             /*Economy checking starts*/
-            ArrayList<String> priceStrings = new ArrayList<>();
             ArrayList<Integer> prices = new ArrayList<>();
-            priceStrings.addAll(Arrays.asList(code.get(4).split("§")));
-            if (priceStrings.size() != economy.getItems().size()) {//Not correct number of prices
+            ArrayList<String> priceStrings = new ArrayList<>(Arrays.asList(code.get(4).split("§")));
+            if (priceStrings.size() != Economy.getItems().size()) {//Not correct number of prices
                 System.out.println("Error 1.2.6.1: Save code not valid");
                 return;
             }
@@ -385,7 +380,7 @@ public class Command {
             Main.getCity(0).setName(code.get(0));
 
             //Sets number of resources. Can fail if they don't pass Integers
-            Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9));
+            Main.getCity(0).resources.setAll(resourceInts.get(0), resourceInts.get(1), resourceInts.get(2), resourceInts.get(3), resourceInts.get(4), resourceInts.get(5), resourceInts.get(6), resourceInts.get(7), resourceInts.get(8), resourceInts.get(9), resourceInts.get(10));
 
             //Sets people. Can fail if they mess with the fields
             for (int i = 0; i < people.size(); i++) {
@@ -420,13 +415,11 @@ public class Command {
             s.append(p.getLastName()).append("‡");
             s.append(p.getAge()).append("‡");
             s.append(p.getJob()).append("‡");
-            s.append(p.getSex().toString().substring(0, 1)).append("§");
+            s.append(p.getSex().toString(), 0, 1).append("§");
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
         s.append(Main.getDate().saveableString()).append("•");
-        items.forEach(item -> {
-            s.append(economy.getPrice(item)).append("§");
-        });
+        items.forEach(item -> s.append(economy.getPrice(item)).append("§"));
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the items.foreach loop and adds the •
         System.out.println("Your save code is:");
         System.out.println(s.toString());
@@ -441,8 +434,8 @@ public class Command {
         if (followingWords.size() == 0) {
             StringBuilder s = new StringBuilder();
             s.append("A proper command starts with a command word. The list of command words is as follows").append("\n");
-            for (int i = 0; i < commands.size(); i++) {
-                s.append(commands.get(i)).append(", ");
+            for (String command : commands) {
+                s.append(command).append(", ");
             }
             s.reverse().deleteCharAt(0).deleteCharAt(0).reverse().append("\n");
             s.append("\n");
@@ -521,7 +514,7 @@ public class Command {
         switch (followingWords.get(0).toLowerCase()) {
             case "buy":
                 System.out.println("The most you could buy of every item, without going into debt, is:");
-                for (String item : economy.getItems()) {
+                for (String item : Economy.getItems()) {
                     System.out.println((int) (Math.floor(Main.getCity(0).resources.getMoney() / economy.getPrice(item))) + " " + item + ", for " + NumberFormat.getCurrencyInstance().format((int) (Math.floor(Main.getCity(0).resources.getMoney() / economy.getPrice(item))) * economy.getPrice(item)));
                 }
                 break;

@@ -218,9 +218,7 @@ public class SimpleDate {
      * @return A string formatted 1§1§2017.
      */
     public String saveableString() {
-        StringBuilder s = new StringBuilder();
-        s.append(monthToNumber(getMonth())).append("§").append(getDayOfMonth()).append("§").append(getYear());
-        return s.toString();
+        return String.valueOf(monthToNumber(getMonth())) + "§" + getDayOfMonth() + "§" + getYear();
     }
 
     @Override

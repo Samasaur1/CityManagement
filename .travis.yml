@@ -17,7 +17,7 @@ before_deploy:
   - ./gradlew clean
   - ./gradlew jar
   - export NAME="v$(./gradlew version -q)"
-  - if git tag $NAME 2>/dev/null; then export DEPLOY=true; else echo "Tag already exists; not deploying"; fi
+  - if git tag $NAME 2>/dev/null; then echo "Tag created; deploying"; else echo "Tag already exists; not deploying"; exit 0; fi
 
 deploy:
   provider: releases
@@ -29,5 +29,4 @@ deploy:
   prerelease: true
   on:
       branch: master
-      condition: $DEPLOY
       jdk: oraclejdk8
