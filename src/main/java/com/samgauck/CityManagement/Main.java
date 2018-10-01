@@ -179,7 +179,7 @@ public class Main {
             System.out.println();
         }
         System.out.println("CityManagement");
-        System.out.println("Version " + "0.8.1"); //Gradle changes this version string.
+        System.out.println("Version " + "0.8.2"); //Gradle changes this version string.
         for (int i = 0; i < 3; i++) {
             System.out.println();
         }
