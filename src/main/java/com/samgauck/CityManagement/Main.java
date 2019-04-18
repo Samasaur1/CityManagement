@@ -199,7 +199,7 @@ public class Main {
             command.execute(input);
         }
         System.out.print("Please enter a name for your city: ");
-        input = s.next();
+        input = s.nextLine(); //Originally next() which did not allow for two word cities like Las Vegas, Las Angeles, New Mexico, etc.
         input = Utilities.removeProfanity(input);
         cities.add(new City(input)); //creates new city with your name
         cities.get(0).resources.setMoney(100_000);
@@ -211,14 +211,14 @@ public class Main {
             String first = s.next();
             first = Utilities.removeProfanity(first);
             System.out.println("What is the man's last name?");
-            String last = s.next();
+            String last = s.nextLine(); //Originally next() which did not allow for multi part last names like Di Vinci, Delano Roosevelt
             last = Utilities.removeProfanity(last);
             cities.get(0).nameCitizen(0, first, last);
             System.out.println("What is the woman's first name?");
             first = s.next();
             first = Utilities.removeProfanity(first);
             System.out.println("What is the woman's last name?");
-            last = s.next();
+            last = s.nextLine(); //Originally next() which did not allow for multi part last names like Di Vinci, Delano Roosevelt
             last = Utilities.removeProfanity(last);
             cities.get(0).nameCitizen(1, first, last);
         } else {
