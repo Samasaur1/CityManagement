@@ -199,7 +199,7 @@ public class Main {
             command.execute(input);
         }
         System.out.print("Please enter a name for your city: ");
-        input = s.nextLine(); //Originally next() which did not allow for two word cities like Las Vegas, Las Angeles, New Mexico, etc.
+        input = s.nextLine(); //Originally next() which did not allow for two word cities like Las Vegas, Los Angeles, New Mexico, etc.
         input = Utilities.removeProfanity(input);
         cities.add(new City(input)); //creates new city with your name
         cities.get(0).resources.setMoney(100_000);
