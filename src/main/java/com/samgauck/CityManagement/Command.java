@@ -415,7 +415,7 @@ public class Command {
             s.append(p.getLastName()).append("‡");
             s.append(p.getAge()).append("‡");
             s.append(p.getJob()).append("‡");
-            s.append(p.getSex().toString(), 0, 1).append("§");
+            s.append(p.getSex().toString(), 0, 1).append("§"); //It looks like there should be a substring call, but that's what this append call does.
         });
         s.reverse().deleteCharAt(0).reverse().append("•"); //deletes the last "§" form the getCitizens().foreach loop and adds the •
         s.append(Main.getDate().saveableString()).append("•");
