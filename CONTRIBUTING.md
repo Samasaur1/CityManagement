@@ -28,7 +28,7 @@ Currently, the only IDE we have full support for is [IntelliJ IDEA](https://www.
 8. Continue working on the `development` branch
 
 ###### Priorities
-1. [Urgent issues](https://github.com/Samasaur1/CityManagement/issues?q=is%3Aissue+is%3Aopen+label%3AURGENT) (generally ones that crash the game)
+1. [Urgent issues](https://github.com/Samasaur1/CityManagement/issues?q=is%3Aissue+is%3Aopen+label%3A%22high+priority%22) (generally ones that crash the game)
 2. Harmful unexpected behavior (when the game isn't crashing, but there is a "game-breaking" exploit such as [this one](https://github.com/Samasaur1/CityManagement/issues/25))
 3. Other unexpected behavior
 4. New features
