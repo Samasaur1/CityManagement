@@ -16,11 +16,11 @@ See [the contributing guidelines](CONTRIBUTING.md) for how to help out.
 4. Run `./gradlew update` and choose the appropriate option to bump the version number
 5. Review the new code and make any necessary changes
 6. If the CI builds pass, merge the PR
-7. Run `git rebase development master` (or, if on `development`, simply `git rebase master`)
+7. Run `git checkout development && git rebase master`
 8. Continue working on the `development` branch
 
 ##### Priorities
-1. [Urgent issues](https://github.com/Samasaur1/CityManagement/issues?q=is%3Aissue+is%3Aopen+label%3AURGENT) (generally ones that crash the game)
+1. [Urgent issues](https://github.com/Samasaur1/CityManagement/issues?q=is%3Aissue+is%3Aopen+label%3A%22high+priority%22) (generally ones that crash the game)
 2. Harmful unexpected behavior (when the game isn't crashing, but there is a "game-breaking" exploit such as [this one](https://github.com/Samasaur1/CityManagement/issues/25))
 3. Other unexpected behavior
 4. New features

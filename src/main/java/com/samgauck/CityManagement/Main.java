@@ -53,8 +53,7 @@ public class Main {
     /**
      * The private constructor for Main. Should <strong>NEVER</strong> be used.
      */
-    private Main() {
-    }
+    private Main() {}
 
     /**
      * Get whether the game is looping.
@@ -121,7 +120,7 @@ public class Main {
                         debug = true;
                         break;
                     case "load":
-                        if (arguments.size() > i) {
+                        if (arguments.size() > i + 1) {
                             command.execute("Load " + arguments.get(i + 1));
                             arguments.remove(i + 1);
                             break;
@@ -136,14 +135,8 @@ public class Main {
             }
         }
         start();
-        System.out.println("The proper command format is:");
-        System.out.println("command item [amount] [arguments]");
-        System.out.println("For example, to buy 100 food:");
-        System.out.println("buy food 100");
-        System.out.println("Mess with the case however you want, but spelling must be exact");
-        System.out.println("BuY fOoD 100 (okay)");
-        System.out.println("buy fod 100 (incorrect)");
-        System.out.println("buy food 100 (recommended)");
+        System.out.println("There are " + command.commands.size() + " commands in CityManagement");
+        command.execute("help");
         s.nextLine();
         input = s.nextLine();
         while (looping) {
