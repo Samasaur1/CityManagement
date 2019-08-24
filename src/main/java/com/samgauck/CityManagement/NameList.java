@@ -18,15 +18,15 @@ public class NameList {
         firstNames.addAll(Arrays.asList("Esmerelda", "Ezra", "Ezekiel", "Eve", "Eva"));
         firstNames.addAll(Arrays.asList("Fred"));
         firstNames.addAll(Arrays.asList("George", "Gregory"));
-        firstNames.addAll(Arrays.asList("Harry", "Hudson"));
+        firstNames.addAll(Arrays.asList("Harry", "Hudson","Hannah"));
         firstNames.addAll(Arrays.asList("Isabella"));
-        firstNames.addAll(Arrays.asList("John", "Joe", "James", "Jordan"));
+        firstNames.addAll(Arrays.asList("John","Johnny", "Joe", "James", "Jordan"));
         firstNames.addAll(Arrays.asList("Kabsal"));
         firstNames.addAll(Arrays.asList("Louis", "Lilly", "Laura"));
         firstNames.addAll(Arrays.asList("Max", "Maeve", "Maurice"));
         firstNames.addAll(Arrays.asList("Ned", "Natasha"));
         firstNames.addAll(Arrays.asList("Oprah"));
-        firstNames.addAll(Arrays.asList("Peri", "Peter"));
+        firstNames.addAll(Arrays.asList("Peri", "Peter","Paul));
         firstNames.addAll(Arrays.asList("Quasar"));
         firstNames.addAll(Arrays.asList("Ryan", "Rod"));
         firstNames.addAll(Arrays.asList("Sam", "Sylvia", "Samantha", "Stephen", "Susannah", "Samuel"));
