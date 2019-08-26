@@ -13,20 +13,20 @@ public class NameList {
     private NameList() {
         firstNames.addAll(Arrays.asList("Anthony", "Arthur", "Aaron", "Alfred", "Alice", "Alina", "Adam", "Alvin", "Alan", "Amelia", "Amy", "Ava"));
         firstNames.addAll(Arrays.asList("Benjamin", "Barry", "Becca", "Bruce", "Ben"));
-        firstNames.addAll(Arrays.asList("Carrie", "Caroline", "Catherine", "Callie", "Caleb", "Cory", "Clint"));
+        firstNames.addAll(Arrays.asList("Carrie", "Caroline", "Catherine", "Callie", "Caleb","Chico" "Cory", "Clint"));
         firstNames.addAll(Arrays.asList("Donald", "Dave", "Dylan", "Devin", "Drew", "Daniel", "Douglas"));
         firstNames.addAll(Arrays.asList("Esmerelda", "Ezra", "Ezekiel", "Eve", "Eva"));
         firstNames.addAll(Arrays.asList("Fred"));
         firstNames.addAll(Arrays.asList("George", "Gregory"));
-        firstNames.addAll(Arrays.asList("Harry", "Hudson"));
+        firstNames.addAll(Arrays.asList("Harry", "Hudson","Hannah","Helen"));
         firstNames.addAll(Arrays.asList("Isabella"));
-        firstNames.addAll(Arrays.asList("John", "Joe", "James", "Jordan"));
+        firstNames.addAll(Arrays.asList("John","Johnny", "Joe", "James", "Jordan","Jimmy"));
         firstNames.addAll(Arrays.asList("Kabsal"));
-        firstNames.addAll(Arrays.asList("Louis", "Lilly", "Laura"));
+        firstNames.addAll(Arrays.asList("Louis", "Lilly", "Laura","Larry"));
         firstNames.addAll(Arrays.asList("Max", "Maeve", "Maurice"));
         firstNames.addAll(Arrays.asList("Ned", "Natasha"));
         firstNames.addAll(Arrays.asList("Oprah"));
-        firstNames.addAll(Arrays.asList("Peri", "Peter"));
+        firstNames.addAll(Arrays.asList("Peri", "Peter","Paul));
         firstNames.addAll(Arrays.asList("Quasar"));
         firstNames.addAll(Arrays.asList("Ryan", "Rod"));
         firstNames.addAll(Arrays.asList("Sam", "Sylvia", "Samantha", "Stephen", "Susannah", "Samuel"));
