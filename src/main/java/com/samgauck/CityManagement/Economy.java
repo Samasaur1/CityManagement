@@ -2,6 +2,7 @@ package com.samgauck.CityManagement;
 
 import java.util.*;
 import com.gauck.sam.Utilities.*;
+import com.samgauck.CityManagement.Enums.*;
 
 /**
  * A singleton class that represents the global economy in the game.
@@ -12,7 +13,7 @@ public class Economy {
      */
     private Economy() {
         items.putAll(Utilities.generateMap(itemsList, pricesList));
-        constructables.putAll(Utilities.generateMap(constructablesList, requirementsList));
+        //constructables.putAll(Utilities.generateMap(constructablesList, requirementsList)); //No Longer needed???
     }
 
     /**
@@ -49,24 +50,31 @@ public class Economy {
      */
     private Map<String, Integer> items = new HashMap<>();
 
-    private Map<String, Resources> constructables = new HashMap<>();
+    //private Map<String, Resources> constructables = new HashMap<>();
 
     /**
      * The list of items.
      */
     private static ArrayList<String> itemsList = new ArrayList<>(Arrays.asList("food", "wood", "stone", "iron", "steel", "oil", "coal", "uranium", "water", "carbon", "bronze"));
 
-    private static ArrayList<String> constructablesList = new ArrayList<>(Arrays.asList("steel", "city", "bronze")); //TODO: Fill (& requirementsList [64])
+    //private static ArrayList<String> constructablesList = new ArrayList<>(Arrays.asList("steel", "city")); //TODO: Fill (& requirementsList [64])
     /**
      * The list of prices.
      */
     private static ArrayList<Integer> pricesList = new ArrayList<>(Arrays.asList(5, 1, 2, 5, 10, 10, 10, 10, 5, 5, 10));
 
-    private static ArrayList<Resources> requirementsList = new ArrayList<>(Arrays.asList(
-            new Resources(0,0,0,1,0,0,1,0,0,0,0),//Steel
-            new Resources(0,0,0,0,0,0,0,0,0,0,0),//City
-            new Resources(0,0,0,0,0,0,0,0,0,0,0)//Bronze
-    ));
+/*    private static ArrayList<Resources> requirementsList = new ArrayList<>(Arrays.asList(
+            new Resources(0,0,0,1,0,0,1,0,0,0),//Steel
+            new Resources(0,0,0,0,0,0,0,0,0,0)//City
+    ));*/
+
+    /*private static Map<String, Resources> requirementsList = new HashMap<String, Resources>() {{
+        put("steel",
+                new Resources(0, 0, 0, 1, 0, 0, 1, 0, 0, 0));//Steel
+        put("city",
+                new Resources(0, 0, 0, 0, 0, 0, 0, 0, 0, 0));//City
+    }};
+*/
 
     /**
      * Get the list of items.
@@ -78,7 +86,12 @@ public class Economy {
     }
 
     public static ArrayList<String> getConstructables() {
-        return constructablesList;
+        ArrayList<String> constructables = new ArrayList<>();
+        for (Constructable constructable : Constructable.values())
+        {
+            constructables.add(constructable.getName());
+        }
+        return constructables; //constructablesList;
     }
 
     /**
@@ -92,7 +105,21 @@ public class Economy {
     }
 
     public Resources getRequirements(String constructable) {
-        return constructables.get(constructable);
+
+        Resources constructionResource = new Resources();
+
+        Constructable mat = Constructable.fromString(constructable);
+
+        for (int i = 0; i < mat.getAmountNeeded().size() && i < mat.getMaterialsNeeded().size(); i++)
+        {
+            constructionResource.setItem(mat.getMaterialsNeeded().get(i).valueOf(), mat.getAmountNeeded().get(i));
+        }
+        return constructionResource;
+    }
+
+    public int getPerSet(String constructable)
+    {
+        return Constructable.fromString(constructable).getQtyPerOrder();
     }
     /**
      * Sets all prices. Should only be used for loading saves.

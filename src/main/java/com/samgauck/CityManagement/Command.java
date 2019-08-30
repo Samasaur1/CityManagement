@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import com.gauck.sam.Utilities.*;
+import com.samgauck.CityManagement.Enums.Constructable;
 
 /**
  * A singleton class that manages all commands.
@@ -269,7 +270,7 @@ public class Command {
         if (constructable.equalsIgnoreCase("city")) {
             //TODO: Add city
         } else if (items.contains(constructable)) {
-            Main.getCity(0).resources.setItem(constructable, Main.getCity(0).resources.getItem(constructable) + amount);
+            Main.getCity(0).resources.setItem(constructable, Main.getCity(0).resources.getItem(constructable) + (Constructable.fromString(constructable).getQtyPerOrder() * amount));
         }
         System.out.println("Construction completed");
         System.out.println(Main.getCity(0).resources.toString());

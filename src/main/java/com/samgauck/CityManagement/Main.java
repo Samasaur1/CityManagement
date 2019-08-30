@@ -183,8 +183,8 @@ public class Main {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
-        System.out.print("Would you like to load a save? (Y/N)");
-        input = s.next();
+       System.out.print("Would you like to load a save? (Y/N)");
+        input = s.nextLine();
         if (input.equalsIgnoreCase("y")) {
             System.out.println("Enter a save code:");
             s.nextLine();
